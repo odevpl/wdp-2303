@@ -17,7 +17,7 @@ const Footer = ({ children }) => (
     <div className={styles.footerMenu}>
       <div className='container'>
         <div className='row text-center'>
-          <div className=' col col-sm-6 col-xl-3'>
+          <div className='col-lg-3 col-md-6 col-xs-12'>
             <div className={styles.menuWrapper}>
               <h6>Information</h6>
               <ul>
@@ -36,7 +36,7 @@ const Footer = ({ children }) => (
               </ul>
             </div>
           </div>
-          <div className='col-sm-6 col-xl-3'>
+          <div className='col-lg-3 col-md-6 col-xs-12'>
             <div className={styles.menuWrapper}>
               <h6>My account</h6>
               <ul>
@@ -55,7 +55,7 @@ const Footer = ({ children }) => (
               </ul>
             </div>
           </div>
-          <div className='col-sm-6 col-xl-3'>
+          <div className='col-lg-3 col-md-6 col-xs-12'>
             <div className={styles.menuWrapper}>
               <h6>Information</h6>
               <ul>
@@ -74,7 +74,7 @@ const Footer = ({ children }) => (
               </ul>
             </div>
           </div>
-          <div className='col-sm-6 col-xl-3'>
+          <div className='col-lg-3 col-md-6 col-xs-12'>
             <div className={styles.menuWrapper}>
               <h6>Orders</h6>
               <ul>
