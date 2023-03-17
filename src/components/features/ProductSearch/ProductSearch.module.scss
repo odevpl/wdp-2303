@@ -24,7 +24,6 @@
       right: 10px;
       z-index: 0;
     }
-
     .selectCategoryList {
       list-style: none;
       margin: 0;
@@ -57,6 +56,7 @@
           }
         }
       }
+
     }
   }
 
@@ -80,6 +80,9 @@
       border: 0;
       background-color: transparent;
       outline: none;
+      &:hover {
+        color: $primary;
+      }
     }
   }
 }

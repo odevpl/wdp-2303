@@ -1,13 +1,32 @@
 $base-padding: 24px;
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
+// DON'T USE VARIABLES SET BELOW
 
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
+$grey: #434343;
+$dark-grey: #2a2a2a;
+$light-black: #363636;
+$black: #292929;
+$orange: #d58e32;
 
-$primary: #d58e32;
+// DON'T USE VARIABLES SET ABOVE
 
-$text-color: #2a2a2a;
+$header-topbar-bg: $grey;
+$header-bg: $light-black;
 
-$form-border-color: #292929;
+$footer-claim-bg: $dark-grey;
+$footer-bg: $light-black;
+
+$primary: $orange;
+
+$text-color: $dark-grey;
+
+$form-border-color: $black;
+
+// Hover
+
+a:hover {
+    transition: all .25s;
+    transition: color .25s;
+    transition: background-color .25s;
+    transform: translate(0px, 0px);
+}
