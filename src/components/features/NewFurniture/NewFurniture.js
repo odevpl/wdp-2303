@@ -1,43 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 
-class NewFurniture extends React.Component {
-  state = {
-    activePage: 0,
-    activeCategory: 'bed',
+const NewFurniture = ({ categories, products }) => {
+  const [activePage, setActivePage] = useState(0);
+  const [activeCategory, setActiveCategory] = useState('bed');
+
+  const handlePageChange = newPage => {
+    setActivePage(newPage);
   };
 
-  handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
-  }
+  const handleCategoryChange = newCategory => {
+    setActiveCategory(newCategory);
+  };
 
-  handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
-  }
+  const categoryProducts = products.filter(item => item.category === activeCategory);
+  const pagesCount = Math.ceil(categoryProducts.length / 8);
 
-  render() {
-    const { categories, products } = this.props;
-    const { activeCategory, activePage } = this.state;
-
-    const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
-
-    const dots = [];
-    for (let i = 0; i < pagesCount; i++) {
-      dots.push(
-        <li>
-          <a
-            onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
-          >
-            page {i}
-          </a>
-        </li>
-      );
-    }
+  const dots = [];
+  for (let i = 0; i < pagesCount; i++) {
+    dots.push(
+      <li key={i}>
+        <a
+          onClick={() => handlePageChange(i)}
+          className={i === activePage && styles.active}
+        >
+          page {i}
+        </a>
+      </li>
+    );
 
     return (
       <div className={styles.root}>
@@ -53,7 +45,7 @@ class NewFurniture extends React.Component {
                     <li key={item.id}>
                       <a
                         className={item.id === activeCategory && styles.active}
-                        onClick={() => this.handleCategoryChange(item.id)}
+                        onClick={() => handleCategoryChange(item.id)}
                       >
                         {item.name}
                       </a>
@@ -77,7 +69,7 @@ class NewFurniture extends React.Component {
       </div>
     );
   }
-}
+};
 
 NewFurniture.propTypes = {
   children: PropTypes.node,
