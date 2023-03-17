@@ -32,6 +32,8 @@
       padding: 5px 30px 5px 35px;
       position: relative;
       z-index: 1;
+      font-size: 12px;
+      outline: none;
     }
   }
 
@@ -55,6 +57,9 @@
       border: 0;
       background-color: transparent;
       outline: none;
+      &:hover {
+        color: $primary;
+      }
     }
   }
 }
