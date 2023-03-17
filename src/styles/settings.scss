@@ -21,3 +21,12 @@ $primary: $orange;
 $text-color: $dark-grey;
 
 $form-border-color: $black;
+
+// Hover
+
+a:hover {
+    transition: all .25s;
+    transition: color .25s;
+    transition: background-color .25s;
+    transform: translate(0px, 0px);
+}
