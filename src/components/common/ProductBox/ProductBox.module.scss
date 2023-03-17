@@ -8,12 +8,14 @@
   .photo {
     position: relative;
     padding: 80% 10px 0 10px;
+
     background: {
       color: #f4f5f7;
       size: contain;
       position: center;
       repeat: no-repeat;
     }
+
     overflow: hidden;
     align-items: flex-end;
 
@@ -29,8 +31,14 @@
     }
 
     .buttons {
-      display: flex;
+      display: none;
       justify-content: space-between;
+    }
+
+    &:hover {
+      .buttons {
+        display: flex;
+      }
     }
   }
 
@@ -74,5 +82,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .active {
+      color: $primary;
+    }
   }
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: #a5a5a5;
+  text-decoration-color: $text-color;
 }
