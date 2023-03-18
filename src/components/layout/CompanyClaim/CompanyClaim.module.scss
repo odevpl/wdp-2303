@@ -3,7 +3,7 @@
 .root {
   background-color: $header-bg;
 
-  :global(.container) > :global(.row) {
+  :global(.container)> :global(.row) {
     height: 145px;
   }
 
@@ -17,6 +17,25 @@
 
       .icon {
         font-size: 32px;
+        color: $primary;
+        vertical-align: middle;
+        margin-top: -3px;
+        margin-right: 0.8rem;
+      }
+    }
+  }
+
+  .phoneNumberSmall {
+    display: none;
+
+    p {
+      margin: 0;
+      line-height: 42px;
+      color: rgb(216, 216, 216);
+      font-weight: 500;
+      text-align: end;
+
+      .icon {
         color: $primary;
         vertical-align: middle;
         margin-top: -3px;
@@ -66,6 +85,72 @@
       &:hover {
         .cartIcon {
           background-color: lighten($primary, 10%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+
+  .root {
+    .phoneNumber {
+      display: none;
+    }
+
+    .phoneNumberSmall {
+      display: block;
+
+      p {
+        font-size: 14px;
+
+        .icon {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .logoImage {
+      width: 70%;
+      height: 70%;
+    }
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 575px) {
+
+  .root {
+    .phoneNumber {
+      display: none;
+    }
+
+    .phoneNumberSmall {
+      display: block;
+
+      p {
+        font-size: 17px;
+
+        .icon {
+          font-size: 32px;
+        }
+      }
+    }
+
+    .logoImage {
+      width: 80%;
+      height: 80%;
+    }
+  }
+}
+
+@media screen and (min-width: 575px) and (max-width: 768px) {
+  .root {
+    .phoneNumber {
+      p {
+        font-size: 14px;
+
+        .icon {
+          font-size: 32px;
         }
       }
     }

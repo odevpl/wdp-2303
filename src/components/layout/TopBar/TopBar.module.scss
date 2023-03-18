@@ -40,3 +40,24 @@
     }
   }
 }
+
+@media screen and (max-width: 575px) {
+
+  .iconLabel {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 455px) {
+
+  .root {
+    .topOptions ul li {
+      margin-right: 11px;
+    }
+
+    .topMenu ul li {
+      margin-left: 8px;
+    }
+  }
+
+}
