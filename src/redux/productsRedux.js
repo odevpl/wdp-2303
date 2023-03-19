@@ -1,6 +1,9 @@
+const ADD_MY_STARS = 'app/products/ADD_MY_STARS';
+
 /* selectors */
 export const getAll = ({ products }) => products;
 export const getCount = ({ products }) => products.length;
+export const addMyStars = payload => ({ type: ADD_MY_STARS, payload });
 
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
@@ -30,15 +33,21 @@ export default function reducer(statePart = [], action = {}) {
       return statePart.map(product =>
         product.id === action.payload
           ? {
-              ...product,
-              favourite: !product.favourite,
-            }
+            ...product,
+            favourite: !product.favourite,
+          }
           : product
       );
     case TOGGLE_PRODUCT_COMPARE:
       return statePart.map(product =>
         product.id === action.payload
           ? { ...product, compare: !product.compare }
+          : product
+      );
+    case ADD_MY_STARS:
+      return statePart.map(product =>
+        product.id === action.payload.id
+          ? { ...product, myStars: action.payload.clickedStars }
           : product
       );
     default:
