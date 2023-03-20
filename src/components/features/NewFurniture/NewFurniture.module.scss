@@ -99,3 +99,18 @@
     }
   }
 }
+
+@media (max-width: 991px) {
+  .root {
+    .panelBar {
+      .dots {
+        position: static;
+        ul {
+          transform: translateY(0);
+          padding: 0;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}

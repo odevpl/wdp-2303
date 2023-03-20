@@ -602,6 +602,7 @@ const initialState = {
   cart: {
     products: [],
   },
+  viewportMode: '',
 };
 
 export default initialState;
