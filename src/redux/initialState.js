@@ -29,7 +29,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favourite: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-3',
@@ -41,7 +41,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favourite: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -602,6 +602,29 @@ const initialState = {
   cart: {
     products: [],
   },
+  feedbacks: [
+    {
+      id: 0,
+      author: 'Luctus Lacus',
+      status: 'Client',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    },
+    {
+      id: 1,
+      author: 'Donec Ultrices',
+      status: 'Supplier',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    },
+    {
+      id: 2,
+      author: 'Praesent Pulvinar',
+      status: 'Designer',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    },
+  ],
 };
 
 export default initialState;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import CompareBar from '../../common/CompareBar/CompareBar';
 
 const NewFurniture = ({ categories, products }) => {
   const [activePage, setActivePage] = useState(0);
@@ -66,6 +67,7 @@ const NewFurniture = ({ categories, products }) => {
             </div>
           ))}
         </div>
+        <CompareBar />
       </div>
     </div>
   );

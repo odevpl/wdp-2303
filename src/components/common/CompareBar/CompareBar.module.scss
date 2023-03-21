@@ -1,0 +1,55 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #f1f1f1;
+  text-align: left;
+  z-index: 1;
+
+  .compareBar {
+    display: flex;
+    justify-content: flex-start;
+
+    .title {
+      margin: auto 0;
+    }
+
+    .comparedItem {
+      position: relative;
+
+      img {
+        min-height: 3rem;
+        width: 4rem;
+        margin: 0 auto;
+      }
+
+      .closeIcon {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        opacity: 0.5
+      }
+
+      &:hover img {
+        opacity: 0.5;
+      }
+
+      &:hover .closeIcon {
+        display: block
+      }
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+    }
+
+  }
+}
