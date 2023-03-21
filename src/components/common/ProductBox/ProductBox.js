@@ -16,7 +16,12 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
-import { toggleProductFavourite } from '../../../redux/productsRedux';
+import {
+  toggleProductFavourite,
+  toggleProductCompare,
+  getProductsToCompare,
+} from '../../../redux/productsRedux';
+import { useSelector } from 'react-redux';
 
 const ProductBox = ({
   id,
@@ -34,6 +39,16 @@ const ProductBox = ({
   const handleClick = e => {
     e.preventDefault();
     dispatch(toggleProductFavourite(productId));
+  };
+
+  const compareList = useSelector(state => getProductsToCompare(state));
+  const handleCompareClick = e => {
+    const checkIfItemIsCompared = compareList.find(item => item.id === id); //check if item is already selected to compare
+    e.preventDefault();
+    if (compareList.length < 4 || !!checkIfItemIsCompared) {
+      //!!checkIfItemIsCompared --> converts result to boolean -> true if item was already selected, and false otherwise
+      dispatch(toggleProductCompare(id));
+    }
   };
 
   return (
@@ -80,7 +95,11 @@ const ProductBox = ({
               Favorite
             </FontAwesomeIcon>
           </Button>
-          <Button variant='outline' className={compare ? styles.active : null}>
+          <Button
+            variant='outline'
+            className={compare ? styles.active : null}
+            onClick={handleCompareClick}
+          >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>

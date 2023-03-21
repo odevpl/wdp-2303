@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import CompareBar from '../../common/CompareBar/CompareBar';
 
 const NewFurniture = ({ categories, products, viewportMode }) => {
   const [activePage, setActivePage] = useState(0);
@@ -38,6 +39,7 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
       <div className='container'>
         <div className={styles.panelBar}>
           <div className='row no-gutters align-items-end'>
+
             <div className={'col-md-auto col-12 mb-3 mb-md-0 ' + styles.heading}>
               <h3>New furniture</h3>
             </div>
@@ -69,6 +71,7 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
               </div>
             ))}
         </div>
+        <CompareBar />
       </div>
     </div>
   );
