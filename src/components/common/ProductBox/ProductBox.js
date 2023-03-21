@@ -19,6 +19,13 @@ import {
 } from '../../../redux/productsRedux';
 import { useSelector } from 'react-redux';
 import StarsReview from '../StarsReview/StarsReview';
+import { useDispatch } from 'react-redux';
+import {
+  toggleProductFavourite,
+  toggleProductCompare,
+  getProductsToCompare,
+} from '../../../redux/productsRedux';
+import { useSelector } from 'react-redux';
 
 const ProductBox = ({
   id,
