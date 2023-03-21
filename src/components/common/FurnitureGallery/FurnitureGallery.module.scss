@@ -3,7 +3,6 @@
 .root {
   position: relative;
   // background-color: #e8edf7;
-  margin-bottom: 2rem;
 
   .panelBar {
     margin-bottom: 30px;
@@ -97,6 +96,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    img {
+      object-fit: cover;
+    }
 
   }
 

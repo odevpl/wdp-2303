@@ -5,6 +5,7 @@
   background-color: #e8edf7;
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
+  height: 100%;
 
   .photo {
     background: {
@@ -14,6 +15,13 @@
     }
 
     overflow: hidden;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
   }
 

@@ -73,6 +73,7 @@ const FurnitureGallery = () => {
         <img
           alt='Aenean Ru Bristique 14'
           src='/images/furniture/chair/aenean-ru-bristique-14.jpg'
+          //src={`${process.env.PUBLIC_URL}/images/furniture/${testProduct.category}/${testProduct.id}.jpg`}
         />
         <div className={styles.productInfo}>
           <div className={styles.price}>
@@ -129,6 +130,8 @@ const FurnitureGallery = () => {
             <FontAwesomeIcon icon={faShoppingBasket}>Add To Cart</FontAwesomeIcon>
           </Button>
         </div>
+      </div>
+      <div>
         <div className={styles.slider}>
           <div className={styles.thumbnailContainer}>
             <Button className={styles.arrowButton}>&#60;</Button>
