@@ -1,6 +1,119 @@
 import React from 'react';
 import styles from './FurnitureGallery.module.scss';
+import Button from '../Button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faStar,
+  faShoppingBasket,
+  faExchangeAlt,
+  faHeart,
+  faEye,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faStar as farStar,
+  faHeart as farHeart,
+} from '@fortawesome/free-regular-svg-icons';
+import { useState } from 'react';
+import { getFeaturedProducts } from '../../../redux/productsRedux';
+import { useSelector } from 'react-redux';
+import clsx from 'clsx';
 
-const FurnitureGallery = () => <div className={styles.root}></div>;
+const FurnitureGallery = () => {
+  const headlines = ['Featured', 'Top Seller', 'Sale Off', 'Top Rated'];
+  const [activeHeadline, setActiveHeadline] = useState('Featured');
+  const handleHeadlineChange = headline => setActiveHeadline(headline);
+  const productsToDisplay = useSelector(state => getFeaturedProducts(state)); //zrobione przykładowo, zeby komponent zaciagal dane z reduxa,
+  //przy pisalniu funkcjonalnosci konieczne dodanie koejnych 3 funkcji w ProductRedux + dodanie funkcji określającej z którego headlinu pobrać produkty
+  const testProduct = productsToDisplay[0];
 
+  return (
+    <div className={styles.root}>
+      <div className={styles.panelBar}>
+        <div className='row no-gutters align-items-end'>
+          <div className={'col ' + styles.heading}>
+            <h3>Furniture Gallery</h3>
+          </div>
+        </div>
+      </div>
+      <div className={styles.menu}>
+        <ul>
+          {headlines.map(headline => (
+            <li key={headline}>
+              <a
+                className={headline === activeHeadline && styles.active}
+                onClick={() => handleHeadlineChange(headline)}
+              >
+                {headline}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.photo}>
+        <img
+          alt='Aenean Ru Bristique 14'
+          src='/images/furniture/chair/aenean-ru-bristique-14.jpg'
+        />
+        <div className={styles.productInfo}>
+          <div className={styles.price}>
+            <p className={styles.newPrice}>${testProduct.price}</p>
+            <p className={styles.oldPrice}>${testProduct.oldPrice}</p>
+          </div>
+          <div className={styles.backgroundContent}>
+            <div className={styles.content}>
+              <h5>{testProduct.name}</h5>
+              <div className={styles.stars}>
+                {[1, 2, 3, 4, 5].map(i => (
+                  <a key={i} href='#'>
+                    {i <= testProduct.stars ? (
+                      <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
+                    ) : (
+                      <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
+                    )}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.buttons}>
+          <div title='Favorite'>
+            <Button variant='outline' className={styles.button}>
+              <FontAwesomeIcon icon={testProduct.favourite ? faHeart : farHeart}>
+                Favorite
+              </FontAwesomeIcon>
+            </Button>
+          </div>
+          <Button
+            variant='outline'
+            title='Compare'
+            className={clsx(styles.button, testProduct.compare ? styles.active : null)}
+          >
+            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+          </Button>
+          <Button variant='outline' className={styles.button} title='Quick view'>
+            <FontAwesomeIcon icon={faEye}>Quick view</FontAwesomeIcon>
+          </Button>
+          <Button variant='outline' className={styles.button} title='Add to cart'>
+            <FontAwesomeIcon icon={faShoppingBasket}>Add To Cart</FontAwesomeIcon>
+          </Button>
+        </div>
+        <div className={styles.slider}>
+          <div className={styles.thumbnailContainer}>
+            <Button className={styles.arrowButton}>&#60;</Button>
+            {productsToDisplay.map(product => (
+              <div key={product.name} className={styles.thumbnail}>
+                <img
+                  alt={product.name}
+                  src={`${process.env.PUBLIC_URL}/images/furniture/${product.category}/${product.id}.jpg`}
+                />
+              </div>
+            ))}
+            <Button className={styles.arrowButton}>&#62;</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 export default FurnitureGallery;
