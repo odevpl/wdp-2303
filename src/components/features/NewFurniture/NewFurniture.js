@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import CompareBar from '../../common/CompareBar/CompareBar';
 
 const NewFurniture = ({ categories, products }) => {
   const [activePage, setActivePage] = useState(0);
@@ -30,45 +31,45 @@ const NewFurniture = ({ categories, products }) => {
         </a>
       </li>
     );
-
-    return (
-      <div className={styles.root}>
-        <div className='container'>
-          <div className={styles.panelBar}>
-            <div className='row no-gutters align-items-end'>
-              <div className={'col-auto ' + styles.heading}>
-                <h3>New furniture</h3>
-              </div>
-              <div className={'col ' + styles.menu}>
-                <ul>
-                  {categories.map(item => (
-                    <li key={item.id}>
-                      <a
-                        className={item.id === activeCategory && styles.active}
-                        onClick={() => handleCategoryChange(item.id)}
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className={'col-auto ' + styles.dots}>
-                <ul>{dots}</ul>
-              </div>
+  }
+  return (
+    <div className={styles.root}>
+      <div className='container'>
+        <div className={styles.panelBar}>
+          <div className='row no-gutters align-items-end'>
+            <div className={'col-auto ' + styles.heading}>
+              <h3>New furniture</h3>
+            </div>
+            <div className={'col ' + styles.menu}>
+              <ul>
+                {categories.map(item => (
+                  <li key={item.id}>
+                    <a
+                      className={item.id === activeCategory && styles.active}
+                      onClick={() => handleCategoryChange(item.id)}
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={'col-auto ' + styles.dots}>
+              <ul>{dots}</ul>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-lg-3 col-md-6 col-12'>
-                <ProductBox {...item} />
-              </div>
-            ))}
-          </div>
         </div>
+        <div className='row'>
+          {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
+            <div key={item.id} className='col-lg-3 col-md-6 col-12'>
+              <ProductBox {...item} />
+            </div>
+          ))}
+        </div>
+        <CompareBar />
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 NewFurniture.propTypes = {
