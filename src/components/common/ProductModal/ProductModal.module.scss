@@ -1,0 +1,24 @@
+@import "../../../styles/settings.scss";
+
+.root {
+
+  .modalWindow {
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    background-color: rgba(200, 200, 200, 0.8);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  };
+
+  .quitButton {
+    font-size: 50px;
+    position: absolute;
+    top: 35px;
+    left: 75px;
+  }
+};

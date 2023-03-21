@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+import ProductModal from '../ProductModal/ProductModal';
 
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,17 +20,18 @@ import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
 import { toggleProductFavourite } from '../../../redux/productsRedux';
 
-const ProductBox = ({
-  id,
-  category,
-  name,
-  price,
-  promo,
-  stars,
-  oldPrice,
-  favourite,
-  compare,
-}) => {
+const ProductBox = props => {
+  const {
+    id,
+    category,
+    name,
+    price,
+    promo,
+    stars,
+    oldPrice,
+    favourite,
+    compare,
+  } = props;
   const dispatch = useDispatch();
   const productId = id;
   const handleClick = e => {
@@ -36,12 +39,21 @@ const ProductBox = ({
     dispatch(toggleProductFavourite(productId));
   };
 
+  const [modal, setModal] = useState(false);
+
+  const openModal = e => {
+    e.preventDefault();
+    setModal(true);
+  };
+
   return (
     <div className={styles.root}>
+      {modal && <ProductModal closeModal={setModal} productData={props}></ProductModal>}
       <div className={styles.photo}>
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.image}>
           <img
+            onClick={openModal}
             alt={name}
             src={`${process.env.PUBLIC_URL}/images/furniture/${category}/${id}.jpg`}
           />
