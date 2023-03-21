@@ -602,6 +602,7 @@ const initialState = {
   cart: {
     products: [],
   },
+  viewportMode: '',
   feedbacks: [
     {
       id: 0,
@@ -625,6 +626,7 @@ const initialState = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
     },
   ],
+
 };
 
 export default initialState;

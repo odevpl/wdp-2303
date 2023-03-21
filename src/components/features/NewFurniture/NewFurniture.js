@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import CompareBar from '../../common/CompareBar/CompareBar';
 
-const NewFurniture = ({ categories, products }) => {
+const NewFurniture = ({ categories, products, viewportMode }) => {
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState('bed');
 
@@ -16,8 +16,10 @@ const NewFurniture = ({ categories, products }) => {
     setActiveCategory(newCategory);
   };
 
+  const rows = viewportMode === 'mobile' ? 1 : viewportMode === 'tablet' ? 2 : 8;
+  useEffect(() => handlePageChange(0), [viewportMode]);
   const categoryProducts = products.filter(item => item.category === activeCategory);
-  const pagesCount = Math.ceil(categoryProducts.length / 8);
+  const pagesCount = Math.ceil(categoryProducts.length / rows);
 
   const dots = [];
   for (let i = 0; i < pagesCount; i++) {
@@ -38,10 +40,11 @@ const NewFurniture = ({ categories, products }) => {
       <div className='container'>
         <div className={styles.panelBar}>
           <div className='row no-gutters align-items-end'>
-            <div className={'col-auto ' + styles.heading}>
+
+            <div className={'col-md-auto col-12 mb-3 mb-md-0 ' + styles.heading}>
               <h3>New furniture</h3>
             </div>
-            <div className={'col ' + styles.menu}>
+            <div className={'col-md col-12 ' + styles.menu}>
               <ul>
                 {categories.map(item => (
                   <li key={item.id}>
@@ -55,17 +58,19 @@ const NewFurniture = ({ categories, products }) => {
                 ))}
               </ul>
             </div>
-            <div className={'col-auto ' + styles.dots}>
+            <div className={'col-lg-auto col-12 text-center ' + styles.dots}>
               <ul>{dots}</ul>
             </div>
           </div>
         </div>
         <div className='row'>
-          {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-            <div key={item.id} className='col-lg-3 col-md-6 col-12'>
-              <ProductBox {...item} />
-            </div>
-          ))}
+          {categoryProducts
+            .slice(activePage * rows, (activePage + 1) * rows)
+            .map(item => (
+              <div key={item.id} className='col-lg-3 col-md-6 col-12'>
+                <ProductBox {...item} />
+              </div>
+            ))}
         </div>
         <CompareBar />
       </div>
@@ -92,6 +97,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  viewportMode: PropTypes.string,
 };
 
 NewFurniture.defaultProps = {
