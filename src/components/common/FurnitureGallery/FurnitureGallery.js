@@ -14,17 +14,37 @@ import {
   faHeart as farHeart,
 } from '@fortawesome/free-regular-svg-icons';
 import { useState } from 'react';
-import { getFeaturedProducts } from '../../../redux/productsRedux';
-import { useSelector } from 'react-redux';
+import {
+  getFeaturedProducts,
+  toggleProductFavourite,
+  toggleProductCompare,
+  getProductsToCompare,
+} from '../../../redux/productsRedux';
+import { useSelector, useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
 const FurnitureGallery = () => {
+  const dispatch = useDispatch();
   const headlines = ['Featured', 'Top Seller', 'Sale Off', 'Top Rated'];
   const [activeHeadline, setActiveHeadline] = useState('Featured');
   const handleHeadlineChange = headline => setActiveHeadline(headline);
   const productsToDisplay = useSelector(state => getFeaturedProducts(state)); //zrobione przykładowo, zeby komponent zaciagal dane z reduxa,
   //przy pisalniu funkcjonalnosci konieczne dodanie koejnych 3 funkcji w ProductRedux + dodanie funkcji określającej z którego headlinu pobrać produkty
   const testProduct = productsToDisplay[0];
+
+  const handleFavouriteClick = e => {
+    e.preventDefault();
+    dispatch(toggleProductFavourite(testProduct.id));
+  };
+
+  const compareList = useSelector(state => getProductsToCompare(state));
+  const handleCompareClick = e => {
+    e.preventDefault();
+    const checkIfItemIsCompared = compareList.find(item => item.id === testProduct.id);
+    if (compareList.length < 4 || !!checkIfItemIsCompared) {
+      dispatch(toggleProductCompare(testProduct.id));
+    }
+  };
 
   return (
     <div className={styles.root}>
@@ -77,24 +97,35 @@ const FurnitureGallery = () => {
           </div>
         </div>
         <div className={styles.buttons}>
-          <div title='Favorite'>
-            <Button variant='outline' className={styles.button}>
-              <FontAwesomeIcon icon={testProduct.favourite ? faHeart : farHeart}>
-                Favorite
-              </FontAwesomeIcon>
-            </Button>
-          </div>
           <Button
             variant='outline'
-            title='Compare'
+            className={clsx(
+              styles.button,
+              testProduct.favourite ? styles.active : null
+            )}
+            onClick={handleFavouriteClick}
+            data-tooltip='Favourite'
+          >
+            <FontAwesomeIcon icon={testProduct.favourite ? faHeart : farHeart}>
+              Favorite
+            </FontAwesomeIcon>
+          </Button>
+          <Button
+            variant='outline'
             className={clsx(styles.button, testProduct.compare ? styles.active : null)}
+            onClick={handleCompareClick}
+            data-tooltip='Compare'
           >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
-          <Button variant='outline' className={styles.button} title='Quick view'>
+          <Button variant='outline' className={styles.button} data-tooltip='Quick View'>
             <FontAwesomeIcon icon={faEye}>Quick view</FontAwesomeIcon>
           </Button>
-          <Button variant='outline' className={styles.button} title='Add to cart'>
+          <Button
+            variant='outline'
+            className={styles.button}
+            data-tooltip='Add to cart'
+          >
             <FontAwesomeIcon icon={faShoppingBasket}>Add To Cart</FontAwesomeIcon>
           </Button>
         </div>
