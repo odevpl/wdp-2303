@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
 
@@ -15,27 +16,61 @@ const MenuBar = ({ children }) => (
         <div className={'col-auto ' + styles.menu}>
           <ul>
             <li>
-              <a href='#' className={styles.active}>
+              <NavLink
+                exact
+                to='/'
+                className={isActive => (isActive ? styles.active : undefined)}
+              >
                 Home
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href='#'>Furniture</a>
+              <NavLink
+                to='/shop/bed'
+                className={isActive => (isActive ? styles.active : undefined)}
+              >
+                Bed
+              </NavLink>
             </li>
             <li>
-              <a href='#'>Chair</a>
+              <NavLink
+                to='/shop/chair'
+                className={isActive => (isActive ? styles.active : undefined)}
+              >
+                Chair
+              </NavLink>
             </li>
             <li>
-              <a href='#'>Table</a>
+              <NavLink
+                to='/shop/sofa'
+                className={isActive => (isActive ? styles.active : undefined)}
+              >
+                Sofa
+              </NavLink>
             </li>
             <li>
-              <a href='#'>Sofa</a>
+              <NavLink
+                to='/shop/table'
+                className={isActive => (isActive ? styles.active : undefined)}
+              >
+                Table
+              </NavLink>
             </li>
             <li>
-              <a href='#'>Bedroom</a>
+              <NavLink
+                to='/shop/dining'
+                className={isActive => (isActive ? styles.active : undefined)}
+              >
+                Dining
+              </NavLink>
             </li>
             <li>
-              <a href='#'>Blog</a>
+              <NavLink
+                to='/blog'
+                className={isActive => (isActive ? styles.active : undefined)}
+              >
+                Blog
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -49,3 +84,55 @@ MenuBar.propTypes = {
 };
 
 export default MenuBar;
+
+// import React from 'react';
+// import PropTypes from 'prop-types';
+
+// import ProductSearch from '../../features/ProductSearch/ProductSearch';
+
+// import styles from './MenuBar.module.scss';
+
+// const MenuBar = ({ children }) => (
+//   <div className={styles.root}>
+//     <div className='container'>
+//       <div className='row align-items-center'>
+//         <div className='col'>
+//           <ProductSearch />
+//         </div>
+//         <div className={'col-auto ' + styles.menu}>
+//           <ul>
+//             <li>
+//               <a href='/' className={styles.active}>
+//                 Home
+//               </a>
+//             </li>
+//             <li>
+//               <a href='/shop/:categoryId'>Furniture</a>
+//             </li>
+//             <li>
+//               <a href='#'>Chair</a>
+//             </li>
+//             <li>
+//               <a href='#'>Table</a>
+//             </li>
+//             <li>
+//               <a href='#'>Sofa</a>
+//             </li>
+//             <li>
+//               <a href='#'>Bedroom</a>
+//             </li>
+//             <li>
+//               <a href='#'>Blog</a>
+//             </li>
+//           </ul>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// );
+
+// MenuBar.propTypes = {
+//   children: PropTypes.node,
+// };
+
+// export default MenuBar;
