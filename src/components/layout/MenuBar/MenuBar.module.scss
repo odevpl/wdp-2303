@@ -47,5 +47,10 @@
         border-color: $text-color;
       }
     }
+    .actives {
+      background-color: $primary;
+      color: #ffffff;
+      border-color: $primary;
+    }
   }
 }
