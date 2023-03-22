@@ -1,24 +1,11 @@
 import React from 'react';
-import clsx from 'clsx';
 import PropTypes from 'prop-types';
-
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHeart,
-  faExchangeAlt,
-  faShoppingBasket,
-} from '@fortawesome/free-solid-svg-icons';
-import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
+import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button/Button';
-import { useDispatch } from 'react-redux';
-import {
-  toggleProductFavourite,
-  toggleProductCompare,
-  getProductsToCompare,
-} from '../../../redux/productsRedux';
-import { useSelector } from 'react-redux';
 import StarsReview from '../StarsReview/StarsReview';
+import ActionButton from '../ActionButton/ActionButton';
 
 const ProductBox = ({
   id,
@@ -32,23 +19,6 @@ const ProductBox = ({
   favourite,
   compare,
 }) => {
-  const dispatch = useDispatch();
-  const productId = id;
-  const handleClick = e => {
-    e.preventDefault();
-    dispatch(toggleProductFavourite(productId));
-  };
-
-  const compareList = useSelector(state => getProductsToCompare(state));
-  const handleCompareClick = e => {
-    const checkIfItemIsCompared = compareList.find(item => item.id === id); //check if item is already selected to compare
-    e.preventDefault();
-    if (compareList.length < 4 || !!checkIfItemIsCompared) {
-      //!!checkIfItemIsCompared --> converts result to boolean -> true if item was already selected, and false otherwise
-      dispatch(toggleProductCompare(id));
-    }
-  };
-
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -69,26 +39,12 @@ const ProductBox = ({
       </div>
 
       <StarsReview id={id} stars={stars} myStars={myStars} name={name} />
-      
+
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button
-            variant='outline'
-            onClick={handleClick}
-            className={clsx(styles.buttonActive, favourite ? styles.active : null)}
-          >
-            <FontAwesomeIcon icon={favourite ? faHeart : farHeart}>
-              Favorite
-            </FontAwesomeIcon>
-          </Button>
-          <Button
-            variant='outline'
-            className={compare ? styles.active : null}
-            onClick={handleCompareClick}
-          >
-            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-          </Button>
+          <ActionButton {...{ id, favourite }} buttonType={'favourite'} />
+          <ActionButton {...{ id, compare }} buttonType={'compare'} />
         </div>
         {oldPrice && <div className={styles.oldPrice}>$ {oldPrice}</div>}
         <div className={styles.price}>
@@ -98,7 +54,6 @@ const ProductBox = ({
     </div>
   );
 };
-
 
 ProductBox.propTypes = {
   children: PropTypes.node,
