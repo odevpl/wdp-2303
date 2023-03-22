@@ -20,7 +20,6 @@ const ProductBox = ({
   favourite,
   compare,
 }) => {
-
   const productLink = '/product/' + id;
 
   return (
