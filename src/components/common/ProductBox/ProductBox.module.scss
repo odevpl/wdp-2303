@@ -28,9 +28,12 @@
       border-radius: 50%;
       color: #ffffff;
       padding: 30px 15px 5px 15px;
+      z-index: 1;
     }
 
     .buttons {
+      position: relative;
+      z-index: 1;
       display: none;
       justify-content: space-between;
     }
