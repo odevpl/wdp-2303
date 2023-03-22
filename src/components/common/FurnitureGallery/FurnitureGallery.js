@@ -3,16 +3,12 @@ import styles from './FurnitureGallery.module.scss';
 import Button from '../Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faStar,
   faShoppingBasket,
   faExchangeAlt,
   faHeart,
   faEye,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  faStar as farStar,
-  faHeart as farHeart,
-} from '@fortawesome/free-regular-svg-icons';
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import { useState } from 'react';
 import {
   getFeaturedProducts,
@@ -22,6 +18,7 @@ import {
 } from '../../../redux/productsRedux';
 import { useSelector, useDispatch } from 'react-redux';
 import clsx from 'clsx';
+import StarsReview from '../StarsReview/StarsReview';
 
 const FurnitureGallery = () => {
   const dispatch = useDispatch();
@@ -73,7 +70,6 @@ const FurnitureGallery = () => {
         <img
           alt='Aenean Ru Bristique 14'
           src='/images/furniture/chair/aenean-ru-bristique-14.jpg'
-          //src={`${process.env.PUBLIC_URL}/images/furniture/${testProduct.category}/${testProduct.id}.jpg`}
         />
         <div className={styles.productInfo}>
           <div className={styles.price}>
@@ -82,8 +78,13 @@ const FurnitureGallery = () => {
           </div>
           <div className={styles.backgroundContent}>
             <div className={styles.content}>
-              <h5>{testProduct.name}</h5>
-              <div className={styles.stars}>
+              <StarsReview
+                id={testProduct.id}
+                stars={testProduct.stars}
+                myStars={testProduct.myStars}
+                name={testProduct.name}
+              />
+              {/* <div className={styles.stars}>
                 {[1, 2, 3, 4, 5].map(i => (
                   <a key={i} href='#'>
                     {i <= testProduct.stars ? (
@@ -93,7 +94,7 @@ const FurnitureGallery = () => {
                     )}
                   </a>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
