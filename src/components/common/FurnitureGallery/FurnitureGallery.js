@@ -78,23 +78,13 @@ const FurnitureGallery = () => {
           </div>
           <div className={styles.backgroundContent}>
             <div className={styles.content}>
+              <h5>{testProduct.name}</h5>
               <StarsReview
                 id={testProduct.id}
                 stars={testProduct.stars}
                 myStars={testProduct.myStars}
                 name={testProduct.name}
               />
-              {/* <div className={styles.stars}>
-                {[1, 2, 3, 4, 5].map(i => (
-                  <a key={i} href='#'>
-                    {i <= testProduct.stars ? (
-                      <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-                    ) : (
-                      <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-                    )}
-                  </a>
-                ))}
-              </div> */}
             </div>
           </div>
         </div>
