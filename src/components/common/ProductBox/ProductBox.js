@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -48,18 +49,20 @@ const ProductBox = ({
       dispatch(toggleProductCompare(id));
     }
   };
+  const productLink = '/product/' + id;
 
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
         {promo && <div className={styles.sale}>{promo}</div>}
-        <div className={styles.image}>
-          <img
-            alt={name}
-            src={`${process.env.PUBLIC_URL}/images/furniture/${category}/${id}.jpg`}
-          />
-        </div>
-
+        <NavLink to={productLink}>
+          <div className={styles.image}>
+            <img
+              alt={name}
+              src={`${process.env.PUBLIC_URL}/images/furniture/${category}/${id}.jpg`}
+            />
+          </div>
+        </NavLink>
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
           <Button variant='small'>
@@ -67,9 +70,12 @@ const ProductBox = ({
           </Button>
         </div>
       </div>
-
-      <StarsReview id={id} stars={stars} myStars={myStars} name={name} />
-      
+      <div className={styles.content}>
+        <NavLink to={productLink}>
+          <h5>{name}</h5>
+        </NavLink>
+        <StarsReview id={id} stars={stars} myStars={myStars} name={name} />
+      </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
@@ -98,7 +104,6 @@ const ProductBox = ({
     </div>
   );
 };
-
 
 ProductBox.propTypes = {
   children: PropTypes.node,
