@@ -33,7 +33,7 @@ const CompareBar = () => {
                 <FontAwesomeIcon className={styles.closeIcon} icon={faWindowClose}>
                   Add to compare
                 </FontAwesomeIcon>
-              </div>{' '}
+              </div>
             </div>
           ))}
           <Button variant='small' className={styles.button}>
