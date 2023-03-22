@@ -23,20 +23,38 @@
   }
 
   .photo {
-    border: solid yellow 1px;
     object-fit: cover;
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
 
   .modalData {
     display: flex;
     justify-content: space-between;
-    border: solid red 1px;
+    padding: 10px;
+    background-color: $orange;
+
   }
 
- .productParams {
-  padding-left: 20px;
-  border: solid blue 1px;
- }
+  .stars {
+    background-color: white;
+  }
+
+  .productParams {
+    text-align: center;
+    margin-top: 100px;
+    margin-right: 50px;
+  }
+
+  .oldPrice {
+    text-decoration: line-through;
+    padding-top: 10px;
+  }
+
+  .price {
+    padding-top: 10px;
+  }
+
+
 };

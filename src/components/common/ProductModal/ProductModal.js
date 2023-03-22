@@ -15,14 +15,15 @@ const ProductModal = ({ closeModal, productData }) => {
             <FontAwesomeIcon icon={faXmark} />
           </Button>
         </div>
-        <div className={`row ${styles.modalData}`}>
-          <div className={`col-6 ${styles.photo}`}>
+        <div className={styles.modalData}>
+          <div className={styles.photo}>
             <img
+              className={styles.image}
               alt={productData.name}
               src={`${process.env.PUBLIC_URL}/images/furniture/${productData.category}/${productData.id}.jpg`}
             />
           </div>
-          <div className={`col-6 ${styles.productParams}`}>
+          <div className={styles.productParams}>
             <div className={styles.title}>
               <h5>{productData.name}</h5>
             </div>
