@@ -30,7 +30,7 @@ const FurnitureGallery = () => {
   const handleHeadlineChange = headline => setActiveHeadline(headline);
   const productsToDisplay = useSelector(state => getFeaturedProducts(state)); //zrobione przykładowo, zeby komponent zaciagal dane z reduxa,
   //przy pisalniu funkcjonalnosci konieczne dodanie koejnych 3 funkcji w ProductRedux + dodanie funkcji określającej z którego headlinu pobrać produkty
-  const testProduct = productsToDisplay[0];
+  const testProduct = productsToDisplay[0]; //na potrzeby stylowania - do zmiany przy dodwaaniu funkcjonalnosci
 
   const handleFavouriteClick = e => {
     e.preventDefault();
@@ -140,6 +140,7 @@ const FurnitureGallery = () => {
                 <img
                   alt={product.name}
                   src={`${process.env.PUBLIC_URL}/images/furniture/${product.category}/${product.id}.jpg`}
+                  className={product.id === testProduct.id ? styles.active : null}
                 />
               </div>
             ))}
