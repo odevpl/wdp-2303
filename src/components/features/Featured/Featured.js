@@ -1,26 +1,23 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getHotDeals} from '../../../redux/productsRedux';
+import { getHotDeals } from '../../../redux/productsRedux';
 import styles from './Featured.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { toggleProductFavourite } from '../../../redux/productsRedux';
 import clsx from 'clsx';
+import StarsReview from '../../common/StarsReview/StarsReview';
 
 import {
   faHeart,
-  faStar,
   faExchangeAlt,
   faShoppingBasket,
   faEye,
   faChevronRight,
   faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  faStar as farStar,
-  faHeart as farHeart,
-} from '@fortawesome/free-regular-svg-icons';
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../../common/Button/Button';
 
 const Featured = () => {
@@ -46,11 +43,20 @@ const Featured = () => {
             align-items-center
             justify-content-between'
             >
-              <h4 className='m-0 py-3'>HOT DEALS</h4>
-              <div className={styles.icons}>
-                <FontAwesomeIcon className={`${styles.icon} mr-1`} icon={faCircle} />
-                <FontAwesomeIcon className={`${styles.icon} mr-1`} icon={faCircle} />
-                <FontAwesomeIcon className={`${styles.icon} mr-1`} icon={faCircle} />
+              <h4 className='m-0 p-3'>HOT DEALS</h4>
+              <div className={clsx(styles.icons, 'm-2')}>
+                <FontAwesomeIcon
+                  className={clsx(styles.icon, 'me-1')}
+                  icon={faCircle}
+                />
+                <FontAwesomeIcon
+                  className={clsx(styles.icon, 'me-1')}
+                  icon={faCircle}
+                />
+                <FontAwesomeIcon
+                  className={clsx(styles.icon, 'me-1')}
+                  icon={faCircle}
+                />
               </div>
             </div>
 
@@ -72,16 +78,18 @@ const Featured = () => {
                 <div className={`${styles.timer} row`}>
                   <li className='col'>
                     <FontAwesomeIcon
-                      className={`${styles.iconTimer} mr-1`}
+                      className={`${styles.iconTimer} me-1`}
                       icon={faCircle}
                     />
                     <p>
-                      25<br></br>DAYS
+                      25
+                      <br />
+                      DAYS
                     </p>
                   </li>
                   <li className='col'>
                     <FontAwesomeIcon
-                      className={`${styles.iconTimer} mr-1`}
+                      className={`${styles.iconTimer} me-1`}
                       icon={faCircle}
                     />
                     <p>
@@ -90,7 +98,7 @@ const Featured = () => {
                   </li>
                   <li className='col'>
                     <FontAwesomeIcon
-                      className={`${styles.iconTimer} mr-1`}
+                      className={`${styles.iconTimer} me-1`}
                       icon={faCircle}
                     />
                     <p>
@@ -99,7 +107,7 @@ const Featured = () => {
                   </li>
                   <li className='col'>
                     <FontAwesomeIcon
-                      className={`${styles.iconTimer} mr-1`}
+                      className={`${styles.iconTimer} me-1`}
                       icon={faCircle}
                     />
                     <p>
@@ -110,17 +118,12 @@ const Featured = () => {
               </div>
               <div className={styles.content}>
                 <h5>{hotDeal.name}</h5>
-                <div className={styles.stars}>
-                  {[1, 2, 3, 4, 5].map(i => (
-                    <a key={i} href='#'>
-                      {i <= hotDeal.stars ? (
-                        <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-                      ) : (
-                        <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-                      )}
-                    </a>
-                  ))}
-                </div>
+                <StarsReview
+                  id={hotDeal.id}
+                  stars={hotDeal.stars}
+                  myStars={hotDeal.myStars}
+                  name={hotDeal.name}
+                />
               </div>
               <div className={styles.line}></div>
               <div className={styles.actions}>
@@ -172,13 +175,13 @@ const Featured = () => {
                   alt={hotDeals[1].name}
                   src={`${process.env.PUBLIC_URL}/images/furniture/${hotDeals[1].category}/${hotDeals[1].id}.jpg`}
                 ></img>
-                <div className={`${styles.heading} col`}>
+                <div className={`${styles.heading} col-12`}>
                   <div className={styles.text}>
-                    <h2>INDOOR FURNITURE</h2>
-                    <h3>SAVE UP TO 50% OF ALL FURNITURE</h3>
+                    <h2>Indoor furniture</h2>
+                    <h3>Save up to 50% of all furnitures</h3>
                   </div>
                 </div>
-                <button className={styles.shopNow}>SHOP NOW</button>
+                <Button className={styles.shopNow}>Shop now</Button>
                 <div className={`${styles.slider} row`}>
                   <button className={`${styles.arrow} col-6 text-center p-0`}>
                     <FontAwesomeIcon className='text-white' icon={faChevronLeft} />
