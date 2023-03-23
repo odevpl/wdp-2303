@@ -659,7 +659,43 @@ const initialState = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
     },
   ],
-
+  blogPosts: [
+    {
+      id: 0,
+      date: '01 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    },
+    {
+      id: 1,
+      date: '02 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    },
+    {
+      id: 2,
+      date: '03 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in.',
+    },
+    {
+      id: 3,
+      date: '02 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    },
+    {
+      id: 4,
+      date: '03 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in.',
+    },
+  ],
 };
 
 export default initialState;
