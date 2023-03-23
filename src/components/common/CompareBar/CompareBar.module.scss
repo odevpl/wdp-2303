@@ -15,16 +15,20 @@
     justify-content: flex-start;
 
     .title {
-      margin: auto 0;
+      margin: auto 20px;
+
     }
 
     .comparedItem {
       position: relative;
+      min-height: 3rem;
+      width: 4rem;
+
 
       img {
-        min-height: 3rem;
-        width: 4rem;
-        margin: 0 auto;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
       }
 
       .closeIcon {

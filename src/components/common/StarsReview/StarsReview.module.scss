@@ -2,7 +2,7 @@
 
 .content {
   text-align: center;
-  padding: 20px;
+  padding: 20px 0;
 
   h5 {
     color: $primary;
@@ -16,6 +16,7 @@
       text-decoration: none;
       color: rgb(42, 42, 42);
     }
+
     .hoverStars {
       color: $primary;
     }

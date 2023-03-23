@@ -8,6 +8,9 @@ export const addMyStars = payload => ({ type: ADD_MY_STARS, payload });
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
 
+export const getFeaturedProducts = ({ products }) =>
+  products.filter(item => item.featured === true);
+
 export const getProductsToCompare = ({ products }) =>
   products.filter(item => item.compare === true);
 export const getHotDeals = ({ products }) => 
