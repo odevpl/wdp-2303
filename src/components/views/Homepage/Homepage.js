@@ -10,12 +10,14 @@ import BlogBox from '../../features/BlogBox/BlogBox';
 import Gallery from '../../features/Gallery/Gallery';
 import Banner from '../../common/Banner/Banner';
 import Featured from '../../features/Featured/Featured';
+import PromotionBox from '../../layout/PromotionBox/PromotionBox';
 
 const Homepage = () => (
   <div className={styles.root}>
     <Banner />
     <Featured />
     <FeatureBoxes />
+    <PromotionBox />
     <NewFurniture />
     <BlogBox />
     <Feedback />

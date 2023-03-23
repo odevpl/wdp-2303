@@ -696,6 +696,24 @@ const initialState = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in.',
     },
   ],
+  promotion: {
+    firstImage: './images/promotion/sofa-1.jpg',
+    firstAltName: 'sofa',
+    firstTitle: 'GUEST ROOM',
+    firstTitleStrong: 'SOFA',
+    firstDiscountBox: '-20%',
+    secondImage: './images/promotion/chair-1.jpg',
+    secondAltName: 'chair',
+    secondTitleStrong: 'OFFICE',
+    secondTitle: 'CHAIR',
+    secondSubtitle: 'COLLECTION',
+    secondPrice: '$200.00',
+    thirdImage: './images/promotion/sofa-2.jpg',
+    thirdAltName: 'sofa',
+    thirdTitleStrong: 'SPECIAL',
+    thirdTitle: 'COLLECTION',
+    thirdSubtitle: 'SAVE UP 45% OF FURNITURE',
+  },
 };
 
 export default initialState;
