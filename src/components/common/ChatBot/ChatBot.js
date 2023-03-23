@@ -14,7 +14,7 @@ import {
 import { Form } from 'react-bootstrap';
 
 const ChatBot = () => {
-  const [activeChat, setActiveChat] = useState(true);
+  const [activeChat, setActiveChat] = useState(false);
 
   const handleClick = e => {
     e.preventDefault();
