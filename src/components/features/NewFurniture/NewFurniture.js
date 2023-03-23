@@ -39,8 +39,7 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
     <div className={styles.root}>
       <div className='container'>
         <div className={styles.panelBar}>
-          <div className='row no-gutters align-items-end'>
-
+          <div className='row g-0 align-items-end'>
             <div className={'col-md-auto col-12 mb-3 mb-md-0 ' + styles.heading}>
               <h3>New furniture</h3>
             </div>

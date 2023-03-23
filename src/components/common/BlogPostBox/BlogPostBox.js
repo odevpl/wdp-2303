@@ -16,7 +16,7 @@ const BlogPostBox = ({ id, date, text, title }) => {
       </div>
       <div className='row'>
         <div className={'col'}>
-          <div className={'col ' + styles.description}>
+          <div className={'col m-4 ' + styles.description}>
             <div className='row text-center mb-3'>
               <div className={'col-6 ' + styles.text}>
                 <FontAwesomeIcon icon={faCalendar} /> {date}

@@ -34,9 +34,9 @@ const BlogBox = () => {
 
   return (
     <div className={styles.root}>
-      <div className='container mb-4'>
+      <div className='container'>
         <div className={styles.panelBar}>
-          <div className='row no-gutters align-items-end'>
+          <div className='row g-0'>
             <div className={'col-md-auto col-12  mb-md-0 ' + styles.heading}>
               <h3>Latest Blog</h3>
             </div>
