@@ -1,0 +1,25 @@
+@import "../../../styles/settings.scss";
+
+.content {
+  text-align: center;
+  padding: 20px 0;
+
+  h5 {
+    color: $primary;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+  }
+
+  .stars {
+    a {
+      text-decoration: none;
+      color: rgb(42, 42, 42);
+    }
+
+    .hoverStars {
+      color: $primary;
+    }
+  }
+
+}

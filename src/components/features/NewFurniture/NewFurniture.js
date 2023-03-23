@@ -7,13 +7,22 @@ import CompareBar from '../../common/CompareBar/CompareBar';
 const NewFurniture = ({ categories, products, viewportMode }) => {
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState('bed');
+  const [fade, setFade] = useState(true);
 
   const handlePageChange = newPage => {
-    setActivePage(newPage);
+    setFade(false);
+    setTimeout(() => {
+      setActivePage(newPage);
+      setFade(true);
+    }, 400);
   };
 
   const handleCategoryChange = newCategory => {
-    setActiveCategory(newCategory);
+    setFade(false);
+    setTimeout(() => {
+      setActiveCategory(newCategory);
+      setFade(true);
+    }, 600);
   };
 
   const rows = viewportMode === 'mobile' ? 1 : viewportMode === 'tablet' ? 2 : 8;
@@ -62,7 +71,7 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
             </div>
           </div>
         </div>
-        <div className='row'>
+        <div className={`row + ${fade ? styles.fadeIn : styles.fadeOut}`}>
           {categoryProducts
             .slice(activePage * rows, (activePage + 1) * rows)
             .map(item => (
