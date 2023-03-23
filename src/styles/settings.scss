@@ -1,7 +1,7 @@
 $base-padding: 24px;
 
 // DON'T USE VARIABLES SET BELOW
-
+$light-grey: #B7B7B7;
 $grey: #434343;
 $dark-grey: #2a2a2a;
 $light-black: #363636;
@@ -21,6 +21,12 @@ $primary: $orange;
 $text-color: $dark-grey;
 
 $form-border-color: $black;
+
+$banner-background: $grey;
+$banner-orange-text: $orange;
+$banner-menu-background: $light-grey;
+
+
 
 // Hover
 
