@@ -6,16 +6,22 @@ import styles from './Homepage.module.scss';
 import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import Feedback from '../../features/Feedback/Feedback';
-
+import BlogBox from '../../features/BlogBox/BlogBox';
+import Gallery from '../../features/Gallery/Gallery';
+import Banner from '../../common/Banner/Banner';
+import Featured from '../../features/Featured/Featured';
 import Brands from '../../layout/Brands/Brands';
 
 const Homepage = () => (
   <div className={styles.root}>
+    <Banner />
+    <Featured />
     <FeatureBoxes />
     <NewFurniture />
-
+    <BlogBox />
     <Brands />
     <Feedback />
+    <Gallery />
   </div>
 );
 

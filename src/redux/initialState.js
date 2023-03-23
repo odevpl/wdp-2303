@@ -18,6 +18,10 @@ const initialState = {
       newFurniture: true,
       favourite: true,
       compare: false,
+      featured: true,
+      topSeller: false,
+      saleOff: false,
+      topRated: false,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -29,7 +33,11 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favourite: false,
-      compare: false,
+      compare: true,
+      featured: true,
+      topSeller: false,
+      saleOff: false,
+      topRated: false,
     },
     {
       id: 'aenean-ru-bristique-3',
@@ -42,7 +50,11 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favourite: true,
-      compare: false,
+      compare: true,
+      featured: true,
+      topSeller: true,
+      saleOff: false,
+      topRated: false,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -54,6 +66,10 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: true,
+      topSeller: true,
+      saleOff: false,
+      topRated: false,
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -65,6 +81,10 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: false,
+      topSeller: false,
+      saleOff: true,
+      topRated: false,
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -76,6 +96,10 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: false,
+      topSeller: false,
+      saleOff: true,
+      topRated: false,
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -87,6 +111,10 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: false,
+      topSeller: false,
+      saleOff: false,
+      topRated: true,
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -98,6 +126,10 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: false,
+      topSeller: false,
+      saleOff: false,
+      topRated: true,
     },
     {
       id: 'aenean-ru-bristique-9',
@@ -632,6 +664,43 @@ const initialState = {
       status: 'Designer',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    },
+  ],
+  blogPosts: [
+    {
+      id: 0,
+      date: '01 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    },
+    {
+      id: 1,
+      date: '02 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    },
+    {
+      id: 2,
+      date: '03 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in.',
+    },
+    {
+      id: 3,
+      date: '02 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+    },
+    {
+      id: 4,
+      date: '03 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in.',
     },
   ],
 };

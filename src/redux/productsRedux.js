@@ -8,8 +8,14 @@ export const addMyStars = payload => ({ type: ADD_MY_STARS, payload });
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
 
+export const getFeaturedProducts = ({ products }) =>
+  products.filter(item => item.featured === true);
+
 export const getProductsToCompare = ({ products }) =>
   products.filter(item => item.compare === true);
+export const getHotDeals = ({ products }) => 
+  products.filter(item => item.oldPrice);
+
 /* actions */
 const createActionName = actionName => `app/products/${actionName}`;
 const TOGGLE_PRODUCT_FAVOURITE = createActionName('TOGGLE_PRODUCT_FAVOURITE');

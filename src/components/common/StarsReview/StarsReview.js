@@ -54,24 +54,21 @@ const StarsReview = props => {
   };
 
   return (
-    <div className={styles.content}>
-      <h5>{props.name}</h5>
-      <div className={styles.stars}>
-        {[1, 2, 3, 4, 5].map(i => (
-          <a key={i} href='#'>
-            <FontAwesomeIcon
-              key={i}
-              className={drawStarStyle(i)}
-              icon={drawProperStar(i)}
-              onClick={e => handleClick(e, i)}
-              onMouseOver={() => handleMouseOver(i)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {i} stars
-            </FontAwesomeIcon>
-          </a>
-        ))}
-      </div>
+    <div className={styles.stars}>
+      {[1, 2, 3, 4, 5].map(i => (
+        <a key={i} href='#'>
+          <FontAwesomeIcon
+            key={i}
+            className={drawStarStyle(i)}
+            icon={drawProperStar(i)}
+            onClick={e => handleClick(e, i)}
+            onMouseOver={() => handleMouseOver(i)}
+            onMouseLeave={handleMouseLeave}
+          >
+            {i} stars
+          </FontAwesomeIcon>
+        </a>
+      ))}
     </div>
   );
 };
