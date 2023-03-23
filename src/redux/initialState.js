@@ -603,6 +603,13 @@ const initialState = {
   cart: {
     products: [],
   },
+  brands: [
+    { id: 1, source: '/images/brands/brand 1.png', brandName: 'brand 1' },
+    { id: 2, source: '/images/brands/brand 2.png', brandName: 'brand 2' },
+    { id: 3, source: '/images/brands/brand 3.png', brandName: 'brand 3' },
+    { id: 4, source: '/images/brands/brand 4.png', brandName: 'brand 4' },
+    { id: 5, source: '/images/brands/brand 5.png', brandName: 'brand 5' },
+  ],
   viewportMode: '',
   feedbacks: [
     {
@@ -627,7 +634,6 @@ const initialState = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
     },
   ],
-
 };
 
 export default initialState;
