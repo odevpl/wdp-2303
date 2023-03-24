@@ -3,8 +3,6 @@ const ADD_MY_STARS = 'app/products/ADD_MY_STARS';
 /* selectors */
 export const getAll = ({ products }) => products;
 export const getCount = ({ products }) => products.length;
-export const addMyStars = payload => ({ type: ADD_MY_STARS, payload });
-export const getPromotion = ({ promotion }) => promotion;
 
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);

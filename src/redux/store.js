@@ -7,7 +7,7 @@ import productsReducer from './productsRedux';
 import viewportModeReducer from './viewportModeRedux';
 import feedbacksReducer from './feedbacksRedux';
 import blogPostsReducer from './blogPostsRedux';
-import promotionReducer from './productsRedux';
+import promotionReducer from './promotionRedux';
 // define reducers
 const reducers = {
   cart: cartReducer,

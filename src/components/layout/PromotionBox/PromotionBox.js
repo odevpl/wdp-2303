@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getPromotion } from '../../../redux/productsRedux';
+import { getPromotion } from '../../../redux/promotionRedux';
 import styles from './PromotionBox.module.scss';
 
 const PromotionBox = () => {
