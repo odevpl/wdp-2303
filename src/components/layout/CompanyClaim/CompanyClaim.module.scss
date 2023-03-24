@@ -71,3 +71,28 @@
     }
   }
 }
+
+@media (max-width: 400px) {
+
+  .root {
+    .phoneNumber{ 
+      p {
+      font-size: 12px;
+      .icon {
+        font-size: 25px;
+      }
+      }
+    }
+    img {
+      height: 50px;
+    }
+    .cart {
+      .cartBox {
+        .cartIcon {
+          width: 40px;
+          height: 35px;
+        }
+      }
+    }
+  }
+}
