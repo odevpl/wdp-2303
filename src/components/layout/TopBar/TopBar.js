@@ -10,7 +10,7 @@ const TopBar = () => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row'>
-        <div className={`col-6 text-left ${styles.topOptions}`}>
+        <div className={`col-6 ${styles.topOptions}`}>
           <ul>
             <li>
               <a href='#'>
@@ -29,7 +29,7 @@ const TopBar = () => (
             </li>
           </ul>
         </div>
-        <div className={`col-6 text-right ${styles.topMenu}`}>
+        <div className={`col-6 ${styles.topMenu}`}>
           <ul>
             <li>
               <a href='#'>

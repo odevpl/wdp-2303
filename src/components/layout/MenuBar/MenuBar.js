@@ -10,24 +10,24 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
 const MenuBar = ({ children }) => {
-  const [mobileMenu, setMobileMenu] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(true);
 
   const action = () => {
     setMobileMenu(!mobileMenu);
   };
 
   return (
-    <div className={styles.root}>
+    <div className={mobileMenu ? styles.root : styles.rootMobile}>
       <div className='container'>
-        <div className={`row align-items-center ${styles.menuBar}`}>
+        <div className={`row align-items-center`}>
           <div className={`col ${styles.search}`}>
             <ProductSearch />
           </div>
-          <button onClick={action} className={styles.bars}>
-            <FontAwesomeIcon className={styles.icon} icon={faBars} />
+          <button onClick={action} className={`col ${styles.bars}`}>
+            <FontAwesomeIcon icon={faBars} />
           </button>
-          <div className={`col-auto ${styles.menu}`}>
-            <ul className={mobileMenu ? styles.menu : styles.menuMobile}>
+          <div className={mobileMenu ? 'col-auto ' + styles.menu : styles.menuMobile}>
+            <ul>
               <li>
                 <NavLink
                   exact
