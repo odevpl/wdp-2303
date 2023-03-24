@@ -5,80 +5,93 @@ import { NavLink } from 'react-router-dom';
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
 
 import styles from './MenuBar.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
-const MenuBar = ({ children }) => (
-  <div className={styles.root}>
-    <div className='container'>
-      <div className={`row align-items-center ${styles.menuBar}`}>
-        <div className='col'>
-          <ProductSearch />
-        </div>
+const MenuBar = ({ children }) => {
+  const [mobileMenu, setMobileMenu] = useState(false);
 
-        <div className={`col-auto ${styles.menu}`}>
-          <ul>
-            <li>
-              <NavLink
-                exact
-                to='/'
-                className={isActive => (isActive ? styles.active : undefined)}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/shop/bed'
-                className={isActive => (isActive ? styles.active : undefined)}
-              >
-                Bed
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/shop/chair'
-                className={isActive => (isActive ? styles.active : undefined)}
-              >
-                Chair
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/shop/sofa'
-                className={isActive => (isActive ? styles.active : undefined)}
-              >
-                Sofa
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/shop/table'
-                className={isActive => (isActive ? styles.active : undefined)}
-              >
-                Table
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/shop/dining'
-                className={isActive => (isActive ? styles.active : undefined)}
-              >
-                Dining
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/blog'
-                className={isActive => (isActive ? styles.active : undefined)}
-              >
-                Blog
-              </NavLink>
-            </li>
-          </ul>
+  const action = () => {
+    setMobileMenu(!mobileMenu);
+  };
+
+  return (
+    <div className={styles.root}>
+      <div className='container'>
+        <div className={`row align-items-center ${styles.menuBar}`}>
+          <div className={`col ${styles.search}`}>
+            <ProductSearch />
+          </div>
+          <button onClick={action} className={styles.bars}>
+            <FontAwesomeIcon className={styles.icon} icon={faBars} />
+          </button>
+          <div className={`col-auto ${styles.menu}`}>
+            <ul className={mobileMenu ? styles.menu : styles.menuMobile}>
+              <li>
+                <NavLink
+                  exact
+                  to='/'
+                  className={isActive => (isActive ? styles.active : undefined)}
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/shop/bed'
+                  className={isActive => (isActive ? styles.active : undefined)}
+                >
+                  Bed
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/shop/chair'
+                  className={isActive => (isActive ? styles.active : undefined)}
+                >
+                  Chair
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/shop/sofa'
+                  className={isActive => (isActive ? styles.active : undefined)}
+                >
+                  Sofa
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/shop/table'
+                  className={isActive => (isActive ? styles.active : undefined)}
+                >
+                  Table
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/shop/dining'
+                  className={isActive => (isActive ? styles.active : undefined)}
+                >
+                  Dining
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/blog'
+                  className={isActive => (isActive ? styles.active : undefined)}
+                >
+                  Blog
+                </NavLink>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 MenuBar.propTypes = {
   children: PropTypes.node,

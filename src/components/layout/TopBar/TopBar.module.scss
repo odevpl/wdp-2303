@@ -40,3 +40,32 @@
     }
   }
 }
+
+ /* MEDIA QUERY */
+
+@media (max-width: 767px) {
+
+  .root {
+    .topOptions {
+      ul {
+        li {
+          margin-right: 10px;
+          a {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    .topMenu {
+      ul {
+        li {
+          margin-left: 10px;
+          a {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
