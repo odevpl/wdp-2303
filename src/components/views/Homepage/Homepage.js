@@ -10,6 +10,7 @@ import BlogBox from '../../features/BlogBox/BlogBox';
 import Gallery from '../../features/Gallery/Gallery';
 import Banner from '../../common/Banner/Banner';
 import Featured from '../../features/Featured/Featured';
+import Brands from '../../layout/Brands/Brands';
 
 const Homepage = () => (
   <div className={styles.root}>
@@ -18,6 +19,7 @@ const Homepage = () => (
     <FeatureBoxes />
     <NewFurniture />
     <BlogBox />
+    <Brands />
     <Feedback />
     <Gallery />
   </div>
