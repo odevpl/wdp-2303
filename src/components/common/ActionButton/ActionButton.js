@@ -20,9 +20,13 @@ import {
 
 const ActionButton = ({ id, favourite, compare, buttonType }) => {
   const dispatch = useDispatch();
+
   const handleFavouriteClick = e => {
     e.preventDefault();
     dispatch(toggleProductFavourite(id));
+    const favouriteProducts = JSON.parse(localStorage.getItem('favourites')) || {};
+    favouriteProducts[id] = !favourite;
+    localStorage.setItem('favourites', JSON.stringify(favouriteProducts));
   };
 
   const compareList = useSelector(state => getProductsToCompare(state));

@@ -12,6 +12,9 @@ export const getProductsToCompare = ({ products }) =>
   products.filter(item => item.compare === true);
 export const getHotDeals = ({ products }) => products.filter(item => item.oldPrice);
 
+export const getFavouriteProducts = ({ products }) =>
+  products.filter(item => item.favourite === true);
+
 /* actions */
 const createActionName = actionName => `app/products/${actionName}`;
 const TOGGLE_PRODUCT_FAVOURITE = createActionName('TOGGLE_PRODUCT_FAVOURITE');
