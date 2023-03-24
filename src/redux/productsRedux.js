@@ -1,9 +1,6 @@
-const ADD_MY_STARS = 'app/products/ADD_MY_STARS';
-
 /* selectors */
 export const getAll = ({ products }) => products;
 export const getCount = ({ products }) => products.length;
-export const addMyStars = payload => ({ type: ADD_MY_STARS, payload });
 
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
@@ -13,13 +10,13 @@ export const getFeaturedProducts = ({ products }) =>
 
 export const getProductsToCompare = ({ products }) =>
   products.filter(item => item.compare === true);
-export const getHotDeals = ({ products }) => 
-  products.filter(item => item.oldPrice);
+export const getHotDeals = ({ products }) => products.filter(item => item.oldPrice);
 
 /* actions */
 const createActionName = actionName => `app/products/${actionName}`;
 const TOGGLE_PRODUCT_FAVOURITE = createActionName('TOGGLE_PRODUCT_FAVOURITE');
 const TOGGLE_PRODUCT_COMPARE = createActionName('TOGGLE_PRODUCT_COMPARE');
+const ADD_MY_STARS = createActionName('ADD_MY_STARS');
 
 /* action creators */
 export const toggleProductFavourite = payload => ({
@@ -32,6 +29,11 @@ export const toggleProductCompare = payload => ({
   payload,
 });
 
+export const addMyStars = payload => ({
+  type: ADD_MY_STARS,
+  payload,
+});
+
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
@@ -39,9 +41,9 @@ export default function reducer(statePart = [], action = {}) {
       return statePart.map(product =>
         product.id === action.payload
           ? {
-            ...product,
-            favourite: !product.favourite,
-          }
+              ...product,
+              favourite: !product.favourite,
+            }
           : product
       );
     case TOGGLE_PRODUCT_COMPARE:
