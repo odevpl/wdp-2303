@@ -3,7 +3,7 @@
 .root {
   background-color: $header-bg;
 
-  :global(.container) > :global(.row) {
+  :global(.container)> :global(.row) {
     height: 145px;
   }
 
@@ -25,12 +25,29 @@
     }
   }
 
-  .logo {
-    text-align: center;
+  .phoneNumberSmall {
+    display: none;
+
+    p {
+      margin: 0;
+      line-height: 42px;
+      color: rgb(216, 216, 216);
+      font-weight: 500;
+      text-align: end;
+
+      .icon {
+        color: $primary;
+        vertical-align: middle;
+        margin-top: -3px;
+        margin-right: 0.8rem;
+      }
+    }
   }
 
   .cart {
-    text-align: right;
+    text-align: end;
+    padding-left: 0;
+    padding-right: 14px;
     .cartBox {
       display: inline-block;
       position: relative;
@@ -77,27 +94,66 @@
   }
 }
 
- /* MEDIA QUERY */
-
-@media (max-width: 767px) {
+@media screen and (max-width: 425px) {
 
   .root {
-    .phoneNumber{ 
+    .phoneNumber {
+      display: none;
+    }
+
+    .phoneNumberSmall {
+      display: block;
+
       p {
-      font-size: 12px;
-      .icon {
-        font-size: 25px;
-      }
+        font-size: 14px;
+
+        .icon {
+          font-size: 18px;
+        }
       }
     }
-    img {
-      height: 50px;
+
+    .logoImage {
+      width: 70%;
+      height: 70%;
     }
-    .cart {
-      .cartBox {
-        .cartIcon {
-          width: 40px;
-          height: 35px;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 575px) {
+
+  .root {
+    .phoneNumber {
+      display: none;
+    }
+
+    .phoneNumberSmall {
+      display: block;
+
+      p {
+        font-size: 17px;
+
+        .icon {
+          font-size: 32px;
+        }
+      }
+    }
+
+    .logoImage {
+      width: 80%;
+      height: 80%;
+    }
+  }
+}
+
+@media screen and (min-width: 575px) and (max-width: 768px) {
+  .root {
+    .phoneNumber {
+      p {
+        font-size: 14px;
+
+        .icon {
+          font-size: 32px;
         }
       }
     }

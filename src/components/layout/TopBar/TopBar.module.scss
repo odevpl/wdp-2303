@@ -2,8 +2,6 @@
 
 .root {
   background-color: $header-topbar-bg;
-  display: flex;
-  justify-content: space-between;
 
   ul {
     list-style: none;
@@ -26,16 +24,16 @@
     }
   }
 
+  .iconList {
+    text-align: end;
+  }
+
   .topOptions ul li {
     margin-right: 1.5rem;
 
     .icon {
       margin-left: 5px;
     }
-  }
-
-  .topMenu {
-    text-align: right;
   }
 
   .topMenu ul li {
@@ -47,31 +45,23 @@
   }
 }
 
- /* MEDIA QUERY */
+@media screen and (max-width: 575px) {
 
-@media (max-width: 767px) {
+  .iconLabel {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 455px) {
 
   .root {
-    .topOptions {
-      ul {
-        li {
-          margin-right: 10px;
-          a {
-            font-size: 10px;
-          }
-        }
-      }
+    .topOptions ul li {
+      margin-right: 11px;
     }
 
-    .topMenu {
-      ul {
-        li {
-          margin-left: 10px;
-          a {
-            font-size: 10px;
-          }
-        }
-      }
+    .topMenu ul li {
+      margin-left: 8px;
     }
   }
+
 }
