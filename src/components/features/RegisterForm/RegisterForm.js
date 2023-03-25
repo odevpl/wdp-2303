@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './RegisterForm.module.scss';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import Button from '../../common/Button/Button';
 import { Link } from 'react-router-dom';
 
@@ -15,14 +13,11 @@ const RegisterForm = () => {
     if (checkNewsletter && checkTermConditions) {
       setCheckAllConsents(true);
     }
-  }, [checkNewsletter, checkTermConditions]);
-
-  useEffect(() => {
     if (checkAllConsents) {
       setCheckTermConditions(true);
       setCheckNewsletter(true);
     }
-  }, [checkAllConsents]);
+  }, [checkAllConsents, checkNewsletter, checkTermConditions]);
 
   const handleTermConditions = () => {
     setCheckAllConsents(false);
@@ -117,7 +112,7 @@ const RegisterForm = () => {
               </div>
             </div>
             <div className='mt-5 text-center'>
-              <a href='#'>Already have an account? Sign in&gt;</a>
+              <Link to='/login'>Already have an account? Sign in&gt;</Link>
             </div>
           </form>
         </div>
