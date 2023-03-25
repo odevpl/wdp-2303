@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styles from './ProductBox.module.scss';
@@ -7,6 +7,8 @@ import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button/Button';
 import StarsReview from '../StarsReview/StarsReview';
 import ActionButton from '../ActionButton/ActionButton';
+import { useDispatch } from 'react-redux';
+import { toggleProductFavourite } from '../../../redux/productsRedux';
 
 const ProductBox = ({
   id,
@@ -20,8 +22,15 @@ const ProductBox = ({
   favourite,
   compare,
 }) => {
-
+  const dispatch = useDispatch();
   const productLink = '/product/' + id;
+
+  useEffect(() => {
+    const productData = JSON.parse(localStorage.getItem('favourites')) || {};
+    if (productData[id]) {
+      dispatch(toggleProductFavourite(id));
+    }
+  }, [dispatch, id]);
 
   return (
     <div className={styles.root}>
