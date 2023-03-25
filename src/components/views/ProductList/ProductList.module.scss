@@ -3,3 +3,25 @@
 .root {
   padding: $base-padding 0;
 }
+
+.banner {
+  width: 100%;
+  justify-content: center; //To remove when section is finished
+}
+
+.filtered {
+  width: 100%;
+  .productList {
+    text-align: center; //To remove when section is finished
+  }
+
+  .filters {
+    padding: 0;
+    text-align: center; //To remove when section is finished
+  }
+}
+
+.brands {
+  width: 100%;
+  justify-content: center; //To remove when section is finished
+}
