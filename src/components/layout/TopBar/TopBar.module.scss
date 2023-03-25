@@ -2,6 +2,8 @@
 
 .root {
   background-color: $header-topbar-bg;
+  display: flex;
+  justify-content: space-between;
 
   ul {
     list-style: none;
@@ -32,11 +34,44 @@
     }
   }
 
+  .topMenu {
+    text-align: right;
+  }
+
   .topMenu ul li {
     margin-left: 1.5rem;
 
     .icon {
       margin-right: 5px;
+    }
+  }
+}
+
+ /* MEDIA QUERY */
+
+@media (max-width: 767px) {
+
+  .root {
+    .topOptions {
+      ul {
+        li {
+          margin-right: 10px;
+          a {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    .topMenu {
+      ul {
+        li {
+          margin-left: 10px;
+          a {
+            font-size: 10px;
+          }
+        }
+      }
     }
   }
 }

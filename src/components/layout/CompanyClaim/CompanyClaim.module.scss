@@ -25,7 +25,12 @@
     }
   }
 
+  .logo {
+    text-align: center;
+  }
+
   .cart {
+    text-align: right;
     .cartBox {
       display: inline-block;
       position: relative;
@@ -66,6 +71,33 @@
       &:hover {
         .cartIcon {
           background-color: lighten($primary, 10%);
+        }
+      }
+    }
+  }
+}
+
+ /* MEDIA QUERY */
+
+@media (max-width: 767px) {
+
+  .root {
+    .phoneNumber{ 
+      p {
+      font-size: 12px;
+      .icon {
+        font-size: 25px;
+      }
+      }
+    }
+    img {
+      height: 50px;
+    }
+    .cart {
+      .cartBox {
+        .cartIcon {
+          width: 40px;
+          height: 35px;
         }
       }
     }
