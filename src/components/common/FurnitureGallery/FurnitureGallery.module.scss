@@ -181,22 +181,6 @@
     left: 2%;
     top: 30%;
 
-    .button {
-      margin: 5px;
-      position: relative;
-
-      .active {
-        color: $primary;
-      }
-    }
-
-    .active {
-      color: $primary;
-    }
-
-    .button:hover::after {
-      opacity: 1;
-    }
   }
 
   .slider {
@@ -243,26 +227,5 @@
         }
       }
     }
-  }
-
-  [data-tooltip]::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    top: 0;
-    right: -150%;
-    transform: translateX(50%);
-    padding: 5px;
-    background-color: #000;
-    color: #fff;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-  }
-
-  [data-tooltip]:hover::before {
-    opacity: 1;
-    visibility: visible;
   }
 }

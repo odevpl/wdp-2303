@@ -16,7 +16,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      favourite: true,
+      favourite: false,
       compare: false,
       featured: true,
       topSeller: false,
