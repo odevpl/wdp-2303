@@ -1,0 +1,15 @@
+@import "../../../styles/settings.scss";
+
+.blogCategoriesContainer {
+  margin-bottom: 40px;
+}
+
+.blogCategoriesTitle {
+  border-bottom: 1px solid $light-grey;
+  padding-bottom: 2px;
+}
+
+.blogCategory {
+  border-bottom: 1px solid $light-grey;
+  text-decoration: none;
+}

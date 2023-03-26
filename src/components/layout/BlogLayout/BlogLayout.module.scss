@@ -4,8 +4,16 @@
   padding-top: 20px;
 }
 
+.inputContainer {
+  margin-bottom: 30px;
+}
+
 
 .blogInfoContainer {
   border-top: solid 2px grey;
   border-bottom: solid 2px grey;
+}
+
+.meta {
+  border-bottom: 1px solid $light-grey;
 }
