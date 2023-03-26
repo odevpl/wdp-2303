@@ -77,7 +77,7 @@ const ActionButton = ({ id, favourite, compare, buttonType, dataTooltip }) => {
   return (
     <Button
       variant='outline'
-      className={clsx(styles.button, buttonProps.active)}
+      className={clsx(styles.button, buttonProps.active, 'm-1')}
       onClick={buttonProps.function}
       data-tooltip={dataTooltip}
     >
