@@ -1,0 +1,89 @@
+@import "../../../styles/settings.scss";
+.root {
+  h1,
+  h2,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+  .color {
+    color: $primary;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .height {
+    height: 400px;
+
+    .box {
+      position: relative;
+      display: flex;
+
+      .content {
+        position: absolute;
+        max-width: 50%;
+      }
+    }
+  }
+
+  .first {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+
+    .shadow {
+      position: absolute;
+      align-self: center;
+      width: 90%;
+      height: 90%;
+      background-color: rgba(0, 0, 0, 0.5);
+
+      .content {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+
+        .discount {
+          font-size: 2rem;
+          border: solid 4px;
+          text-align: center;
+          width: fit-content;
+          padding: 5px;
+        }
+      }
+    }
+  }
+
+  .second {
+    height: calc(50% - 15px);
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+    color: $light-black;
+  }
+
+  .third {
+    height: calc(50% - 15px);
+    align-items: center;
+    justify-content: end;
+    text-align: end;
+    color: $white;
+
+    .content {
+      right: 15px;
+
+      p {
+        letter-spacing: -0.5px;
+        font-size: 12px;
+      }
+    }
+  }
+}

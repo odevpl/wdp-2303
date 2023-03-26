@@ -7,6 +7,7 @@ import productsReducer from './productsRedux';
 import viewportModeReducer from './viewportModeRedux';
 import feedbacksReducer from './feedbacksRedux';
 import blogPostsReducer from './blogPostsRedux';
+import promotionReducer from './promotionRedux';
 import brandsReducer from './brandsRedux';
 
 // define reducers
@@ -17,6 +18,7 @@ const reducers = {
   viewportMode: viewportModeReducer,
   feedbacks: feedbacksReducer,
   blogPosts: blogPostsReducer,
+  promotions: promotionReducer,
   brands: brandsReducer,
 };
 
