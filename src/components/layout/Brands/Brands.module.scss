@@ -1,0 +1,78 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  :global(.container)> :global(.row) {
+    height: auto;
+  }
+
+  .carouselContainer {
+    padding: 10px 0;
+    border-bottom: 3px solid $dark-grey;
+    border-top: 3px solid $dark-grey;
+
+    .brandContainer {
+      display: flex;
+      justify-content: center;
+
+
+      .brandImage {
+        max-width: 180px;
+        border: solid 2px;
+      }
+    }
+
+    button {
+      background-color: $light-black;
+      border-radius: 0;
+      padding: 41px 0;
+      transform: translateX(-110%);
+    }
+
+
+    button:last-child {
+      border-radius: 0;
+      padding: 41px 0;
+      transform: translateX(110%);
+
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .root {
+    .carouselContainer {
+      .brandContainer {
+        .brandImage {
+          max-width: 170px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .root {
+    .carouselContainer {
+      .brandContainer {
+        .brandImage {
+          max-width: 150px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+
+  .root {
+    .carouselContainer {
+      .brandContainer {
+        .brandImage {
+          max-width: 70px;
+        }
+      }
+    }
+  }
+}

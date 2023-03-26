@@ -11,6 +11,7 @@ import Gallery from '../../features/Gallery/Gallery';
 import Banner from '../../common/Banner/Banner';
 import Featured from '../../features/Featured/Featured';
 import PromotionBox from '../../layout/PromotionBox/PromotionBox';
+import Brands from '../../layout/Brands/Brands';
 
 const Homepage = () => (
   <div className={styles.root}>
@@ -20,6 +21,7 @@ const Homepage = () => (
     <PromotionBox />
     <NewFurniture />
     <BlogBox />
+    <Brands />
     <Feedback />
     <Gallery />
   </div>
