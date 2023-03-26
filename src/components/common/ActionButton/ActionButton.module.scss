@@ -3,43 +3,27 @@
 // .root {
 // }
 
-.main {
-  background-color: #2a2a2a;
-  color: #ffffff;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 600;
-  padding: 10px 30px;
-
-  &:not(.noHover):hover {
-    color: #ffffff !important;
-    background-color: $primary;
-    text-decoration: none;
-  }
-}
-
-.small {
-  @extend .main;
-  font-size: 13px;
-  line-height: 24px;
-  padding: 5px 10px;
-  font-weight: 400;
-}
-
-.outline {
-  display: inline-block;
-  padding: 5px 10px;
-  border: 1px solid #2a2a2a;
-  color: #2a2a2a;
-  font-size: 13px;
-  line-height: 22px;
-
-  &:not(.noHover):hover {
-    background-color: #2a2a2a;
-    color: #ffffff;
-  }
-}
 
 .active {
   color: $primary;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 0;
+  right: -150%;
+  transform: translateX(50%);
+  padding: 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+  visibility: visible;
 }

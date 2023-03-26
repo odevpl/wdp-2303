@@ -4,31 +4,20 @@ import { getHotDeals } from '../../../redux/productsRedux';
 import styles from './Featured.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux';
-import { toggleProductFavourite } from '../../../redux/productsRedux';
 import clsx from 'clsx';
 import StarsReview from '../../common/StarsReview/StarsReview';
 
 import {
-  faHeart,
-  faExchangeAlt,
   faShoppingBasket,
-  faEye,
   faChevronRight,
   faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../../common/Button/Button';
+import ActionButton from '../../common/ActionButton/ActionButton';
 
 const Featured = () => {
   const hotDeals = useSelector(getHotDeals);
   const hotDeal = hotDeals[0];
-  const dispatch = useDispatch();
-
-  const handleClick = e => {
-    e.preventDefault();
-    dispatch(toggleProductFavourite(hotDeal.id));
-  };
 
   return (
     <div className={styles.root}>
@@ -128,32 +117,17 @@ const Featured = () => {
               <div className={styles.line}></div>
               <div className={styles.actions}>
                 <div className={styles.outlines}>
-                  <Button
-                    variant='outline'
-                    className={hotDeal.compare ? styles.active : null}
-                  >
-                    <FontAwesomeIcon icon={faEye} />
-                  </Button>
-                  <Button
-                    variant='outline'
-                    onClick={handleClick}
-                    className={clsx(
-                      styles.buttonActive,
-                      hotDeal.favourite ? styles.active : null
-                    )}
-                  >
-                    <FontAwesomeIcon icon={hotDeal.favourite ? faHeart : farHeart}>
-                      Favorite
-                    </FontAwesomeIcon>
-                  </Button>
-                  <Button
-                    variant='outline'
-                    className={hotDeal.compare ? styles.active : null}
-                  >
-                    <FontAwesomeIcon icon={faExchangeAlt}>
-                      Add to compare
-                    </FontAwesomeIcon>
-                  </Button>
+                  <ActionButton
+                    id={hotDeal.id}
+                    favourite={hotDeal.favourite}
+                    buttonType={'favourite'}
+                  />
+                  <ActionButton
+                    id={hotDeal.id}
+                    compare={hotDeal.compare}
+                    buttonType={'compare'}
+                  />
+                  <ActionButton id={hotDeal.id} buttonType={'quickView'} />
                 </div>
                 <div className={styles.prices}>
                   {hotDeal.oldPrice && (

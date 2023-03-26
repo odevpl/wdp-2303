@@ -18,7 +18,7 @@ import {
   toggleProductCompare,
 } from '../../../redux/productsRedux';
 
-const ActionButton = ({ id, favourite, compare, buttonType }) => {
+const ActionButton = ({ id, favourite, compare, buttonType, dataTooltip }) => {
   const dispatch = useDispatch();
 
   const handleFavouriteClick = e => {
@@ -81,8 +81,9 @@ const ActionButton = ({ id, favourite, compare, buttonType }) => {
   return (
     <Button
       variant='outline'
-      className={clsx(styles.button, buttonProps.active)}
+      className={clsx(styles.button, buttonProps.active, 'm-1')}
       onClick={buttonProps.function}
+      data-tooltip={dataTooltip}
     >
       <FontAwesomeIcon icon={buttonProps.icon}>{buttonProps.name}</FontAwesomeIcon>
     </Button>
@@ -96,4 +97,5 @@ ActionButton.propTypes = {
   favourite: PropTypes.bool,
   compare: PropTypes.bool,
   buttonType: PropTypes.string,
+  dataTooltip: PropTypes.string,
 };
