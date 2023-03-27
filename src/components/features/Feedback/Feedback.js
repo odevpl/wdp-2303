@@ -14,17 +14,16 @@ const Feedback = () => {
   };
 
   const leftAction = () => {
-    handlePageChange(activePage + 1);
-    console.log('left');
-    if (activePage >= 0) {
-      handlePageChange(activePage);
+    if (activePage > 0) {
+      let page = activePage - 1;
+      handlePageChange(page);
     }
   };
+
   const rightAction = () => {
-    handlePageChange(activePage - 1);
-    console.log('right');
-    if (activePage <= 0) {
-      handlePageChange(activePage);
+    let page = activePage + 1;
+    if (page < feedbacks.length) {
+      setTimeout(() => handlePageChange(page));
     }
   };
 
