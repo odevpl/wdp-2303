@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
+import ProductModal from '../ProductModal/ProductModal';
+
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
@@ -10,18 +13,19 @@ import ActionButton from '../ActionButton/ActionButton';
 import { useDispatch } from 'react-redux';
 import { toggleProductFavourite } from '../../../redux/productsRedux';
 
-const ProductBox = ({
-  id,
-  category,
-  name,
-  price,
-  promo,
-  stars,
-  myStars,
-  oldPrice,
-  favourite,
-  compare,
-}) => {
+const ProductBox = props => {
+  const {
+    id,
+    category,
+    name,
+    price,
+    promo,
+    stars,
+    myStars,
+    oldPrice,
+    favourite,
+    compare,
+  } = props;
   const dispatch = useDispatch();
   const productLink = '/product/' + id;
 
@@ -32,8 +36,16 @@ const ProductBox = ({
     }
   }, [dispatch, id]);
 
+  const [modal, setModal] = useState(false);
+
+  const openModal = e => {
+    e.preventDefault();
+    setModal(true);
+  };
+
   return (
     <div className={styles.root}>
+      {modal && <ProductModal closeModal={setModal} productData={props}></ProductModal>}
       <div className={styles.photo}>
         {promo && <div className={styles.sale}>{promo}</div>}
         <NavLink to={productLink}>
@@ -45,7 +57,9 @@ const ProductBox = ({
           </div>
         </NavLink>
         <div className={styles.buttons}>
-          <Button variant='small'>Quick View</Button>
+          <Button onClick={openModal} variant='small'>
+            Quick View
+          </Button>
           <Button variant='small'>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>

@@ -53,7 +53,6 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
       </li>
     );
   }
-
   return (
     <Swipeable leftAction={leftAction} rightAction={rightAction}>
       <div className={styles.root}>
