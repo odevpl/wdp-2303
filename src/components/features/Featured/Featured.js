@@ -85,6 +85,7 @@ const Featured = () => {
                 pause={false}
                 controls={false}
                 fade={true}
+                indicators={false}
               >
                 {hotDeals.map(hotDeal => (
                   <Carousel.Item key={hotDeal.name}>
