@@ -10,12 +10,19 @@ const Brands = () => {
 
   const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 991 },
-      items: 5,
+      breakpoint: { max: 3000, min: 1023 },
+      items: 6,
+      slidesToSlide: 6,
     },
     tablet: {
-      breakpoint: { max: 991, min: 0 },
+      breakpoint: { max: 1023, min: 425 },
+      items: 5,
+      slidesToSlide: 5,
+    },
+    mobile: {
+      breakpoint: { max: 425, min: 0 },
       items: 4,
+      slidesToSlide: 4,
     },
   };
 
