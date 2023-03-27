@@ -68,10 +68,7 @@ const FurnitureGallery = () => {
   };
 
   useEffect(() => handlePageChange(0), [viewportMode]);
-  useEffect(() => setActiveProduct(productsToDisplay[0]), [
-    activeHeadline,
-    productsToDisplay,
-  ]);
+  useEffect(() => setActiveProduct(productsToDisplay[0]), [activeHeadline]);
   return (
     <div className={styles.root}>
       <div className={styles.panelBar}>
