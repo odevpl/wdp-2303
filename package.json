@@ -72,6 +72,7 @@
     "react-tooltip": "^5.10.0",
     "redux": "^4.0.4",
     "sass": "^1.54.3",
+    "shortid": "^2.2.16",
     "yarn": "^1.22.19"
   },
   "devDependencies": {

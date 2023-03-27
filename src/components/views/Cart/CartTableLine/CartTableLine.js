@@ -4,7 +4,7 @@ import styles from './CartTableLine.module.scss';
 import PropTypes from 'prop-types';
 
 const CartTableLine = props => {
-  const total = props.price * props.amount;
+  const totalForProduct = props.price * props.amount;
 
   return (
     <div className={`row ${styles.nextRows}`}>
@@ -25,7 +25,9 @@ const CartTableLine = props => {
         ${props.price.toFixed(2)}
       </span>
       <span className='col-2 text-center'>- {props.amount} +</span>
-      <span className={`col-1 text-center ${styles.price}`}>${total.toFixed(2)}</span>
+      <span className={`col-1 text-center ${styles.price}`}>
+        ${totalForProduct.toFixed(2)}
+      </span>
     </div>
   );
 };
@@ -34,6 +36,8 @@ CartTableLine.propTypes = {
   productName: PropTypes.string,
   price: PropTypes.number,
   amount: PropTypes.number,
+  countSubTotal: PropTypes.func,
+  countTotal: PropTypes.func,
 };
 
 export default CartTableLine;
