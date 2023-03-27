@@ -7,7 +7,6 @@
     font-size: 20px;
   }
 
-
   .icon {
     &:hover {
       color: $primary;
@@ -41,23 +40,25 @@
       align-items: flex-end;
 
       .button {
-        display: none;
+        display: flex;
         justify-content: space-between;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 2;
+        opacity: 0;
       }
 
       &:hover {
         .button {
-          display: flex;
+          opacity: 1;
         }
       }
 
       .timer {
-        display: none;
+        display: flex;
+        opacity: 0;
         position: relative;
         z-index: 3;
         justify-content: center;
@@ -68,7 +69,7 @@
 
       &:hover {
         .timer {
-          display: flex;
+          opacity: 1;
         }
       }
 
