@@ -21,7 +21,6 @@ const initialState = {
       featured: true,
       topSeller: false,
       saleOff: false,
-      topRated: false,
       source: '/images/furniture/bed/aenean-ru-bristique-1.jpg',
     },
     {
@@ -38,7 +37,6 @@ const initialState = {
       featured: true,
       topSeller: false,
       saleOff: false,
-      topRated: false,
       source: '/images/furniture/bed/aenean-ru-bristique-2.jpg',
     },
     {
@@ -56,7 +54,6 @@ const initialState = {
       featured: true,
       topSeller: true,
       saleOff: false,
-      topRated: false,
       source: '/images/furniture/bed/aenean-ru-bristique-3.jpg',
     },
     {
@@ -72,7 +69,6 @@ const initialState = {
       featured: true,
       topSeller: true,
       saleOff: false,
-      topRated: false,
       source: '/images/furniture/bed/aenean-ru-bristique-4.jpg',
     },
     {
@@ -88,7 +84,6 @@ const initialState = {
       featured: false,
       topSeller: false,
       saleOff: true,
-      topRated: false,
       source: '/images/furniture/bed/aenean-ru-bristique-5.jpg',
     },
     {
@@ -104,7 +99,6 @@ const initialState = {
       featured: false,
       topSeller: false,
       saleOff: true,
-      topRated: false,
       source: '/images/furniture/bed/aenean-ru-bristique-6.jpg',
     },
     {
@@ -149,6 +143,9 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: false,
+      topSeller: false,
+      saleOff: false,
       source: '/images/furniture/bed/aenean-ru-bristique-9.jpg',
     },
     {
@@ -161,6 +158,9 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: false,
+      topSeller: false,
+      saleOff: false,
       source: '/images/furniture/bed/aenean-ru-bristique-10.jpg',
     },
     {
@@ -173,6 +173,9 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: false,
+      topSeller: false,
+      saleOff: false,
       source: '/images/furniture/bed/aenean-ru-bristique-11.jpg',
     },
     {
@@ -185,6 +188,9 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: false,
+      topSeller: false,
+      saleOff: false,
       source: '/images/furniture/bed/aenean-ru-bristique-12.jpg',
     },
     {
@@ -197,6 +203,9 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: false,
+      topSeller: false,
+      saleOff: true,
       source: '/images/furniture/chair/aenean-ru-bristique-13.jpg',
     },
     {
@@ -209,6 +218,9 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: false,
+      topSeller: true,
+      saleOff: false,
       source: '/images/furniture/chair/aenean-ru-bristique-14.jpg',
     },
     {
@@ -221,6 +233,9 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
+      featured: true,
+      topSeller: false,
+      saleOff: false,
       source: '/images/furniture/chair/aenean-ru-bristique-15.jpg',
     },
     {

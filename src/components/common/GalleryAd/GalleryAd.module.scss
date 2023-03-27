@@ -8,12 +8,6 @@
   height: 100%;
 
   .photo {
-    background: {
-      size: contain;
-      position: center;
-      repeat: no-repeat;
-    }
-
     overflow: hidden;
     height: 100%;
 
@@ -22,36 +16,39 @@
       height: 100%;
       object-fit: cover;
     }
-
   }
 
   .promoText {
     text-align: left;
     position: absolute;
     top: 0;
+    height: 100%;
+    width: 100%;
     background-color: rgba(232, 237, 247, 0.5);
-    padding: 30px;
-
-    text {
+    padding: 50px;
+    font-weight: 600;
+    .text {
       font-size: 18px;
       text-transform: uppercase;
+      padding: 0;
+      margin: 0;
     }
 
     .price {
       color: #79ae30;
-      font-size: 48px;
-      font-weight: 400;
+      font-size: 42px;
     }
 
     .title {
       color: $primary;
-      font-size: 48px;
-      font-weight: 400;
+      font-size: 42px;
+      margin-bottom: 30px;
     }
   }
 
   .button {
     background-color: #79ae30;
-    padding: 10px;
+    padding: 15px 36px;
+    text-transform: uppercase;
   }
 }

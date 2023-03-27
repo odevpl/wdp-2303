@@ -15,9 +15,8 @@ const GalleryAd = () => (
         From <span className={styles.price}>$100.00</span>
       </p>
       <p className={styles.title}>Dining Chair</p>
-      <Button variant='small' className={styles.button}>
-        {' '}
-        Shop Now !{' '}
+      <Button variant='main' className={styles.button}>
+        Shop Now
       </Button>
     </div>
   </div>

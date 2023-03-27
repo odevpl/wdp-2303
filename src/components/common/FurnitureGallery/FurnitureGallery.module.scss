@@ -2,13 +2,15 @@
 
 .root {
   position: relative;
-  // background-color: #e8edf7;
+  .galleryWrapper {
+    border: 1px solid #e2e2e2;
+  }
 
   .panelBar {
     margin-bottom: 30px;
     position: relative;
 
-    :global(.row)>* {
+    :global(.row) > * {
       border-bottom: 4px solid #e2e2e2;
     }
 
@@ -37,70 +39,36 @@
 
   .menu {
     text-align: center;
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-
-
-      li {
-        display: inline-block;
-        font-weight: 600;
-        border: 1px solid #e1e1e1;
-        width: 100%;
-        text-transform: uppercase;
-
-
-        a {
-          color: rgb(42, 42, 42);
-          position: relative;
-          text-decoration: none;
-          font-size: 18px;
-          display: block;
-          padding: 10px 0;
-
-          &.active,
-          &:hover {
-
-            background-color: #f4f5f7;
-            color: $primary ;
-
-            &::before {
-              content: "";
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              border-bottom: 4px solid $primary;
-              background-color: #e1e1e1;
-            }
-          }
-        }
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+    border-top: 2px solid #e1e1e1;
+    a {
+      color: rgb(42, 42, 42);
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 0;
+      display: block;
+      text-transform: uppercase;
+      box-shadow: 1px 0 0 #e1e1e1;
+      &.active,
+      &:hover {
+        background-color: #f4f5f7;
+        color: $primary;
+        box-shadow: 0 -2px 0 $primary;
       }
     }
   }
 
   .photo {
-    background: {
-      size: contain;
-      position: center;
-      repeat: no-repeat;
-    }
-
-    overflow: hidden;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
     img {
+      height: 100%;
+      width: 100%;
       object-fit: cover;
     }
-
   }
 
   .productInfo {
@@ -143,10 +111,10 @@
       width: 250px;
       position: absolute;
       top: 60%;
-      right: 0;
+      right: 2%;
       color: #fff;
       text-align: center;
-
+      box-shadow: 3px 3px 3px #7b7b7b;
       .content {
         position: relative;
         text-align: center;
@@ -169,57 +137,42 @@
             color: rgb(42, 42, 42);
           }
         }
-
       }
     }
   }
 
   .buttons {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    left: 2%;
-    top: 30%;
-
+    width: auto;
+    // left: 2%;
+    // top: 30%;
   }
 
   .slider {
-    width: 100%;
-
-    .thumbnailContainer {
+    .arrowButton {
       display: flex;
-      flex-wrap: no-wrap;
-      justify-content: space-between;
-      margin: 10px;
-
-      .arrowButton {
-        width: 33px;
-        height: auto;
-        background-color: #2a2a2a;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        cursor: pointer;
-        text-decoration: none;
-
-        &:hover {
-          color: $primary
-        }
+      height: 80px;
+      background-color: #2a2a2a;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      width: 30px;
+      &:hover {
+        color: $primary;
       }
-
     }
 
-
     .thumbnail {
-      width: 30%;
-      margin: 0 10px;
-
-
+      height: 80px;
+      width: 80px;
       img {
-        width: 120px;
-        height: 70px;
-        background-color: black;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
         opacity: 0.5;
 
         &.active {
