@@ -172,20 +172,36 @@
   /* Col-8 */
 
   .hotProduct {
-    height: 100%;
     position: relative;
+    height: 550px;
 
     .photoProduct {
       height: 100%;
-      width: 100%;
-      position: absolute;
+      position: relative;
       object-fit: cover;
       overflow: hidden;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      flex-direction: column;
 
-      .imageProduct {
-        object-fit: cover;
-        width: 100%;
-        height: 95%;
+      background: {
+        size: contain;
+        position: center;
+        repeat: no-repeat;
+      }
+
+      justify-content: space-between;
+      align-items: center;
+
+      .image {
+        height: 525px;
+
+        img {
+          object-fit: cover;
+          min-height: 525px;
+          min-width: 860px;
+        }
       }
 
       .heading {
@@ -224,18 +240,23 @@
         text-transform: uppercase;
       }
 
+
       .slider {
-        width: 100%;
-        margin: 0;
-      }
+        position: relative;
+        height: 25px;
 
-      .arrow {
-        background-color: $footer-bg;
-        border: none;
 
-        &:hover {
-          background-color: $primary;
+        .arrow {
+          background-color: $footer-bg;
+          border: none;
+
+
+
+          &:hover:enabled {
+            background-color: $primary;
+          }
         }
+
       }
     }
 

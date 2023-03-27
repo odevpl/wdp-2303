@@ -17,19 +17,29 @@ import Carousel from 'react-bootstrap/Carousel';
 
 const Featured = () => {
   const [slideInterval, setSlideInterval] = useState(3000);
-  const [index, setIndex] = useState(0);
+  const [hotDealIndex, setHotDealIndex] = useState(0);
+  const [hotProductIndex, setHotProductIndex] = useState(0);
   const hotDeals = useSelector(getHotDeals).slice(0, 3); // max 3 elementy ustawia obecnie
 
   const handleSelect = selectedIndex => {
-    setIndex(selectedIndex);
+    setHotDealIndex(selectedIndex);
   };
 
-  const onClickHandler = index => {
-    setIndex(index);
+  const onClickHandlerHotDeals = index => {
+    setHotDealIndex(index);
     setSlideInterval(7000);
     setTimeout(() => {
       setSlideInterval(3000);
     }, 7000);
+  };
+
+  const onClickHandlerHotProduct = type => {
+    if (type === 'prev') {
+      setHotProductIndex(hotProductIndex - 1);
+    }
+    if (type === 'next') {
+      setHotProductIndex(hotProductIndex + 1);
+    }
   };
 
   return (
@@ -53,10 +63,10 @@ const Featured = () => {
                     className={clsx(
                       styles.icon,
                       'me-1',
-                      index === i ? styles.active : null
+                      hotDealIndex === i ? styles.active : null
                     )}
                     icon={faCircle}
-                    onClick={() => onClickHandler(i)}
+                    onClick={() => onClickHandlerHotDeals(i)}
                   />
                 ))}
               </div>
@@ -64,10 +74,11 @@ const Featured = () => {
 
             <div className={styles.productBox}>
               <Carousel
-                activeIndex={index}
+                activeIndex={hotDealIndex}
                 onSelect={handleSelect}
                 interval={slideInterval}
                 pause={false}
+                controls={false}
               >
                 {hotDeals.map(hotDeal => (
                   <Carousel.Item key={hotDeal.name}>
@@ -78,7 +89,6 @@ const Featured = () => {
                           src={`${process.env.PUBLIC_URL}/images/furniture/${hotDeal.category}/${hotDeal.id}.jpg`}
                         />
                       </div>
-
                       <div className={styles.button}>
                         <Button variant='small'>
                           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>{' '}
@@ -167,24 +177,47 @@ const Featured = () => {
 
           <div className='col-8'>
             <div className={styles.hotProduct}>
-              <div className={styles.photoProduct}>
-                <img
-                  className={styles.imageProduct}
-                  alt={hotDeals[1].name}
-                  src={`${process.env.PUBLIC_URL}/images/furniture/${hotDeals[1].category}/${hotDeals[1].id}.jpg`}
-                ></img>
-                <div className={`${styles.heading} col-12`}>
-                  <div className={styles.text}>
-                    <h2>Indoor furniture</h2>
-                    <h3>Save up to 50% of all furnitures</h3>
-                  </div>
+              <div className={clsx(styles.photoProduct)}>
+                <div className={clsx(styles.carousel, 'col-12')}>
+                  <Carousel
+                    activeIndex={hotProductIndex}
+                    interval={null}
+                    pause={false}
+                    controls={false}
+                    indicators={false}
+                  >
+                    {hotDeals.map(hotDeal => (
+                      <Carousel.Item key={hotDeal.name} className={styles.carouselItem}>
+                        <div className={styles.image}>
+                          <img
+                            alt={hotDeal.name}
+                            src={`${process.env.PUBLIC_URL}/images/furniture/${hotDeal.category}/${hotDeal.id}.jpg`}
+                          />
+                        </div>
+                        <div className={`${styles.heading} col-12`}>
+                          <div className={styles.text}>
+                            <h2>Indoor furniture</h2>
+                            <h3>Save up to 50% of all furnitures</h3>
+                          </div>
+                        </div>
+                        <Button className={styles.shopNow}>Shop now</Button>
+                      </Carousel.Item>
+                    ))}
+                  </Carousel>
                 </div>
-                <Button className={styles.shopNow}>Shop now</Button>
-                <div className={`${styles.slider} row`}>
-                  <button className={`${styles.arrow} col-6 text-center p-0`}>
+                <div className={clsx(styles.slider, 'col-12')}>
+                  <button
+                    className={`${styles.arrow} col-6 text-center p-0`}
+                    onClick={() => onClickHandlerHotProduct('prev')}
+                    disabled={hotProductIndex === 0 ? true : null}
+                  >
                     <FontAwesomeIcon className='text-white' icon={faChevronLeft} />
                   </button>
-                  <button className={`${styles.arrow} col-6 text-center p-0`}>
+                  <button
+                    className={`${styles.arrow} col-6 text-center p-0`}
+                    onClick={() => onClickHandlerHotProduct('next')}
+                    disabled={hotProductIndex === hotDeals.length - 1 ? true : null}
+                  >
                     <FontAwesomeIcon className='text-white' icon={faChevronRight} />
                   </button>
                 </div>
