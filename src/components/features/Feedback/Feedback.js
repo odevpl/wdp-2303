@@ -13,9 +13,24 @@ const Feedback = () => {
     setActivePage(newPage);
   };
 
+  const leftAction = () => {
+    handlePageChange(activePage + 1);
+    console.log('left');
+    if (activePage >= 0) {
+      handlePageChange(activePage);
+    }
+  };
+  const rightAction = () => {
+    handlePageChange(activePage - 1);
+    console.log('right');
+    if (activePage <= 0) {
+      handlePageChange(activePage);
+    }
+  };
+
   return (
     <>
-      <Swipeable>
+      <Swipeable leftAction={leftAction} rightAction={rightAction}>
         <div className={styles.root}>
           <div className='container'>
             <div className={styles.panelBar}>
