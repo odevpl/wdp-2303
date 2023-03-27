@@ -6,8 +6,6 @@
   h4 {
     font-size: 20px;
   }
-<<<<<<< HEAD
-=======
 }
 
 .icon {
@@ -47,13 +45,11 @@
       z-index: 2;
       opacity: 0;
     }
->>>>>>> 3ef3c0d (fix duplicate code)
-
+  }
   .icon {
     &:hover {
       color: $primary;
     }
-
   }
 
   .active {
@@ -161,7 +157,6 @@
         line-height: 24px;
         letter-spacing: 1px;
       }
-
     }
 
     .line {
@@ -248,7 +243,7 @@
       }
 
       .heading {
-        background-color: rgba(0, 0, 0, .5);
+        background-color: rgba(0, 0, 0, 0.5);
         position: absolute;
         top: 25%;
 
@@ -257,7 +252,6 @@
           text-align: center;
           padding-block: 45px;
           text-transform: uppercase;
-
 
           h2 {
             font-size: 50px;
@@ -283,25 +277,19 @@
         text-transform: uppercase;
       }
 
-
       .slider {
         position: relative;
         height: 25px;
-
 
         .arrow {
           background-color: $footer-bg;
           border: none;
 
-
-
           &:hover:enabled {
             background-color: $primary;
           }
         }
-
       }
     }
-
   }
 }

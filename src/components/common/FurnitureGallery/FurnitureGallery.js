@@ -15,6 +15,8 @@ import { getViewportMode } from '../../../redux/viewportModeRedux';
 import { Link } from 'react-router-dom';
 
 const FurnitureGallery = () => {
+  const [activePage, setActivePage] = useState(0);
+  const viewportMode = useSelector(viewportMode => getViewportMode(viewportMode));
   const headlines = ['Featured', 'Top Seller', 'Sale Off', 'Top Rated'];
   const [fadeImage, setFadeImage] = useState(true);
   const [fadeSlider, setFadeSlider] = useState(true);
