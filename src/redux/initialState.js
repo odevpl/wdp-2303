@@ -701,6 +701,11 @@ const initialState = {
     { id: 3, source: '/images/brands/brand 3.png', brandName: 'brand 3' },
     { id: 4, source: '/images/brands/brand 4.png', brandName: 'brand 4' },
     { id: 5, source: '/images/brands/brand 5.png', brandName: 'brand 5' },
+    { id: 6, source: '/images/brands/brand 6.png', brandName: 'brand 6' },
+    { id: 7, source: '/images/brands/brand 7.png', brandName: 'brand 7' },
+    { id: 8, source: '/images/brands/brand 8.png', brandName: 'brand 8' },
+    { id: 9, source: '/images/brands/brand 9.png', brandName: 'brand 9' },
+    { id: 10, source: '/images/brands/brand 10.png', brandName: 'brand 10' },
   ],
   viewportMode: '',
   feedbacks: [
