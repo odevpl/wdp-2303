@@ -6,8 +6,8 @@ const GalleryAd = () => (
   <div className={styles.root}>
     <div className={styles.photo}>
       <img
-        alt='Aenean Ru Bristique 14'
-        src='/images/furniture/chair/aenean-ru-bristique-14.jpg'
+        alt='Aenean Ru Bristique 20'
+        src='/images/furniture/chair/aenean-ru-bristique-20.jpg'
       />
     </div>
     <div className={styles.promoText}>

@@ -1,20 +1,21 @@
 /* selectors */
 export const getAllProducts = ({ products }) => products;
 export const getCount = ({ products }) => products.length;
-
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
-
 export const getFeaturedProducts = ({ products }) =>
   products.filter(item => item.featured === true);
-
 export const getProductsToCompare = ({ products }) =>
   products.filter(item => item.compare === true);
 export const getHotDeals = ({ products }) => products.filter(item => item.oldPrice);
-
 export const getFavouriteProducts = ({ products }) =>
   products.filter(item => item.favourite === true);
-
+export const getSaleOffProducts = ({ products }) =>
+  products.filter(item => item.saleOff === true);
+export const getTopSellerProducts = ({ products }) =>
+  products.filter(item => item.topSeller === true);
+export const getTopRatedProducts = ({ products }) =>
+  products.slice(0, 15).sort((a, b) => b.stars - a.stars);
 /* actions */
 const createActionName = actionName => `app/products/${actionName}`;
 const TOGGLE_PRODUCT_FAVOURITE = createActionName('TOGGLE_PRODUCT_FAVOURITE');
