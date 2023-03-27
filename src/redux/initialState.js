@@ -728,39 +728,54 @@ const initialState = {
   ],
   blogPosts: [
     {
-      id: 0,
+      id: 1,
       date: '01 MAR 2023',
       title: 'Lorem ipsum',
       text:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-    },
-    {
-      id: 1,
-      date: '02 MAR 2023',
-      title: 'Lorem ipsum',
-      text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+      source: '/images/blog/1.jpg',
+      author: 'admin',
+      category: 'Just usual',
     },
     {
       id: 2,
-      date: '03 MAR 2023',
-      title: 'Lorem ipsum',
-      text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in.',
-    },
-    {
-      id: 3,
       date: '02 MAR 2023',
       title: 'Lorem ipsum',
       text:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+      source: '/images/blog/2.jpg',
+      author: 'admin',
+      category: 'Just usual',
     },
     {
-      id: 4,
+      id: 3,
       date: '03 MAR 2023',
       title: 'Lorem ipsum',
       text:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in.',
+      source: '/images/blog/3.jpg',
+      author: 'admin',
+      category: 'Just usual',
+    },
+    {
+      id: 4,
+      date: '02 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+      source: '/images/blog/4.jpg',
+      author: 'admin',
+      category: 'Just usual',
+    },
+    {
+      id: 5,
+      date: '03 MAR 2023',
+      title: 'Lorem ipsum',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ultrices dolor, quis commodo sem porttitor in.',
+      source: '/images/blog/5.jpg',
+      author: 'admin',
+      category: 'Just usual',
     },
   ],
   promotion: {

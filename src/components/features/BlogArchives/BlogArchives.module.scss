@@ -1,0 +1,15 @@
+@import "../../../styles/settings.scss";
+
+.blogArchivesContainer {
+  margin-bottom: 40px;
+}
+
+.blogArchivesTitle {
+  border-bottom: 1px solid $light-grey;
+  padding-bottom: 2px;
+}
+
+.blogArchive {
+  border-bottom: 1px solid $light-grey;
+  text-decoration: none;
+}

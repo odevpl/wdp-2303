@@ -1,0 +1,19 @@
+@import "../../../styles/settings.scss";
+
+.recentPostsContainer {
+  margin-bottom: 40px;
+}
+
+.recentPostsTitle {
+  border-bottom: 1px solid $light-grey;
+}
+
+.postList {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  padding-top: 5px;
+  border-bottom: 1px solid $light-grey;
+}
