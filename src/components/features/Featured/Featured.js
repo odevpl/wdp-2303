@@ -19,6 +19,7 @@ const Featured = () => {
   const [slideInterval, setSlideInterval] = useState(3000);
   const [hotDealIndex, setHotDealIndex] = useState(0);
   const [hotProductIndex, setHotProductIndex] = useState(0);
+  //const [fade, setFade] = useState(true)
   const hotDeals = useSelector(getHotDeals).slice(0, 3); // max 3 elementy ustawia obecnie
 
   const handleSelect = selectedIndex => {
@@ -35,10 +36,14 @@ const Featured = () => {
 
   const onClickHandlerHotProduct = type => {
     if (type === 'prev') {
-      setHotProductIndex(hotProductIndex - 1);
+      if (hotProductIndex === 0) {
+        setHotProductIndex(hotDeals.length - 1);
+      } else setHotProductIndex(hotProductIndex - 1);
     }
     if (type === 'next') {
-      setHotProductIndex(hotProductIndex + 1);
+      if (hotProductIndex === hotDeals.length - 1) {
+        setHotProductIndex(0);
+      } else setHotProductIndex(hotProductIndex + 1);
     }
   };
 
@@ -79,6 +84,7 @@ const Featured = () => {
                 interval={slideInterval}
                 pause={false}
                 controls={false}
+                fade={true}
               >
                 {hotDeals.map(hotDeal => (
                   <Carousel.Item key={hotDeal.name}>
@@ -185,6 +191,7 @@ const Featured = () => {
                     pause={false}
                     controls={false}
                     indicators={false}
+                    fade={true}
                   >
                     {hotDeals.map(hotDeal => (
                       <Carousel.Item key={hotDeal.name} className={styles.carouselItem}>
@@ -209,14 +216,12 @@ const Featured = () => {
                   <button
                     className={`${styles.arrow} col-6 text-center p-0`}
                     onClick={() => onClickHandlerHotProduct('prev')}
-                    disabled={hotProductIndex === 0 ? true : null}
                   >
                     <FontAwesomeIcon className='text-white' icon={faChevronLeft} />
                   </button>
                   <button
                     className={`${styles.arrow} col-6 text-center p-0`}
                     onClick={() => onClickHandlerHotProduct('next')}
-                    disabled={hotProductIndex === hotDeals.length - 1 ? true : null}
                   >
                     <FontAwesomeIcon className='text-white' icon={faChevronRight} />
                   </button>
