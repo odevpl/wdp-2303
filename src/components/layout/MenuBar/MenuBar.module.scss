@@ -5,7 +5,7 @@
   background-color: #ffffff;
 
   :global(.container) > :global(.row) {
-    height: 84px;
+    height: 100px;
   }
 
   .bars {
@@ -29,6 +29,8 @@
         list-style: none;
         display: flex;
         align-items: stretch;
+        padding-top: 0;
+        border-bottom: 0;
       }
     }
 
