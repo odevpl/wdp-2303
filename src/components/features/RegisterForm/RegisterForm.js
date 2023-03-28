@@ -2,8 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styles from './RegisterForm.module.scss';
 import Button from '../../common/Button/Button';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 const RegisterForm = () => {
+  const {
+    register,
+    handleSubmit: validate,
+    formState: { errors },
+  } = useForm();
   const [checkAllConsents, setCheckAllConsents] = useState(false);
   const [checkTermConditions, setCheckTermConditions] = useState(false);
   const [checkNewsletter, setCheckNewsletter] = useState(false);
