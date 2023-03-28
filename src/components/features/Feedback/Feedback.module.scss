@@ -2,16 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Carattere&display=swap");
 
 .root {
+  margin-top: 60px;
+
   .panelBar {
     position: relative;
-
-    :global(.row) > * {
-      border-bottom: 4px solid #e2e2e2;
-    }
 
     .heading {
       position: relative;
       width: 100%;
+      border-bottom: 4px solid #e2e2e2;
       h3 {
         color: $primary;
         text-transform: uppercase;
@@ -34,13 +33,15 @@
     .dots {
       position: absolute;
       right: 0;
+      top: 13px;
+      border: none;
 
       ul {
-        margin: 0;
-        padding: 0 0 0 1rem;
         list-style: none;
         background-color: #ffffff;
         transform: translateY(15px);
+        margin: 0;
+        padding: 0 0 0 1rem;
 
         li {
           display: inline-block;
@@ -63,9 +64,12 @@
       }
     }
   }
+  .photo {
+    display: flex;
+    justify-content: end;
+    
+  }
   .image {
-    position: absolute;
-    right: 0;
     width: 75px;
     height: 75px;
     img {
@@ -80,5 +84,9 @@
     font-size: 80px;
     font-weight: bold;
     font-family: "Carattere", normal;
+  }
+
+  .author {
+    text-align: left;
   }
 }
