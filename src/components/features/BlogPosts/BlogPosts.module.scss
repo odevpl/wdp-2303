@@ -1,39 +1,42 @@
 @import "../../../styles/settings.scss";
 
-.blogInfoContainer {
-  border-top: solid 2px grey;
-  border-bottom: solid 2px grey;
-  margin: 0 0 20px 0;
-}
 
-.postTitle {
-  font-weight: 400;
-}
+.blogPosts {
+  .blogInfoContainer {
+    border-top: solid 2px grey;
+    border-bottom: solid 2px grey;
+    margin: 0 0 20px 0;
+  }
 
-.imageContainer {
-  max-height: 400px;
-}
+  .postTitle {
+    font-weight: 400;
+  }
 
-.postImage {
-  width: -webkit-fill-available;
-  max-height: 400px;
-  object-fit: cover;
-}
+  .imageContainer {
+    max-height: 400px;
+  }
 
-.readMoreColumn {
-  text-align: end;
-}
+  .postImage {
+    width: -webkit-fill-available;
+    max-height: 400px;
+    object-fit: cover;
+  }
 
-a {
-  padding: 5px;
-  color: $text-color;
-  font-weight: 300;
-}
+  .readMoreColumn {
+    text-align: end;
+  }
 
-.icon {
-  padding-right: 5px;
-}
+  a {
+    padding: 5px;
+    color: $text-color;
+    font-weight: 300;
+  }
 
-.postText {
-  margin: 15px 0 40px 0;
+  .icon {
+    padding-right: 5px;
+  }
+
+  .postText {
+    margin: 15px 0 40px 0;
+  }
 }
