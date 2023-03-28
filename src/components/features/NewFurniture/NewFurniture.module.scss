@@ -6,7 +6,7 @@
     margin-bottom: 30px;
     position: relative;
 
-    :global(.row) > * {
+    :global(.row)>* {
       border-bottom: 4px solid #e2e2e2;
     }
 
@@ -34,10 +34,12 @@
 
     .menu {
       text-align: center;
+
       ul {
         margin: 0;
         padding: 0;
         list-style: none;
+
         li {
           display: inline-block;
           margin: 0 0.5rem;
@@ -55,7 +57,7 @@
               &::before {
                 content: "";
                 position: absolute;
-                bottom: -4px;
+                bottom: -3px;
                 left: 0;
                 width: 100%;
                 border-bottom: 4px solid $primary;
@@ -70,13 +72,14 @@
       position: absolute;
       right: 0;
       top: 0;
+      border: none;
 
       ul {
         margin: 0;
         padding: 0 0 0 1rem;
         list-style: none;
         background-color: #ffffff;
-        transform: translateY(15px);
+        transform: translateY(75%);
 
         li {
           display: inline-block;
@@ -99,6 +102,7 @@
       }
     }
   }
+
   .fadeIn {
     opacity: 1;
     transition: opacity 600ms;
@@ -115,6 +119,7 @@
     .panelBar {
       .dots {
         position: static;
+
         ul {
           transform: translateY(0);
           padding: 0;
