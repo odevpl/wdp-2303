@@ -10,7 +10,7 @@ const BlogPosts = () => {
   const posts = useSelector(state => getAllBlogPosts(state));
 
   return (
-    <div>
+    <div className={styles.blogPosts}>
       {posts.map(post => (
         <div key={post.id}>
           <h2 className={styles.postTitle}>Post {post.id}</h2>
