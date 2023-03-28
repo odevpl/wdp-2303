@@ -59,7 +59,6 @@ const FurnitureGallery = () => {
     }, 400);
   };
   const handleProductChange = product => {
-    console.log(product);
     setFadeImage(false);
     setActiveThumbnail(product);
     setTimeout(() => {
