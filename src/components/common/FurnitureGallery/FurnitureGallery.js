@@ -71,7 +71,7 @@ const FurnitureGallery = () => {
   useEffect(() => {
     setActiveProduct(productsToDisplay[0]);
     setActiveThumbnail(productsToDisplay[0]);
-  }, [activeHeadline, productsToDisplay]);
+  }, [activeHeadline]);
   return (
     <div className={styles.root}>
       <div className={styles.panelBar}>
