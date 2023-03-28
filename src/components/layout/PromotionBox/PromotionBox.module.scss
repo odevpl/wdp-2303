@@ -1,5 +1,7 @@
 @import "../../../styles/settings.scss";
+
 .root {
+
   h1,
   h2,
   h4,
@@ -8,6 +10,7 @@
   p {
     margin: 0;
   }
+
   .color {
     color: $primary;
   }
