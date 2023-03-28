@@ -9,7 +9,7 @@ const PromotionBox = () => {
   return (
     <div className={`container ${styles.root}`}>
       <div className='row'>
-        <div className={`col-md-6 mb-4 ${styles.height}`}>
+        <div className={`col-12 col-md-6 mb-4 ${styles.height}`}>
           <div className={`${styles.box} ${styles.first}`}>
             <div className={styles.shadow}>
               <div className={styles.content}>
@@ -25,8 +25,8 @@ const PromotionBox = () => {
             <img src={promo.firstImage} alt={promo.firstAltName}></img>
           </div>
         </div>
-        <div className={`col-md-6 mb-4 ${styles.height}`}>
-          <div className={`${styles.box} ${styles.second}`}>
+        <div className={`col-12 col-md-6 mb-4 ${styles.height}`}>
+          <div className={`col ${styles.box} ${styles.second}`}>
             <div className={styles.content}>
               <h5>
                 <strong>{promo.secondTitleStrong}</strong> {promo.secondTitle}
@@ -38,7 +38,7 @@ const PromotionBox = () => {
             </div>
             <img src={promo.secondImage} alt={promo.secondAltName}></img>
           </div>
-          <div className={`${styles.box} ${styles.third}`}>
+          <div className={`col ${styles.box} ${styles.third}`}>
             <div className={styles.content}>
               <h6>
                 <strong className={styles.color}>{promo.thirdTitleStrong}</strong>{' '}
