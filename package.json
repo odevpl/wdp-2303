@@ -61,6 +61,7 @@
     "react": "^16.9.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^16.9.0",
+    "react-hook-form": "7.19.5",
     "react-multi-carousel": "^2.8.2",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
