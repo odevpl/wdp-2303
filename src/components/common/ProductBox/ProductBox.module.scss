@@ -34,13 +34,14 @@
     .buttons {
       position: relative;
       z-index: 1;
-      display: none;
+      display: flex;
+      opacity: 0;
       justify-content: space-between;
     }
 
     &:hover {
       .buttons {
-        display: flex;
+        opacity: 1;
       }
     }
   }
