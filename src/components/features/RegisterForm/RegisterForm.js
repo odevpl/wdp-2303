@@ -42,88 +42,96 @@ const RegisterForm = () => {
   const handleShowPassword = checked => {
     checked ? setInputType('text') : setInputType('password');
   };
+  const [email, setEmail] = useState(' ');
+  const handleSubmit = () => {
+    console.log('submit');
+  };
 
   return (
-    <div className={styles.root}>
-      <div className='container'>
-        <div className='row justify-content-center my-5'>
-          <form className='col-12 col-md-8 col-lg-4'>
-            <h3 className='text-center'>Create an account</h3>
-            <input
-              type='email'
-              className='form-control my-3'
-              placeholder='Email*'
-            ></input>
-            <input
-              type={inputType}
-              className='form-control my-3'
-              placeholder='Password*'
-            ></input>
-            <input
-              type={inputType}
-              className='form-control my-3'
-              placeholder='Repeat password*'
-            ></input>
-            <div className='form-check form-switch my-3'>
+    <>
+      <div className={styles.root}>
+        <div className='container'>
+          <div className='row justify-content-center my-5'>
+            <form className='col-12 col-md-8 col-lg-4'>
+              <h3 className='text-center'>Create an account</h3>
               <input
-                className='form-check-input'
-                type='checkbox'
-                role='switch'
-                id='switchShowPassword'
-                onChange={e => handleShowPassword(e.target.checked)}
+                {...register('email', { required: true, pattern: /@/ })}
+                value={email}
+                type='email'
+                className='form-control my-3'
+                placeholder='Email*'
+                onChange={e => setEmail(e.target.value)}
               ></input>
-              <label className='form-check-label' htmlFor='switchShowPassword'>
-                Show password
-              </label>
-            </div>
-            <div className='form-check'>
+              {errors.email && <span>This field is required and must include @</span>}
               <input
-                className='form-check-input'
-                type='checkbox'
-                checked={checkAllConsents}
-                onChange={handleAllConsents}
+                type={inputType}
+                className='form-control my-3'
+                placeholder='Password*'
               ></input>
-              <label className='form-check-label'>Select all consents</label>
-            </div>
-            <div className='form-check'>
               <input
-                className='form-check-input'
-                type='checkbox'
-                checked={checkTermConditions}
-                onChange={handleTermConditions}
+                type={inputType}
+                className='form-control my-3'
+                placeholder='Repeat password*'
               ></input>
-              <label className='form-check-label'>
-                I accept the <a href='#'>Terms & Conditions</a>
-              </label>
-            </div>
-            <div className='form-check'>
-              <input
-                className='form-check-input'
-                type='checkbox'
-                checked={checkNewsletter}
-                onChange={handleNewsletter}
-              ></input>
-              <label className='form-check-label'>I want to receive newsletter</label>
-            </div>
-            <div className='row my-4 align-items-center'>
-              <div className='col text-start'>
-                <Link to='/'>&lt;Back</Link>
+              <div className='form-check form-switch my-3'>
+                <input
+                  className='form-check-input'
+                  type='checkbox'
+                  role='switch'
+                  id='switchShowPassword'
+                  onChange={e => handleShowPassword(e.target.checked)}
+                ></input>
+                <label className='form-check-label' htmlFor='switchShowPassword'>
+                  Show password
+                </label>
               </div>
-              <div className='col text-end'>
-                <Link to='/'>
-                  <Button variant='main' type='submit'>
+              <div className='form-check'>
+                <input
+                  className='form-check-input'
+                  type='checkbox'
+                  checked={checkAllConsents}
+                  onChange={handleAllConsents}
+                ></input>
+                <label className='form-check-label'>Select all consents</label>
+              </div>
+              <div className='form-check'>
+                <input
+                  className='form-check-input'
+                  type='checkbox'
+                  checked={checkTermConditions}
+                  onChange={handleTermConditions}
+                ></input>
+                <label className='form-check-label'>
+                  I accept the <a href='#'>Terms & Conditions</a>
+                </label>
+              </div>
+              <div className='form-check'>
+                <input
+                  className='form-check-input'
+                  type='checkbox'
+                  checked={checkNewsletter}
+                  onChange={handleNewsletter}
+                ></input>
+                <label className='form-check-label'>I want to receive newsletter</label>
+              </div>
+              <div className='row my-4 align-items-center'>
+                <div className='col text-start'>
+                  <Link to='/'>&lt;Back</Link>
+                </div>
+                <div className='col text-end'>
+                  <Button variant='main' type='submit' onClick={validate(handleSubmit)}>
                     Sign up
                   </Button>
-                </Link>
+                </div>
               </div>
-            </div>
-            <div className='mt-5 text-center'>
-              <Link to='/login'>Already have an account? Sign in&gt;</Link>
-            </div>
-          </form>
+              <div className='mt-5 text-center'>
+                <Link to='/login'>Already have an account? Sign in&gt;</Link>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default RegisterForm;
