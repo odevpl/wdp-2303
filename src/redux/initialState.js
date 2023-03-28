@@ -188,15 +188,7 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
-<<<<<<< HEAD
-<<<<<<< HEAD
       featured: true,
-=======
-      featured: false,
->>>>>>> 12e21fe (Fix styles for Gallery section components)
-=======
-      featured: true,
->>>>>>> 2bbec54 (Add new functions to FurnitureGallery component)
       topSeller: false,
       saleOff: false,
       source: '/images/furniture/bed/aenean-ru-bristique-12.jpg',
@@ -226,15 +218,7 @@ const initialState = {
       newFurniture: true,
       favourite: false,
       compare: false,
-<<<<<<< HEAD
-<<<<<<< HEAD
       featured: true,
-=======
-      featured: false,
->>>>>>> 12e21fe (Fix styles for Gallery section components)
-=======
-      featured: true,
->>>>>>> 2bbec54 (Add new functions to FurnitureGallery component)
       topSeller: true,
       saleOff: false,
       source: '/images/furniture/chair/aenean-ru-bristique-14.jpg',

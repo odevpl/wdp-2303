@@ -21,15 +21,6 @@ const FurnitureGallery = () => {
   const [activeHeadline, setActiveHeadline] = useState('Featured');
   const [activePage, setActivePage] = useState(0);
   const viewportMode = useSelector(viewportMode => getViewportMode(viewportMode));
-<<<<<<< HEAD
-  const headlines = ['Featured', 'Top Seller', 'Sale Off', 'Top Rated'];
-  const [fadeImage, setFadeImage] = useState(true);
-  const [fadeSlider, setFadeSlider] = useState(true);
-  const [activeHeadline, setActiveHeadline] = useState('Featured');
-  const [activePage, setActivePage] = useState(0);
-  const viewportMode = useSelector(viewportMode => getViewportMode(viewportMode));
-=======
->>>>>>> 2bbec54 (Add new functions to FurnitureGallery component)
   const productsToDisplay = useSelector(state => {
     switch (activeHeadline) {
       case 'Featured':
@@ -68,6 +59,7 @@ const FurnitureGallery = () => {
     }, 400);
   };
   const handleProductChange = product => {
+    console.log(product);
     setFadeImage(false);
     setActiveThumbnail(product);
     setTimeout(() => {
