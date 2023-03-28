@@ -14,12 +14,12 @@ import {
 import Button from '../../common/Button/Button';
 import ActionButton from '../../common/ActionButton/ActionButton';
 import Carousel from 'react-bootstrap/Carousel';
+import { NavLink } from 'react-router-dom';
 
 const Featured = () => {
   const [slideInterval, setSlideInterval] = useState(3000);
   const [hotDealIndex, setHotDealIndex] = useState(0);
   const [hotProductIndex, setHotProductIndex] = useState(0);
-  //const [fade, setFade] = useState(true)
   const hotDeals = useSelector(getHotDeals).slice(0, 3); // max 3 elementy ustawia obecnie
 
   const handleSelect = selectedIndex => {
@@ -90,12 +90,14 @@ const Featured = () => {
                 {hotDeals.map(hotDeal => (
                   <Carousel.Item key={hotDeal.name}>
                     <div className={styles.photo}>
-                      <div className={styles.image}>
-                        <img
-                          alt={hotDeal.name}
-                          src={`${process.env.PUBLIC_URL}/images/furniture/${hotDeal.category}/${hotDeal.id}.jpg`}
-                        />
-                      </div>
+                      <NavLink to={'product' + hotDeal.id}>
+                        <div className={styles.image}>
+                          <img
+                            alt={hotDeal.name}
+                            src={`${process.env.PUBLIC_URL}/images/furniture/${hotDeal.category}/${hotDeal.id}.jpg`}
+                          />
+                        </div>
+                      </NavLink>
                       <div className={styles.button}>
                         <Button variant='small'>
                           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>{' '}
@@ -144,7 +146,9 @@ const Featured = () => {
                       </div>
                     </div>
                     <div className={styles.content}>
-                      <h5>{hotDeal.name}</h5>
+                      <NavLink to={'product' + hotDeal.id}>
+                        <h5>{hotDeal.name}</h5>
+                      </NavLink>
                       <StarsReview
                         id={hotDeal.id}
                         stars={hotDeal.stars}
@@ -196,12 +200,14 @@ const Featured = () => {
                   >
                     {hotDeals.map(hotDeal => (
                       <Carousel.Item key={hotDeal.name} className={styles.carouselItem}>
-                        <div className={styles.image}>
-                          <img
-                            alt={hotDeal.name}
-                            src={`${process.env.PUBLIC_URL}/images/furniture/${hotDeal.category}/${hotDeal.id}.jpg`}
-                          />
-                        </div>
+                        <NavLink to={'product' + hotDeal.id}>
+                          <div className={styles.image}>
+                            <img
+                              alt={hotDeal.name}
+                              src={`${process.env.PUBLIC_URL}/images/furniture/${hotDeal.category}/${hotDeal.id}.jpg`}
+                            />
+                          </div>
+                        </NavLink>
                         <div className={`${styles.heading} col-12`}>
                           <div className={styles.text}>
                             <h2>Indoor furniture</h2>
