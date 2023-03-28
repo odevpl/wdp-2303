@@ -23,7 +23,7 @@ const Feedback = () => {
   const rightAction = () => {
     let page = activePage + 1;
     if (page < feedbacks.length) {
-      setTimeout(() => handlePageChange(page));
+      handlePageChange(page);
     }
   };
 
