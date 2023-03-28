@@ -54,8 +54,8 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
     );
   }
   return (
-    <Swipeable leftAction={leftAction} rightAction={rightAction}>
-      <div className={styles.root}>
+    <div className={styles.root}>
+      <Swipeable leftAction={leftAction} rightAction={rightAction}>
         <div className='container'>
           <div className={styles.panelBar}>
             <div className='row g-0 align-items-end'>
@@ -80,16 +80,6 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
                 <ul>{dots}</ul>
               </div>
             </div>
-            <div className='row'>
-              {categoryProducts
-                .slice(activePage * rows, (activePage + 1) * rows)
-                .map(item => (
-                  <div key={item.id} className='col-lg-3 col-md-6 col-12'>
-                    <ProductBox {...item} />
-                  </div>
-                ))}
-            </div>
-            <CompareBar />
           </div>
           <div className={`row + ${fade ? styles.fadeIn : styles.fadeOut}`}>
             {categoryProducts
@@ -101,9 +91,9 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
               ))}
           </div>
         </div>
-        <CompareBar />
-      </div>
-    </Swipeable>
+      </Swipeable>
+      <CompareBar />
+    </div>
   );
 };
 
