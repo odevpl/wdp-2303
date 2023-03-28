@@ -45,6 +45,7 @@ const FurnitureGallery = () => {
     }
   });
   const [activeProduct, setActiveProduct] = useState(productsToDisplay[0]);
+  const [activeThumbnail, setActiveThumbnail] = useState(productsToDisplay[0]);
   const handleHeadlineChange = headline => {
     setFadeImage(false);
     setFadeSlider(false);
@@ -66,9 +67,20 @@ const FurnitureGallery = () => {
       setActivePage(newPage);
     }, 400);
   };
+  const handleProductChange = product => {
+    setFadeImage(false);
+    setActiveThumbnail(product);
+    setTimeout(() => {
+      setFadeImage(true);
+      setActiveProduct(product);
+    }, 400);
+  };
 
   useEffect(() => handlePageChange(0), [viewportMode]);
-  useEffect(() => setActiveProduct(productsToDisplay[0]), [activeHeadline]);
+  useEffect(() => {
+    setActiveProduct(productsToDisplay[0]);
+    setActiveThumbnail(productsToDisplay[0]);
+  }, [activeHeadline, productsToDisplay]);
   return (
     <div className={styles.root}>
       <div className={styles.panelBar}>
@@ -158,12 +170,14 @@ const FurnitureGallery = () => {
                   <div
                     key={product.name}
                     className={'col-lg-2 col-md-4 col-3 px-1 ' + styles.thumbnail}
-                    onClick={() => setActiveProduct(product)}
+                    onClick={() => handleProductChange(product)}
                   >
                     <img
                       alt={product.name}
                       src={`${process.env.PUBLIC_URL}/images/furniture/${product.category}/${product.id}.jpg`}
-                      className={product.id === activeProduct.id ? styles.active : null}
+                      className={
+                        product.id === activeThumbnail.id ? styles.active : null
+                      }
                     />
                   </div>
                 ))}
