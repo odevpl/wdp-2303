@@ -6,54 +6,11 @@
   h4 {
     font-size: 20px;
   }
-<<<<<<< HEAD
-=======
-}
-
-.icon {
-  &:hover {
-    color: $primary;
-  }
-}
-
-.productBox {
-  background-color: #ffffff;
-  border-left: 1px solid #e1e1e1;
-  border-bottom: 1px solid #e1e1e1;
-  border-right: 1px solid #e1e1e1;
-
-  .photo {
-    position: relative;
-    padding: 80% 10px 0 10px;
-    z-index: 1;
-
-    background: {
-      color: #f4f5f7;
-      size: contain;
-      position: center;
-      repeat: no-repeat;
-    }
-
-    overflow: hidden;
-    align-items: flex-end;
-
-    .button {
-      display: flex;
-      justify-content: space-between;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      opacity: 0;
-    }
->>>>>>> 3ef3c0d (fix duplicate code)
 
   .icon {
     &:hover {
       color: $primary;
     }
-
   }
 
   .active {
@@ -161,7 +118,6 @@
         line-height: 24px;
         letter-spacing: 1px;
       }
-
     }
 
     .line {
@@ -248,7 +204,7 @@
       }
 
       .heading {
-        background-color: rgba(0, 0, 0, .5);
+        background-color: rgba(0, 0, 0, 0.5);
         position: absolute;
         top: 25%;
 
@@ -257,7 +213,6 @@
           text-align: center;
           padding-block: 45px;
           text-transform: uppercase;
-
 
           h2 {
             font-size: 50px;
@@ -283,25 +238,19 @@
         text-transform: uppercase;
       }
 
-
       .slider {
         position: relative;
         height: 25px;
-
 
         .arrow {
           background-color: $footer-bg;
           border: none;
 
-
-
           &:hover:enabled {
             background-color: $primary;
           }
         }
-
       }
     }
-
   }
 }

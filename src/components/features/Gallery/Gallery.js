@@ -7,10 +7,10 @@ const Gallery = () => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row'>
-        <div className='col-6'>
+        <div className='col-md-6 col-12 mt-3'>
           <FurnitureGallery />
         </div>
-        <div className='col-6'>
+        <div className='col-md-6 col-12 mt-3'>
           <GalleryAd />
         </div>
       </div>
