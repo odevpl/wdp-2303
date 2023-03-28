@@ -3,6 +3,7 @@ import styles from './RegisterForm.module.scss';
 import Button from '../../common/Button/Button';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 
 const RegisterForm = () => {
   const {
@@ -42,9 +43,12 @@ const RegisterForm = () => {
   const handleShowPassword = checked => {
     checked ? setInputType('text') : setInputType('password');
   };
-  const [email, setEmail] = useState(' ');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const history = useHistory();
   const handleSubmit = () => {
-    console.log('submit');
+    history.push('/');
   };
 
   return (
@@ -62,17 +66,36 @@ const RegisterForm = () => {
                 placeholder='Email*'
                 onChange={e => setEmail(e.target.value)}
               ></input>
-              {errors.email && <span>This field is required and must include @</span>}
+              {errors.email && <span>This field must include @</span>}
               <input
+                {...register('password', {
+                  required: true,
+                  minLength: 3,
+                })}
+                value={password}
                 type={inputType}
                 className='form-control my-3'
                 placeholder='Password*'
+                onChange={e => setPassword(e.target.value)}
               ></input>
+              {errors.password && <span>This field min. length is 3</span>}
               <input
+                {...register('repeatPassword', {
+                  required: true,
+                  minLength: 3,
+                  validate: value => value === password,
+                })}
+                value={repeatPassword}
                 type={inputType}
                 className='form-control my-3'
                 placeholder='Repeat password*'
+                onChange={e => setRepeatPassword(e.target.value)}
               ></input>
+              {errors.repeatPassword && (
+                <span>
+                  This field min. length is 3 and must be the same as password
+                </span>
+              )}
               <div className='form-check form-switch my-3'>
                 <input
                   className='form-check-input'
