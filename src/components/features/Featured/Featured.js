@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import StarsReview from '../../common/StarsReview/StarsReview';
+import { Swipeable } from 'react-swipeable';
 import {
   faShoppingBasket,
   faChevronRight,
@@ -71,7 +72,7 @@ const Featured = () => {
     <div className={styles.root}>
       <div className='container'>
         <div className='row'>
-          <div className='col-4'>
+          <div className='col-6 col-lg-4 d-none d-md-block'>
             <div
               className='col
             bg-dark
@@ -216,7 +217,7 @@ const Featured = () => {
             </div>
           </div>
 
-          <div className='col-8'>
+          <div className='col-md-6 col-lg-8 col-12"'>
             <div className={styles.hotProduct}>
               <div className={clsx(styles.photoProduct)}>
                 <Swipeable leftAction={leftAction} rightAction={rightAction}>
