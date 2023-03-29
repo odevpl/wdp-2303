@@ -71,7 +71,7 @@ const FurnitureGallery = () => {
   useEffect(() => {
     setActiveProduct(productsToDisplay[0]);
     setActiveThumbnail(productsToDisplay[0]);
-  }, [activeHeadline]);
+  }, [activeHeadline, productsToDisplay]);
   return (
     <div className={styles.root}>
       <div className={styles.panelBar}>
@@ -141,6 +141,9 @@ const FurnitureGallery = () => {
               id={activeProduct.id}
               buttonType={'addToCart'}
               dataTooltip='Add to cart'
+              name={activeProduct.name}
+              price={activeProduct.price}
+              source={activeProduct.source}
             />
           </div>
         </Link>
@@ -148,7 +151,7 @@ const FurnitureGallery = () => {
           <a
             className={'col-1 ' + styles.arrowButton}
             onClick={() =>
-              handlePageChange(activePage == 0 ? pagesCount - 1 : activePage - 1)
+              handlePageChange(activePage === 0 ? pagesCount - 1 : activePage - 1)
             }
           >
             &#60;

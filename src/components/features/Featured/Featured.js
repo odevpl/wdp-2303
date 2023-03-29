@@ -15,8 +15,11 @@ import Button from '../../common/Button/Button';
 import ActionButton from '../../common/ActionButton/ActionButton';
 import Carousel from 'react-bootstrap/Carousel';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../../redux/cartRedux';
 
 const Featured = () => {
+  const dispatch = useDispatch();
   const [slideInterval, setSlideInterval] = useState(3000);
   const [hotDealIndex, setHotDealIndex] = useState(0);
   const [hotProductIndex, setHotProductIndex] = useState(0);
@@ -45,6 +48,11 @@ const Featured = () => {
         setHotProductIndex(0);
       } else setHotProductIndex(hotProductIndex + 1);
     }
+  };
+
+  const handleAddToCartClick = (e, product) => {
+    e.preventDefault();
+    dispatch(addProduct(product));
   };
 
   return (
@@ -99,8 +107,18 @@ const Featured = () => {
                         </div>
                       </NavLink>
                       <div className={styles.button}>
-                        <Button variant='small'>
-                          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>{' '}
+                        <Button
+                          variant='small'
+                          onClick={e =>
+                            handleAddToCartClick(e, {
+                              id: hotDeal.id,
+                              name: hotDeal.name,
+                              price: hotDeal.price,
+                              source: hotDeal.source,
+                            })
+                          }
+                        >
+                          <FontAwesomeIcon icon={faShoppingBasket} />
                           ADD TO CART
                         </Button>
                       </div>
