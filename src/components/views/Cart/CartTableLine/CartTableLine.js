@@ -2,40 +2,52 @@ import React from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import styles from './CartTableLine.module.scss';
 import PropTypes from 'prop-types';
+import Button from '../../../common/Button/Button';
+import { useDispatch } from 'react-redux';
+import { removeProduct } from '../../../../redux/cartRedux';
 
-const CartTableLine = props => {
-  const totalForProduct = props.price * props.amount;
+const CartTableLine = ({ id, name, amount, price, source }) => {
+  const dispatch = useDispatch();
+  const totalForProduct = price * amount;
+
+  const handleClick = e => {
+    e.preventDefault(e);
+    dispatch(removeProduct(id));
+  };
 
   return (
     <div className={`row ${styles.nextRows}`}>
-      <span className='col-8 h-100'>
+      <div className='col-8 h-100'>
         <div className={`row w-100 ${styles.vertCenter}`}>
-          <span className={`col-1 text-center ${styles.vertCenter}`}>
+          <Button
+            className={`col-1 text-center ${styles.vertCenter}`}
+            onClick={handleClick}
+          >
             <AiOutlineCloseCircle className={styles.tableIcon} />
-          </span>
-          <span className={`col-1 text-center ${styles.vertCenter}`}>
-            <div className={styles.productImage}></div>
-          </span>
-          <span className={`col-10  ps-4 ${styles.vertCenter}`}>
-            {props.productName}
-          </span>
+          </Button>
+          <div className={`col-3 text-center ${styles.vertCenter}`}>
+            <div className={styles.productImage}>
+              <img alt={name} src={source} />
+            </div>
+          </div>
+          <div className={`col-8  ps-4 ${styles.vertCenter}`}>{name}</div>
         </div>
-      </span>
-      <span className={`col-1 text-center ${styles.price}`}>
-        ${props.price.toFixed(2)}
-      </span>
-      <span className='col-2 text-center'>- {props.amount} +</span>
-      <span className={`col-1 text-center ${styles.price}`}>
+      </div>
+      <div className={`col-1 text-center ${styles.price}`}>${price.toFixed(2)}</div>
+      <div className='col-2 text-center'>- {amount} +</div>
+      <div className={`col-1 text-center ${styles.price}`}>
         ${totalForProduct.toFixed(2)}
-      </span>
+      </div>
     </div>
   );
 };
 
 CartTableLine.propTypes = {
-  productName: PropTypes.string,
+  id: PropTypes.string,
+  name: PropTypes.string,
   price: PropTypes.number,
-  amount: PropTypes.number,
+  amount: PropTypes.string,
+  source: PropTypes.string,
   countSubTotal: PropTypes.func,
   countTotal: PropTypes.func,
 };

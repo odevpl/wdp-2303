@@ -12,8 +12,10 @@ import StarsReview from '../StarsReview/StarsReview';
 import ActionButton from '../ActionButton/ActionButton';
 import { useDispatch } from 'react-redux';
 import { toggleProductFavourite } from '../../../redux/productsRedux';
+import { addProduct } from '../../../redux/cartRedux';
 
 const ProductBox = props => {
+  const [modal, setModal] = useState(false);
   const {
     id,
     category,
@@ -25,6 +27,7 @@ const ProductBox = props => {
     oldPrice,
     favourite,
     compare,
+    source,
   } = props;
   const dispatch = useDispatch();
   const productLink = '/product/' + id;
@@ -36,11 +39,14 @@ const ProductBox = props => {
     }
   }, [dispatch, id]);
 
-  const [modal, setModal] = useState(false);
-
   const openModal = e => {
     e.preventDefault();
     setModal(true);
+  };
+
+  const handleAddToCartClick = e => {
+    e.preventDefault();
+    dispatch(addProduct({ id, name, price, source }));
   };
 
   return (
@@ -60,7 +66,7 @@ const ProductBox = props => {
           <Button onClick={openModal} variant='small'>
             Quick View
           </Button>
-          <Button variant='small'>
+          <Button variant='small' onClick={handleAddToCartClick}>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
         </div>
@@ -98,6 +104,7 @@ ProductBox.propTypes = {
   oldPrice: PropTypes.number,
   favourite: PropTypes.bool,
   compare: PropTypes.bool,
+  source: PropTypes.string,
 };
 
 export default ProductBox;
