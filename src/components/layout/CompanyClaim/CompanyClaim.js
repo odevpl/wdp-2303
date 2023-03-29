@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 import styles from './CompanyClaim.module.scss';
@@ -22,12 +23,12 @@ const CompanyClaim = () => (
           </a>
         </div>
         <div className={`col pl-0 text-right ${styles.cart}`}>
-          <a href='#' className={styles.cartBox}>
+          <Link to='/cart' className={styles.cartBox}>
             <div className={styles.cartIcon}>
               <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
             </div>
             <div className={styles.cartCounter}>0</div>
-          </a>
+          </Link>
           <div className={`col px-0 text-left ${styles.phoneNumberSmall}`}>
             <p>
               <FontAwesomeIcon className={styles.icon} icon={faMobileAlt} /> 2300 - 3560
