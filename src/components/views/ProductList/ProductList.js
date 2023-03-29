@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterBySize from '../../common/FilterBySize/FilterBySize';
 // import PropTypes from 'prop-types';
 import styles from './ProductList.module.scss';
 import Brands from '../../layout/Brands/Brands';
@@ -13,6 +14,7 @@ const ProductList = () => (
         <div className={`col-3 ${styles.filters}`}>
           These are filters
           <FilterByCategory></FilterByCategory>
+          <FilterBySize></FilterBySize>
         </div>
       </div>
       <div className={`row ${styles.brands}`}>This is Brands</div>
