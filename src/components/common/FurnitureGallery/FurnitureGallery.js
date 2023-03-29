@@ -13,6 +13,7 @@ import ActionButton from '../ActionButton/ActionButton';
 import { useEffect } from 'react';
 import { getViewportMode } from '../../../redux/viewportModeRedux';
 import { Link } from 'react-router-dom';
+import Swipeable from '../Swipeable/Swipeable';
 
 const FurnitureGallery = () => {
   const headlines = ['Featured', 'Top Seller', 'Sale Off', 'Top Rated'];
@@ -67,6 +68,13 @@ const FurnitureGallery = () => {
     }, 400);
   };
 
+  const leftAction = () => {
+    handlePageChange(activePage === 0 ? pagesCount - 1 : activePage - 1);
+  };
+  const rightAction = () => {
+    handlePageChange(activePage + 1 >= pagesCount ? 0 : activePage + 1);
+  };
+
   useEffect(() => handlePageChange(0), [viewportMode]);
   useEffect(() => {
     setActiveProduct(productsToDisplay[0]);
@@ -94,7 +102,6 @@ const FurnitureGallery = () => {
             </li>
           ))}
         </ul>
-
         <Link
           className={`row g-0 align-items-center ' + ${styles.photo} + ${
             fadeImage ? styles.fadeIn : styles.fadeOut
@@ -147,45 +154,49 @@ const FurnitureGallery = () => {
             />
           </div>
         </Link>
-        <div className={`row g-0 m-2 justify-content-between + ${styles.slider}`}>
-          <a
-            className={'col-1 ' + styles.arrowButton}
-            onClick={() =>
-              handlePageChange(activePage === 0 ? pagesCount - 1 : activePage - 1)
-            }
-          >
-            &#60;
-          </a>
-          <div className={`col mx-3 + ${fadeSlider ? styles.fadeIn : styles.fadeOut}`}>
-            <div className={'row'}>
-              {productsToDisplay
-                .slice(activePage * columns, (activePage + 1) * columns)
-                .map(product => (
-                  <div
-                    key={product.name}
-                    className={'col-lg-2 col-md-4 col-3 px-1 ' + styles.thumbnail}
-                    onClick={() => handleProductChange(product)}
-                  >
-                    <img
-                      alt={product.name}
-                      src={`${process.env.PUBLIC_URL}/images/furniture/${product.category}/${product.id}.jpg`}
-                      className={
-                        product.id === activeThumbnail.id ? styles.active : null
-                      }
-                    />
-                  </div>
-                ))}
+        <Swipeable leftAction={leftAction} rightAction={rightAction}>
+          <div className={`row g-0 m-2 justify-content-between + ${styles.slider}`}>
+            <a
+              className={'col-1 ' + styles.arrowButton}
+              onClick={() =>
+                handlePageChange(activePage === 0 ? pagesCount - 1 : activePage - 1)
+              }
+            >
+              &#60;
+            </a>
+            <div
+              className={`col mx-3 + ${fadeSlider ? styles.fadeIn : styles.fadeOut}`}
+            >
+              <div className={'row'}>
+                {productsToDisplay
+                  .slice(activePage * columns, (activePage + 1) * columns)
+                  .map(product => (
+                    <div
+                      key={product.name}
+                      className={'col-lg-2 col-md-4 col-3 px-1 ' + styles.thumbnail}
+                      onClick={() => handleProductChange(product)}
+                    >
+                      <img
+                        alt={product.name}
+                        src={`${process.env.PUBLIC_URL}/images/furniture/${product.category}/${product.id}.jpg`}
+                        className={
+                          product.id === activeThumbnail.id ? styles.active : null
+                        }
+                      />
+                    </div>
+                  ))}
+              </div>
             </div>
+            <a
+              className={'col-1 ' + styles.arrowButton}
+              onClick={() =>
+                handlePageChange(activePage + 1 >= pagesCount ? 0 : activePage + 1)
+              }
+            >
+              <span>&#62;</span>
+            </a>
           </div>
-          <a
-            className={'col-1 ' + styles.arrowButton}
-            onClick={() =>
-              handlePageChange(activePage + 1 >= pagesCount ? 0 : activePage + 1)
-            }
-          >
-            <span>&#62;</span>
-          </a>
-        </div>
+        </Swipeable>
       </div>
     </div>
   );
