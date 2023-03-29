@@ -4,12 +4,15 @@ import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import CompareBar from '../../common/CompareBar/CompareBar';
 import Swipeable from '../../common/Swipeable/Swipeable';
+import { useParams } from 'react-router';
 
 const NewFurniture = ({ categories, products, viewportMode }) => {
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState('bed');
   const [fade, setFade] = useState(true);
 
+  const pageAddress = useParams();
+  
   const handlePageChange = newPage => {
     setFade(false);
     setTimeout(() => {
@@ -40,8 +43,14 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
     if (page < dots.length) handlePageChange(page);
   };
 
-  const categoryProducts = products.filter(item => item.category === activeCategory);
-  const pagesCount = Math.ceil(categoryProducts.length / rows);
+  
+  let categoryProducts = products.filter(item => item.category === activeCategory);
+  let pagesCount = Math.ceil(categoryProducts.length / rows);
+
+  if (pageAddress.productId) {
+    categoryProducts = categoryProducts.filter((item, index) => index < 4 );
+    pagesCount = 0;
+  }
 
   const dots = [];
   for (let i = 0; i < pagesCount; i++) {
@@ -56,6 +65,7 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
       </li>
     );
   }
+
   return (
     <div className={styles.root}>
       <Swipeable leftAction={leftAction} rightAction={rightAction}>
