@@ -103,7 +103,8 @@ const FurnitureGallery = () => {
           ))}
         </ul>
         <Link
-          className={`row g-0 align-items-center ' + ${styles.photo} + ${fadeImage ? styles.fadeIn : styles.fadeOut}`}
+          className={`row g-0 align-items-center ' + ${styles.photo} + ${fadeImage ? styles.fadeIn : styles.fadeOut
+            }`}
           to={'/product/' + activeProduct.id}
         >
           <img alt={activeProduct.name} src={activeProduct.source} />
