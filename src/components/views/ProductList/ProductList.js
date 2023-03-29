@@ -1,6 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import styles from './ProductList.module.scss';
+import Brands from '../../layout/Brands/Brands';
 
 const ProductList = () => (
   <div className={styles.root}>
@@ -12,6 +13,7 @@ const ProductList = () => (
       </div>
       <div className={`row ${styles.brands}`}>This is Brands</div>
     </div>
+    <Brands />
   </div>
 );
 
