@@ -64,7 +64,7 @@ const Feedback = () => {
                     <p>{feedback.description}</p>
                   </div>
                   <div className='row mb-4'>
-                    <div className='col-6'>
+                    <div className={'col-6 ' + styles.photo}>
                       <div className={styles.image}>
                         <img
                           alt={feedback.author}
@@ -72,7 +72,7 @@ const Feedback = () => {
                         />
                       </div>
                     </div>
-                    <div className='col-6 text-nowrap text-left'>
+                    <div className={'col-6 text-nowrap ' + styles.author}>
                       <b className='p-0'>{feedback.author}</b>
                       <p className='p-0'>{feedback.status}</p>
                     </div>
