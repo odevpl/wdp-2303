@@ -1,46 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import Button from '../../common/Button/Button';
-import { Link } from 'react-router-dom';
 import styles from './Cart.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import CartTableLine from './CartTableLine/CartTableLine';
-import shortid from 'shortid';
+import { checkout, getAll } from '../../../redux/cartRedux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Cart = () => {
+  const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
+  const cartProducts = useSelector(getAll);
 
-  const cartData = [
-    {
-      productName: 'Placeholder Product 7',
-      amount: 1,
-      price: 5,
-    },
-    {
-      productName: 'Placeholder Product 4',
-      amount: 1,
-      price: 67,
-    },
-    {
-      productName: 'Placeholder Product 8 - Black, Amber 65',
-      amount: 1,
-      price: 20,
-    },
-  ];
+  const handleClick = e => {
+    e.preventDefault();
+    dispatch(checkout());
+  };
 
   useEffect(() => {
     let temporaryTotal = 0;
     let temporarySubTotal = 0;
-    cartData.map(
+    cartProducts.map(
       singleItem => (temporaryTotal += singleItem.price * singleItem.amount)
     );
-    cartData.map(
+    cartProducts.map(
       singleItem => (temporarySubTotal += singleItem.price * singleItem.amount)
     );
     setTotal(temporaryTotal);
     setSubTotal(temporarySubTotal);
-  }, [cartData]);
+  }, [cartProducts]);
 
   return (
     <div className={styles.root}>
@@ -68,12 +57,14 @@ const Cart = () => {
             <span className='col-2'>QUANTITY</span>
             <span className='col-1'>TOTAL</span>
           </div>
-          {cartData.map(singleCartItem => (
+          {cartProducts.map(singleCartItem => (
             <CartTableLine
-              key={shortid()}
-              productName={singleCartItem.productName}
-              amount={singleCartItem.amount}
+              key={singleCartItem.id}
+              id={singleCartItem.id}
+              amount='1'
+              name={singleCartItem.name}
               price={singleCartItem.price}
+              source={singleCartItem.source}
             ></CartTableLine>
           ))}
           <div className={`row ${styles.lastRow}`}>
@@ -117,11 +108,14 @@ const Cart = () => {
             </div>
             <div className={`row ${styles.cartTotalsBottom}`}>
               <div className='col-12'>
-                <Link to='/' className={styles.proceedButton}>
-                  <Button variant='main' type='submit' className={styles.proceedButton}>
-                    PROCEED TO CHECKOUT
-                  </Button>
-                </Link>
+                <Button
+                  variant='main'
+                  type='submit'
+                  className={styles.proceedButton}
+                  onClick={handleClick}
+                >
+                  PROCEED TO CHECKOUT
+                </Button>
               </div>
             </div>
           </div>

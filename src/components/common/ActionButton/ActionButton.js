@@ -17,8 +17,18 @@ import {
   getProductsToCompare,
   toggleProductCompare,
 } from '../../../redux/productsRedux';
+import { addProduct } from '../../../redux/cartRedux';
 
-const ActionButton = ({ id, favourite, compare, buttonType, dataTooltip }) => {
+const ActionButton = ({
+  id,
+  favourite,
+  compare,
+  buttonType,
+  dataTooltip,
+  name,
+  source,
+  price,
+}) => {
   const dispatch = useDispatch();
 
   const handleFavouriteClick = e => {
@@ -45,6 +55,7 @@ const ActionButton = ({ id, favourite, compare, buttonType, dataTooltip }) => {
 
   const handleAddToCartClick = e => {
     e.preventDefault();
+    dispatch(addProduct({ id, name, source, price }));
   };
 
   const getButtonProps = buttonType => {
@@ -98,4 +109,7 @@ ActionButton.propTypes = {
   compare: PropTypes.bool,
   buttonType: PropTypes.string,
   dataTooltip: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  source: PropTypes.string,
 };
