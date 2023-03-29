@@ -1,0 +1,41 @@
+@import "../../../../styles/settings.scss";
+
+.nextRows {
+  height: 55px;
+  font-size: 11px;
+  align-items: center;
+  border: 1px solid $chat-textarea-bakground;
+  border-bottom: none;
+}
+
+.productImage {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: $chat-textarea-bakground;
+  align-items: center;
+  min-width: 40px;
+}
+
+.tableIcon {
+  width: 100%;
+  font-size: 28px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  align-items: center;
+  min-width: 40px;
+}
+
+.vertCenter {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.price {
+  color:rgb(79, 183, 79);
+}
+
+.minWidth {
+  min-width: 80px;
+}
