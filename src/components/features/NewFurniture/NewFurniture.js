@@ -28,13 +28,16 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
 
   const rows = viewportMode === 'mobile' ? 1 : viewportMode === 'tablet' ? 2 : 8;
   useEffect(() => handlePageChange(0), [viewportMode]);
-  const leftAction = e => {
-    e.preventDefault();
-    console.log('left Action');
+
+  const leftAction = () => {
+    if (activePage > 0) {
+      let page = activePage - 1;
+      handlePageChange(page);
+    }
   };
-  const rightAction = e => {
-    e.preventDefault();
-    console.log('right Action');
+  const rightAction = () => {
+    let page = activePage + 1;
+    if (page < dots.length) handlePageChange(page);
   };
 
   const categoryProducts = products.filter(item => item.category === activeCategory);
