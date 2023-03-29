@@ -26,10 +26,12 @@ const CompareBar = () => {
           {compare.map(item => (
             <div key={item.name} className='col-1'>
               <div className={styles.comparedItem} onClick={() => handleClick(item.id)}>
+                <div className={styles.name}>{item.name}</div>
                 <img
                   alt={item.name}
                   src={`${process.env.PUBLIC_URL}/images/furniture/${item.category}/${item.id}.jpg`}
                 />
+                <div className={styles.price}>{item.price}$</div>
                 <FontAwesomeIcon className={styles.closeIcon} icon={faWindowClose}>
                   Add to compare
                 </FontAwesomeIcon>
