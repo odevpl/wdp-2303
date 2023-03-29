@@ -16,6 +16,7 @@ export const getTopSellerProducts = ({ products }) =>
   products.filter(item => item.topSeller === true);
 export const getTopRatedProducts = ({ products }) =>
   products.slice(0, 15).sort((a, b) => b.stars - a.stars);
+
 /* actions */
 const createActionName = actionName => `app/products/${actionName}`;
 const TOGGLE_PRODUCT_FAVOURITE = createActionName('TOGGLE_PRODUCT_FAVOURITE');
@@ -45,9 +46,9 @@ export default function reducer(statePart = [], action = {}) {
       return statePart.map(product =>
         product.id === action.payload
           ? {
-              ...product,
-              favourite: !product.favourite,
-            }
+            ...product,
+            favourite: !product.favourite,
+          }
           : product
       );
     case TOGGLE_PRODUCT_COMPARE:
