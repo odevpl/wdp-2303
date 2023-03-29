@@ -79,7 +79,7 @@ const FurnitureGallery = () => {
   useEffect(() => {
     setActiveProduct(productsToDisplay[0]);
     setActiveThumbnail(productsToDisplay[0]);
-  }, [activeHeadline, productsToDisplay]);
+  }, [activeHeadline]);
   return (
     <div className={styles.root}>
       <div className={styles.panelBar}>
@@ -103,9 +103,7 @@ const FurnitureGallery = () => {
           ))}
         </ul>
         <Link
-          className={`row g-0 align-items-center ' + ${styles.photo} + ${
-            fadeImage ? styles.fadeIn : styles.fadeOut
-          }`}
+          className={`row g-0 align-items-center ' + ${styles.photo} + ${fadeImage ? styles.fadeIn : styles.fadeOut}`}
           to={'/product/' + activeProduct.id}
         >
           <img alt={activeProduct.name} src={activeProduct.source} />
@@ -148,6 +146,9 @@ const FurnitureGallery = () => {
               id={activeProduct.id}
               buttonType={'addToCart'}
               dataTooltip='Add to cart'
+              name={activeProduct.name}
+              price={activeProduct.price}
+              source={activeProduct.source}
             />
           </div>
         </Link>

@@ -1,20 +1,24 @@
 @import "../../../../styles/settings.scss";
 
+
 .nextRows {
-  height: 55px;
   font-size: 11px;
   align-items: center;
   border: 1px solid $chat-textarea-bakground;
   border-bottom: none;
+  padding: 8px;
 }
 
 .productImage {
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  background-color: $chat-textarea-bakground;
-  align-items: center;
-  min-width: 40px;
+  height: 80px;
+  min-width: 80px;
+  cursor: pointer;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .tableIcon {
@@ -33,9 +37,5 @@
 }
 
 .price {
-  color:rgb(79, 183, 79);
-}
-
-.minWidth {
-  min-width: 80px;
+  color: rgb(79, 183, 79);
 }
