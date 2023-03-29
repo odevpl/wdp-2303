@@ -79,7 +79,7 @@ const FurnitureGallery = () => {
   useEffect(() => {
     setActiveProduct(productsToDisplay[0]);
     setActiveThumbnail(productsToDisplay[0]);
-  }, [activeHeadline]);
+  }, [activeHeadline, productsToDisplay]);
   return (
     <div className={styles.root}>
       <div className={styles.panelBar}>
@@ -185,6 +185,7 @@ const FurnitureGallery = () => {
                     </div>
                   ))}
               </div>
+
             </div>
             <a
               className={'col-1 ' + styles.arrowButton}
