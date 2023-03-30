@@ -27,6 +27,7 @@
     background-color: rgba(232, 237, 247, 0.5);
     padding: 50px;
     font-weight: 600;
+
     .text {
       font-size: 18px;
       text-transform: uppercase;
@@ -50,5 +51,11 @@
     background-color: #79ae30;
     padding: 15px 36px;
     text-transform: uppercase;
+  }
+}
+
+@media (max-width: 767px) {
+  .root {
+    display: none;
   }
 }

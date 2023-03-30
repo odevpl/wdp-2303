@@ -1,0 +1,97 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  .container {
+    border: 1px solid $chat-textarea-bakground;
+    margin-bottom: 20px;
+  }
+
+  .menu {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    .menuText {
+      border-inline: 1px solid $chat-textarea-bakground;
+      border-bottom: 1px solid $chat-textarea-bakground;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+        border-bottom: none;
+      }
+      p {
+        margin: 0;
+        padding: 11px;
+      }
+    }
+    
+    .active {
+      color: $primary;
+      border-bottom: none;
+    }
+  }
+
+  .review {
+    padding-inline: 30px;
+    padding-bottom: 60px;
+    .opinion {
+      font-size: 13px;
+      margin-block: 30px;
+    }
+    h3 {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .reviewBox {
+    p {
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+    .ratingBox {
+      padding-inline: 0;
+      margin-bottom: 15px;
+    }
+    .rate {
+      width: 6%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+      p {
+        margin-bottom: 0;
+      }
+    }
+    .rateStars {
+      width: 13%;
+    }
+    .form {
+      width: 100%;
+      margin: 0;
+      p {
+        padding: 0;
+      }
+      .textarea {
+        resize: none;
+      }
+      .input {
+        padding-right: 15px;
+        padding-left: 0;
+        input {
+          width: 100%;
+          padding: 7px;
+        }
+      }
+      .button {
+        text-transform: uppercase;
+        background-color: $form-border-color;
+        color: #ffffff;
+        font-size: 14px;
+      }
+    }
+  }
+}
