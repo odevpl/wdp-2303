@@ -8,7 +8,6 @@ import ProductReview from '../../features/ProductReview/ProductReview';
 const ProductPage = () => {
   return (
     <div className={styles.root}>
-      <Banner />
       <NewFurniture />
       <ProductReview />
     </div>
