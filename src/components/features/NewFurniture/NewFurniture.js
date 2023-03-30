@@ -7,7 +7,13 @@ import Swipeable from '../../common/Swipeable/Swipeable';
 import { useParams } from 'react-router';
 import { useLocation } from 'react-router';
 
-const NewFurniture = ({ categories, products, viewportMode, searchedText }) => {
+const NewFurniture = ({ 
+  categories, 
+  products, 
+  viewportMode, 
+  searchedText, 
+  productsOnDesktop, 
+}) => {
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState('bed');
   const [fade, setFade] = useState(true);
@@ -31,7 +37,7 @@ const NewFurniture = ({ categories, products, viewportMode, searchedText }) => {
     }, 600);
   };
 
-  const rows = viewportMode === 'mobile' ? 1 : viewportMode === 'tablet' ? 2 : 8;
+  const productsToDisplay = viewportMode === 'mobile' ? 1 : viewportMode === 'tablet' ? 2 : productsOnDesktop;
   useEffect(() => handlePageChange(0), [viewportMode]);
 
   const leftAction = () => {
@@ -47,11 +53,11 @@ const NewFurniture = ({ categories, products, viewportMode, searchedText }) => {
 
   
   let productsToRender = products.filter(item => item.category === activeCategory);
-  let pagesCount = Math.ceil(productsToRender.length / rows);
+  let pagesCount = Math.ceil(productsToRender.length / productsToDisplay);
 
   if (searchedText) {
     productsToRender = products.filter(product => product.name.includes(searchedText));
-    pagesCount = Math.ceil(productsToRender.length / rows);
+    pagesCount = Math.ceil(productsToRender.length / productsToDisplay);
   }
   else if (pageAddress.productId) {
     productsToRender = productsToRender.filter((item, index) => index < 4 );
@@ -102,7 +108,7 @@ const NewFurniture = ({ categories, products, viewportMode, searchedText }) => {
           </div>
           <div className={`row + ${fade ? styles.fadeIn : styles.fadeOut}`}>
             {productsToRender.length > 0 && productsToRender
-              .slice(activePage * rows, (activePage + 1) * rows)
+              .slice(activePage * productsToDisplay, (activePage + 1) * productsToDisplay)
               .map(item => (
                 <div key={item.id} className='col-lg-3 col-md-6 col-12'>
                   <ProductBox {...item} />
@@ -140,6 +146,7 @@ NewFurniture.propTypes = {
   ),
   viewportMode: PropTypes.string,
   searchedText: PropTypes.string,
+  productsOnDesktop: PropTypes.number,
 };
 
 NewFurniture.defaultProps = {

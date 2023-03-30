@@ -13,7 +13,7 @@ const Search = () => {
 
   return (
     <div className={styles.root}>
-      <NewFurniture categories={categories} products={products} searchedText={searchedText} />
+      <NewFurniture categories={categories} products={products} searchedText={searchedText} productsOnDesktop={8} />
     </div>
   );
 };
