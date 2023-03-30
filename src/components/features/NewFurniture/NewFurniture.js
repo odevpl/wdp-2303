@@ -5,14 +5,16 @@ import ProductBox from '../../common/ProductBox/ProductBox';
 import CompareBar from '../../common/CompareBar/CompareBar';
 import Swipeable from '../../common/Swipeable/Swipeable';
 import { useParams } from 'react-router';
+import { useLocation } from 'react-router';
 
-const NewFurniture = ({ categories, products, viewportMode }) => {
+const NewFurniture = ({ categories, products, viewportMode, searchedText }) => {
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState('bed');
   const [fade, setFade] = useState(true);
 
   const pageAddress = useParams();
-  
+  const location = useLocation();
+
   const handlePageChange = newPage => {
     setFade(false);
     setTimeout(() => {
@@ -44,11 +46,15 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
   };
 
   
-  let categoryProducts = products.filter(item => item.category === activeCategory);
-  let pagesCount = Math.ceil(categoryProducts.length / rows);
+  let productsToRender = products.filter(item => item.category === activeCategory);
+  let pagesCount = Math.ceil(productsToRender.length / rows);
 
-  if (pageAddress.productId) {
-    categoryProducts = categoryProducts.filter((item, index) => index < 4 );
+  if (searchedText) {
+    productsToRender = products.filter(product => product.name.includes(searchedText));
+    pagesCount = Math.ceil(productsToRender.length / rows);
+  }
+  else if (pageAddress.productId) {
+    productsToRender = productsToRender.filter((item, index) => index < 4 );
     pagesCount = 0;
   }
 
@@ -77,7 +83,7 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
               </div>
               <div className={'col-md col-12 ' + styles.menu}>
                 <ul>
-                  {categories.map(item => (
+                  {!location.pathname.includes('search') && categories.map(item => (
                     <li key={item.id}>
                       <a
                         className={item.id === activeCategory && styles.active}
@@ -95,13 +101,16 @@ const NewFurniture = ({ categories, products, viewportMode }) => {
             </div>
           </div>
           <div className={`row + ${fade ? styles.fadeIn : styles.fadeOut}`}>
-            {categoryProducts
+            {productsToRender.length > 0 && productsToRender
               .slice(activePage * rows, (activePage + 1) * rows)
               .map(item => (
                 <div key={item.id} className='col-lg-3 col-md-6 col-12'>
                   <ProductBox {...item} />
                 </div>
               ))}
+            {productsToRender.length === 0 &&
+              <div>No results</div>
+            }
           </div>
         </div>
       </Swipeable>
@@ -130,6 +139,7 @@ NewFurniture.propTypes = {
     })
   ),
   viewportMode: PropTypes.string,
+  searchedText: PropTypes.string,
 };
 
 NewFurniture.defaultProps = {
