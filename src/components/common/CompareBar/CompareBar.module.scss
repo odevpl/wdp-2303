@@ -24,6 +24,17 @@
       min-height: 3rem;
       width: 4rem;
 
+      .name {
+        text-align: center;
+      }
+      .price {
+        text-align: center;
+      }
+
+       .fav {
+        color: $primary;
+        text-align: center;
+      }
 
       img {
         height: 100%;
