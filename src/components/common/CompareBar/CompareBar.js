@@ -3,7 +3,7 @@ import styles from './CompareBar.module.scss';
 import Button from '../../common/Button/Button';
 import { useSelector } from 'react-redux';
 import { getProductsToCompare } from '../../../redux/productsRedux';
-import { faWindowClose } from '@fortawesome/free-regular-svg-icons';
+import { faWindowClose, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toggleProductCompare } from '../../../redux/productsRedux';
 import { useDispatch } from 'react-redux';
@@ -32,6 +32,11 @@ const CompareBar = () => {
                   src={`${process.env.PUBLIC_URL}/images/furniture/${item.category}/${item.id}.jpg`}
                 />
                 <div className={styles.price}>{item.price}$</div>
+                {item.favourite ? (
+                  <div className={styles.fav}>
+                    <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
+                  </div>
+                ) : null}
                 <FontAwesomeIcon className={styles.closeIcon} icon={faWindowClose}>
                   Add to compare
                 </FontAwesomeIcon>
