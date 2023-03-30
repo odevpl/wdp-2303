@@ -816,6 +816,13 @@ const initialState = {
     thirdTitle: 'COLLECTION',
     thirdSubtitle: 'SAVE UP 45% OF FURNITURE',
   },
+
+  filters: {
+    /*     category: [],
+        price: [],
+        size: [],
+        color: [], */
+  },
 };
 
 export default initialState;
