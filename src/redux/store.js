@@ -25,7 +25,7 @@ const reducers = {
   brands: brandsReducer,
   productFilters: filtersReducer,
   searchText: searchTextReducer,
-  filters: filtersReducer,
+  productFilters: filtersReducer,
 };
 
 // add blank reducers for initial state properties without reducers
