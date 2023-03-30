@@ -17,6 +17,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../../redux/cartRedux';
+import Swipeable from '../../common/Swipeable/Swipeable';
 
 const Featured = () => {
   const dispatch = useDispatch();
@@ -55,16 +56,27 @@ const Featured = () => {
     dispatch(addProduct(product));
   };
 
+  const leftAction = () => {
+    if (hotProductIndex === 0) {
+      setHotProductIndex(hotDeals.length - 1);
+    } else setHotProductIndex(hotProductIndex - 1);
+  };
+
+  const rightAction = () => {
+    if (hotProductIndex === hotDeals.length - 1) {
+      setHotProductIndex(0);
+    } else setHotProductIndex(hotProductIndex + 1);
+  };
   return (
     <div className={styles.root}>
       <div className='container'>
         <div className='row'>
           <div className='col-4'>
             <div
-              className='col 
-            bg-dark 
-            text-white 
-            d-flex 
+              className='col
+            bg-dark
+            text-white
+            d-flex
             align-items-center
             justify-content-between'
             >
@@ -207,36 +219,41 @@ const Featured = () => {
           <div className='col-8'>
             <div className={styles.hotProduct}>
               <div className={clsx(styles.photoProduct)}>
-                <div className={clsx(styles.carousel, 'col-12')}>
-                  <Carousel
-                    activeIndex={hotProductIndex}
-                    interval={null}
-                    pause={false}
-                    controls={false}
-                    indicators={false}
-                    fade={true}
-                  >
-                    {hotDeals.map(hotDeal => (
-                      <Carousel.Item key={hotDeal.name} className={styles.carouselItem}>
-                        <NavLink to={'product' + hotDeal.id}>
-                          <div className={styles.image}>
-                            <img
-                              alt={hotDeal.name}
-                              src={`${process.env.PUBLIC_URL}/images/furniture/${hotDeal.category}/${hotDeal.id}.jpg`}
-                            />
+                <Swipeable leftAction={leftAction} rightAction={rightAction}>
+                  <div className={clsx(styles.carousel, 'col-12')}>
+                    <Carousel
+                      activeIndex={hotProductIndex}
+                      interval={null}
+                      pause={false}
+                      controls={false}
+                      indicators={false}
+                      fade={true}
+                    >
+                      {hotDeals.map(hotDeal => (
+                        <Carousel.Item
+                          key={hotDeal.name}
+                          className={styles.carouselItem}
+                        >
+                          <NavLink to={'product' + hotDeal.id}>
+                            <div className={styles.image}>
+                              <img
+                                alt={hotDeal.name}
+                                src={`${process.env.PUBLIC_URL}/images/furniture/${hotDeal.category}/${hotDeal.id}.jpg`}
+                              />
+                            </div>
+                          </NavLink>
+                          <div className={`${styles.heading} col-12`}>
+                            <div className={styles.text}>
+                              <h2>Indoor furniture</h2>
+                              <h3>Save up to 50% of all furnitures</h3>
+                            </div>
                           </div>
-                        </NavLink>
-                        <div className={`${styles.heading} col-12`}>
-                          <div className={styles.text}>
-                            <h2>Indoor furniture</h2>
-                            <h3>Save up to 50% of all furnitures</h3>
-                          </div>
-                        </div>
-                        <Button className={styles.shopNow}>Shop now</Button>
-                      </Carousel.Item>
-                    ))}
-                  </Carousel>
-                </div>
+                          <Button className={styles.shopNow}>Shop now</Button>
+                        </Carousel.Item>
+                      ))}
+                    </Carousel>
+                  </div>
+                </Swipeable>
                 <div className={clsx(styles.slider, 'col-12')}>
                   <button
                     className={`${styles.arrow} col-6 text-center p-0`}
