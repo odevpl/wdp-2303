@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import StarsReview from '../../common/StarsReview/StarsReview';
-import { Swipeable } from 'react-swipeable';
 import {
   faShoppingBasket,
   faChevronRight,
