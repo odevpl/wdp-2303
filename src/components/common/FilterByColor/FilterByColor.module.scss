@@ -1,0 +1,63 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: $base-padding 0;
+
+  h4 {
+    font-size: 15px;
+    margin: 5px;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    font-size: 15px;
+    padding: 2px 0;
+  }
+
+  h4 {
+    margin-left: 10px;;
+  }
+
+  .red {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+  }
+
+  .black {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+  }
+
+  .yellow {
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+  }
+
+  .blue {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+  }
+
+  .pink {
+    width: 10px;
+    height: 10px;
+    background-color: pink;
+  }
+
+  .green {
+    width: 10px;
+    height: 10px;
+    background-color: green;
+  }
+
+  .active {
+    color: $orange;
+    padding: 0 0 0 15px;
+  }
+}
