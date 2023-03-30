@@ -1,0 +1,101 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: $base-padding 0;
+
+  .title {
+    margin: 5px;
+    position: relative;
+    text-transform: uppercase;
+    text-align: left;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: 0;
+      width: 100%;
+      border-bottom: 2px solid $text-color;
+    }
+
+    h5 {
+      font-size: 16px;
+    }
+  }
+
+
+  .range {
+    padding: 5px 20px;
+
+
+    .horizontalSlider {
+      height: 50px;
+
+      .track {
+        top: 20px;
+        height: 10px;
+        background: $filter-range;
+        border: 1px solid $filter-borders;
+        border-radius: 10px;
+      }
+
+      .track:first-child {
+        background: transparent;
+      }
+
+      .track:nth-last-child(3) {
+        background: transparent;
+      }
+    }
+
+    .horizontalSlider .thumb {
+      top: 30%;
+      width: 22px;
+      height: 22px;
+      text-align: center;
+      background-color: $filter-background;
+      cursor: pointer;
+      border: 3px solid $primary;
+      border-radius: 50%;
+
+      &:active {
+        background-color: $primary;
+        border: none;
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+
+    }
+
+  }
+
+  .confirm {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+
+
+
+    .button {
+      background-color: $primary;
+      font-size: 14px;
+      margin: 0;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .rangeDisplay {
+      border: 1px solid $filter-borders;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

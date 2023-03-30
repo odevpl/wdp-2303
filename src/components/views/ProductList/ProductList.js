@@ -5,6 +5,7 @@ import FilterByColor from '../../common/FilterByColor/FilterByColor';
 import styles from './ProductList.module.scss';
 import Brands from '../../layout/Brands/Brands';
 import FilterByCategory from '../../common/FilterCategory/FilteByCategory';
+import FilterByPrice from '../../common/FilterByPrice/FilterByPrice';
 
 const ProductList = () => (
   <div className={styles.root}>
@@ -15,6 +16,7 @@ const ProductList = () => (
         <div className={`col-3 ${styles.filters}`}>
           These are filters
           <FilterByCategory></FilterByCategory>
+          <FilterByPrice />
           <FilterBySize></FilterBySize>
           <FilterByColor></FilterByColor>
         </div>
