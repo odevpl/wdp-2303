@@ -21,7 +21,7 @@ const reducers = {
   blogPosts: blogPostsReducer,
   promotions: promotionReducer,
   brands: brandsReducer,
-  filters: filtersReducer,
+  productFilters: filtersReducer,
 };
 
 // add blank reducers for initial state properties without reducers

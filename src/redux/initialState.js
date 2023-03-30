@@ -817,12 +817,7 @@ const initialState = {
     thirdSubtitle: 'SAVE UP 45% OF FURNITURE',
   },
 
-  filters: {
-    /*     category: [],
-        price: [],
-        size: [],
-        color: [], */
-  },
+  productFilters: [],
 };
 
 export default initialState;
