@@ -254,3 +254,54 @@
     }
   }
 }
+@media screen and (max-width: 991px) {
+  .root {
+    .hotProduct {
+      .photoProduct {
+        .shopNow {
+          left: 35%;
+          top: 72%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .root {
+    .hotProduct {
+      .photoProduct {
+        .shopNow {
+          left: 35%;
+          top: 55%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 493px) {
+  .root {
+    .hotProduct {
+      .photoProduct {
+        .shopNow {
+          left: 33%;
+          top: 70%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .root {
+    .hotProduct {
+      .photoProduct {
+        .shopNow {
+          left: 30%;
+          top: 70%;
+        }
+      }
+    }
+  }
+}
