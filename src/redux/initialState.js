@@ -816,6 +816,7 @@ const initialState = {
     thirdTitle: 'COLLECTION',
     thirdSubtitle: 'SAVE UP 45% OF FURNITURE',
   },
+  searchText:'',
 };
 
 export default initialState;
