@@ -819,6 +819,5 @@ const initialState = {
 
   productFilters: [],
   searchText: '',
-
-
+};
 export default initialState;
