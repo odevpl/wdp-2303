@@ -19,7 +19,7 @@ const Homepage = () => (
     <Featured />
     <FeatureBoxes />
     <PromotionBox />
-    <NewFurniture />
+    <NewFurniture productsOnDesktop={8} />
     <BlogBox />
     <Brands />
     <Feedback />
