@@ -1,0 +1,32 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  .currencyButton {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-size: 13px;
+    color: #fff;
+
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+
+  }
+
+  .menu {
+    background-color: $header-topbar-bg;
+    width: 40px;
+
+    .menuItem {
+      font-size: 13px;
+
+      &:hover {
+        color: $primary;
+        text-decoration: none;
+      }
+
+    }
+  }
+}
