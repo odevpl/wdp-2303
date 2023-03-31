@@ -816,7 +816,9 @@ const initialState = {
     thirdTitle: 'COLLECTION',
     thirdSubtitle: 'SAVE UP 45% OF FURNITURE',
   },
-  searchText:'',
-};
+
+  productFilters: [],
+  searchText: '',
+
 
 export default initialState;

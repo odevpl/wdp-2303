@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './FilterBySize.module.scss';
+import { useDispatch } from 'react-redux';
+import { updateFilter } from '../../../redux/filterRedux';
 
 const FilterBySize = () => {
+  const dispatch = useDispatch();
+  const [activeSize, setActiveSize] = useState([]);
+
+  const sizeArray = ['s', 'm', 'l', 'xl', 'xxl'];
+
+  const handleClick = size => {
+    let newSize = [...activeSize];
+    if (newSize.includes(size)) {
+      newSize = newSize.filter(item => item !== size);
+      setActiveSize(newSize);
+    } else {
+      newSize.push(size);
+      setActiveSize(newSize);
+    }
+    dispatch(updateFilter({ name: 'sizeFilter', value: newSize }));
+  };
+
   return (
     <>
       <div className='container'>
@@ -9,41 +28,23 @@ const FilterBySize = () => {
           <div>
             <h5>Filter by sizes</h5>
             <ul>
-              <li className={'d-flex align-items-center ' + styles.active}>
-                <label>
-                  <input className={styles.active} type='checkbox' />
-                </label>
-                <h4>S</h4>
-                <span className={styles.number}>1</span>
-              </li>
-              <li className={'d-flex align-items-center'}>
-                <label>
-                  <input className={styles.active} type='checkbox' />
-                </label>
-                <h4>M</h4>
-                <span className={styles.number}>4</span>
-              </li>
-              <li className={'d-flex align-items-center'}>
-                <label>
-                  <input className={styles.active} type='checkbox' />
-                </label>
-                <h4>L</h4>
-                <span className={styles.number}>3</span>
-              </li>
-              <li className={'d-flex align-items-center'}>
-                <label>
-                  <input className={styles.active} type='checkbox' />
-                </label>
-                <h4>XL</h4>
-                <span className={styles.number}>3</span>
-              </li>
-              <li className={'d-flex align-items-center'}>
-                <label>
-                  <input className={styles.active} type='checkbox' />
-                </label>
-                <h4>XXL</h4>
-                <span className={styles.number}>3</span>
-              </li>
+              {sizeArray.map(size => (
+                <li
+                  key={size}
+                  className={`d-flex align-items-center + ${activeSize.includes(size) &&
+                    styles.active}`}
+                >
+                  <label>
+                    <input
+                      className={styles.active}
+                      type='checkbox'
+                      onClick={() => handleClick(size)}
+                    />
+                  </label>
+                  <h4>{size}</h4>
+                  <span className={styles.number}>1</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
