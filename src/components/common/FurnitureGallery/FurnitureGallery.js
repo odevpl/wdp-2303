@@ -14,6 +14,7 @@ import { useEffect } from 'react';
 import { getViewportMode } from '../../../redux/viewportModeRedux';
 import { Link } from 'react-router-dom';
 import Swipeable from '../Swipeable/Swipeable';
+import { getCurrency } from '../../../redux/currencyRedux';
 
 const FurnitureGallery = () => {
   const headlines = ['Featured', 'Top Seller', 'Sale Off', 'Top Rated'];
@@ -22,6 +23,7 @@ const FurnitureGallery = () => {
   const [activeHeadline, setActiveHeadline] = useState('Featured');
   const [activePage, setActivePage] = useState(0);
   const viewportMode = useSelector(viewportMode => getViewportMode(viewportMode));
+  const currency = useSelector(getCurrency);
   const productsToDisplay = useSelector(state => {
     switch (activeHeadline) {
       case 'Featured':
@@ -103,17 +105,16 @@ const FurnitureGallery = () => {
           ))}
         </ul>
         <Link
-          className={`row g-0 align-items-center ' + ${styles.photo} + ${
-            fadeImage ? styles.fadeIn : styles.fadeOut
-          }`}
+          className={`row g-0 align-items-center ' + ${styles.photo} + ${fadeImage ? styles.fadeIn : styles.fadeOut
+            }`}
           to={'/product/' + activeProduct.id}
         >
           <img alt={activeProduct.name} src={activeProduct.source} />
           <div className={styles.productInfo}>
             <div className={styles.backgroundContent}>
               <div className={styles.price}>
-                <p className={styles.newPrice}>${activeProduct.price}</p>
-                <p className={styles.oldPrice}>${activeProduct.oldPrice}</p>
+                <p className={styles.newPrice}>{currency.sign}{(activeProduct.price * currency.multiplier).toFixed(2)}</p>
+                <p className={styles.oldPrice}>{currency.sign}{(activeProduct.oldPrice * currency.multiplier).toFixed(2)}</p>
               </div>
               <div className={styles.content}>
                 <h5>{activeProduct.name}</h5>

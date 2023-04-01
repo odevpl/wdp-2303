@@ -816,8 +816,8 @@ const initialState = {
     thirdTitle: 'COLLECTION',
     thirdSubtitle: 'SAVE UP 45% OF FURNITURE',
   },
-
-  productFilters: [],
   searchText: '',
+  currency: { name: 'USD', multiplier: 1, sign: '$' },
+  productFilters: [],
 };
 export default initialState;

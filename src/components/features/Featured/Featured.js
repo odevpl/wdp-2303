@@ -18,6 +18,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../../redux/cartRedux';
 import Swipeable from '../../common/Swipeable/Swipeable';
+import { getCurrency } from '../../../redux/currencyRedux';
 
 const Featured = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Featured = () => {
   const [hotDealIndex, setHotDealIndex] = useState(0);
   const [hotProductIndex, setHotProductIndex] = useState(0);
   const hotDeals = useSelector(getHotDeals).slice(0, 3); // max 3 elementy ustawia obecnie
+  const currency = useSelector(getCurrency);
 
   const handleSelect = selectedIndex => {
     setHotDealIndex(selectedIndex);
@@ -203,10 +205,10 @@ const Featured = () => {
                       </div>
                       <div className={styles.prices}>
                         {hotDeal.oldPrice && (
-                          <div className={styles.oldPrice}>$ {hotDeal.oldPrice}</div>
+                          <div className={styles.oldPrice}>{currency.sign} {(hotDeal.oldPrice * currency.multiplier).toFixed(2)}</div>
                         )}
                         <div className={styles.price}>
-                          <Button variant='small'>$ {hotDeal.price}</Button>
+                          <Button variant='small'>{currency.sign} {(hotDeal.price * currency.multiplier).toFixed(2)}</Button>
                         </div>
                       </div>
                     </div>
