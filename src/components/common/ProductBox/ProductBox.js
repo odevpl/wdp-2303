@@ -3,19 +3,20 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import ProductModal from '../ProductModal/ProductModal';
-
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button/Button';
 import StarsReview from '../StarsReview/StarsReview';
 import ActionButton from '../ActionButton/ActionButton';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleProductFavourite } from '../../../redux/productsRedux';
 import { addProduct } from '../../../redux/cartRedux';
+import { getCurrency } from '../../../redux/currencyRedux';
 
 const ProductBox = props => {
   const [modal, setModal] = useState(false);
+  const currency = useSelector(state => getCurrency(state));
   const {
     id,
     category,
@@ -83,9 +84,9 @@ const ProductBox = props => {
           <ActionButton {...{ id, favourite }} buttonType={'favourite'} />
           <ActionButton {...{ id, compare }} buttonType={'compare'} />
         </div>
-        {oldPrice && <div className={styles.oldPrice}>$ {oldPrice}</div>}
+        {oldPrice && <div className={styles.oldPrice}>{currency.sign} {(oldPrice * currency.multiplier).toFixed(2)}</div>}
         <div className={styles.price}>
-          <Button variant='small'>$ {price}</Button>
+          <Button variant='small'>{currency.sign} {(price * currency.multiplier).toFixed(2)}</Button>
         </div>
       </div>
     </div>

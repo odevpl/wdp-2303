@@ -14,8 +14,9 @@ export const addCurrency = payload => ({ payload, type: ADD_CURRENCY });
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    case ADD_CURRENCY:
+    case ADD_CURRENCY: {
       return action.payload;
+    }
     default:
       return statePart;
   }

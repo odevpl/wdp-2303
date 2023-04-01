@@ -18,11 +18,11 @@ const Currency = () => {
   };
 
   const currencyConverter = currency => {
-    let newCurrency = { name: 'USD', multiplier: 1, sing: '$' };
+    let newCurrency = { name: 'USD', multiplier: 1, sign: '$' };
     if (currency === 'PLN') {
-      newCurrency = { name: 'PLN', multiplier: 4.3, sing: 'PLN' };
+      newCurrency = { name: 'PLN', multiplier: 4.3, sign: 'PLN' };
     } else if (currency === 'EUR') {
-      newCurrency = { name: 'EUR', multiplier: 0.92, sing: '€' };
+      newCurrency = { name: 'EUR', multiplier: 0.92, sign: '€' };
     }
     return newCurrency;
   };
