@@ -112,12 +112,13 @@
       transform: translate(-50%, -50%);
       padding: 10px;
 
+
       .newPrice {
         position: absolute;
         top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 25px;
+        font-size: 20px;
       }
 
       .oldPrice {
@@ -128,7 +129,7 @@
         top: 70%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 20px;
+        font-size: 15px;
       }
     }
 

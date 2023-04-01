@@ -7,12 +7,12 @@ import Swipeable from '../../common/Swipeable/Swipeable';
 import { useParams } from 'react-router';
 import { useLocation } from 'react-router';
 
-const NewFurniture = ({ 
-  categories, 
-  products, 
-  viewportMode, 
-  searchedText, 
-  productsOnDesktop, 
+const NewFurniture = ({
+  categories,
+  products,
+  viewportMode,
+  searchedText,
+  productsOnDesktop,
 }) => {
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState('bed');
@@ -51,7 +51,7 @@ const NewFurniture = ({
     if (page < dots.length) handlePageChange(page);
   };
 
-  
+
   let productsToRender = products.filter(item => item.category === activeCategory);
   let pagesCount = Math.ceil(productsToRender.length / productsToDisplay);
 
@@ -60,7 +60,7 @@ const NewFurniture = ({
     pagesCount = Math.ceil(productsToRender.length / productsToDisplay);
   }
   else if (pageAddress.productId) {
-    productsToRender = productsToRender.filter((item, index) => index < 4 );
+    productsToRender = productsToRender.filter((item, index) => index < 4);
     pagesCount = 0;
   }
 
@@ -110,7 +110,7 @@ const NewFurniture = ({
             {productsToRender.length > 0 && productsToRender
               .slice(activePage * productsToDisplay, (activePage + 1) * productsToDisplay)
               .map(item => (
-                <div key={item.id} className='col-lg-3 col-md-6 col-12'>
+                <div key={item.id} className={location.pathname.includes('shop') ? 'col-lg-4 col-md-6 col-12' : 'col-lg-3 col-md-6 col-12'}>
                   <ProductBox {...item} />
                 </div>
               ))}
