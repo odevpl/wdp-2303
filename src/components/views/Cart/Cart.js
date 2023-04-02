@@ -12,23 +12,26 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const cartProducts = useSelector(getAll);
-
   const handleClick = e => {
     e.preventDefault();
     dispatch(checkout());
   };
 
+  const calculateCartTotal = cartProducts => {
+    let subTotal = 0;
+    for (let i = 0; i < cartProducts.length; i++) {
+      subTotal += cartProducts[i].price;
+    }
+    const deliveryFee = 20;
+    const total = subTotal + deliveryFee;
+
+    return { subTotal, total };
+  };
+
   useEffect(() => {
-    let temporaryTotal = 0;
-    let temporarySubTotal = 0;
-    cartProducts.map(
-      singleItem => (temporaryTotal += singleItem.price * singleItem.amount)
-    );
-    cartProducts.map(
-      singleItem => (temporarySubTotal += singleItem.price * singleItem.amount)
-    );
-    setTotal(temporaryTotal);
-    setSubTotal(temporarySubTotal);
+    const { subTotal, total } = calculateCartTotal(cartProducts);
+    setSubTotal(subTotal);
+    setTotal(total);
   }, [cartProducts]);
 
   return (
@@ -57,14 +60,14 @@ const Cart = () => {
             <span className='col-2'>QUANTITY</span>
             <span className='col-1'>TOTAL</span>
           </div>
-          {cartProducts.map(singleCartItem => (
+          {cartProducts.map(singleItem => (
             <CartTableLine
-              key={singleCartItem.id}
-              id={singleCartItem.id}
-              amount='1'
-              name={singleCartItem.name}
-              price={singleCartItem.price}
-              source={singleCartItem.source}
+              key={singleItem.id}
+              id={singleItem.id}
+              amount={singleItem.amount}
+              name={singleItem.name}
+              price={singleItem.price}
+              source={singleItem.source}
             ></CartTableLine>
           ))}
           <div className={`row ${styles.lastRow}`}>
@@ -97,13 +100,13 @@ const Cart = () => {
             <div className={`row ${styles.cartTotalsRows}`}>
               <div className='col-5'>Subtotal</div>
               <div className={`col-7 ${styles.borderLeft} ${styles.price}`}>
-                <span>${subTotal.toFixed(2)}</span>
+                <span>${subTotal}</span>
               </div>
             </div>
             <div className={`row ${styles.cartTotalsRows}`}>
               <div className='col-5'>Total</div>
               <div className={`col-7 ${styles.borderLeft} ${styles.price}`}>
-                <span>${total.toFixed(2)}</span>
+                <span>${total}</span>
               </div>
             </div>
             <div className={`row ${styles.cartTotalsBottom}`}>

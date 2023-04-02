@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import styles from './CartTableLine.module.scss';
 import PropTypes from 'prop-types';
@@ -6,13 +7,27 @@ import Button from '../../../common/Button/Button';
 import { useDispatch } from 'react-redux';
 import { removeProduct } from '../../../../redux/cartRedux';
 
-const CartTableLine = ({ id, name, amount, price, source }) => {
+const CartTableLine = ({ id, name, price, source }) => {
   const dispatch = useDispatch();
+  const [amount, setAmount] = useState(1);
+
   const totalForProduct = price * amount;
 
   const handleClick = e => {
     e.preventDefault(e);
     dispatch(removeProduct(id));
+  };
+
+  const incrementAmount = () => {
+    if (amount < 10) {
+      setAmount(amount + 1);
+    }
+  };
+
+  const decrementAmount = () => {
+    if (amount > 1) {
+      setAmount(amount - 1);
+    }
   };
 
   return (
@@ -34,7 +49,11 @@ const CartTableLine = ({ id, name, amount, price, source }) => {
         </div>
       </div>
       <div className={`col-1 text-center ${styles.price}`}>${price.toFixed(2)}</div>
-      <div className='col-2 text-center'>- {amount} +</div>
+      <div className='col-2 text-center'>
+        <Button onClick={decrementAmount}>-</Button>
+        {amount}
+        <Button onClick={incrementAmount}>+</Button>
+      </div>
       <div className={`col-1 text-center ${styles.price}`}>
         ${totalForProduct.toFixed(2)}
       </div>
@@ -46,10 +65,8 @@ CartTableLine.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
-  amount: PropTypes.string,
   source: PropTypes.string,
-  countSubTotal: PropTypes.func,
-  countTotal: PropTypes.func,
+  amount: PropTypes.number,
 };
 
 export default CartTableLine;
