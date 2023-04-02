@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import styles from './LoginForm.module.scss';
 import Button from '../../common/Button/Button';
-import { Link } from 'react-router-dom';
-
+import { Link, useHistory } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 const LoginForm = () => {
   const [inputType, setInputType] = useState('password');
-
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const {
+    register,
+    handleSubmit: validate,
+    formState: { errors },
+  } = useForm();
+  const history = useHistory();
   const handleShowPassword = checked => {
     checked ? setInputType('text') : setInputType('password');
   };
-
+  const handleSubmit = () => {
+    history.push('/');
+  };
   return (
     <div className={styles.root}>
       <div className='container'>
@@ -17,15 +26,25 @@ const LoginForm = () => {
           <form className='col-12 col-md-8 col-lg-4'>
             <h3 className='text-center'>Sign in to Bazar</h3>
             <input
-              type='email'
+              {...register('username', { required: true, pattern: /^admin$/ })}
+              type='username'
               className='form-control my-3'
-              placeholder='Email*'
+              placeholder='Username*'
+              value={username}
+              onChange={e => setUsername(e.target.value)}
             ></input>
             <input
+              {...register('password', { required: true, pattern: /^pass$/ })}
               type={inputType}
               className='form-control my-3'
               placeholder='Password*'
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             ></input>
+            {errors.username && <p className='text-danger'>Incorrect username!</p>}
+            {!errors.username && errors.password && (
+              <p className='text-danger'>Incorrect password!</p>
+            )}
             <div className='row my-3'>
               <div className='col text-start'>
                 <div className='form-check form-switch '>
@@ -54,11 +73,9 @@ const LoginForm = () => {
                 <Link to='/'>&lt;Back</Link>
               </div>
               <div className='col text-end'>
-                <Link to='/'>
-                  <Button variant='main' type='submit'>
-                    Sign in
-                  </Button>
-                </Link>
+                <Button variant='main' type='submit' onClick={validate(handleSubmit)}>
+                  Sign in
+                </Button>
               </div>
             </div>
             <div className='mt-5 text-center'>
