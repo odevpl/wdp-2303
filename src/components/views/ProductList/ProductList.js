@@ -17,7 +17,7 @@ const ProductList = () => {
         <Banner />
         <div className={`row ${styles.filtered}`}>
           <div className={`col-9 ${styles.productList}`}>
-            <NewFurniture productsOnDesktop={12} />
+            <NewFurniture productsOnDesktop={12} filter={true} />
           </div>
           <div className={`col-3 ${styles.filters}`}>
             <FilterByCategory></FilterByCategory>

@@ -6,6 +6,8 @@ import CompareBar from '../../common/CompareBar/CompareBar';
 import Swipeable from '../../common/Swipeable/Swipeable';
 import { useParams } from 'react-router';
 import { useLocation } from 'react-router';
+import { useSelector } from 'react-redux';
+import { getAllFilters } from '../../../redux/filterRedux';
 
 const NewFurniture = ({
   categories,
@@ -13,10 +15,43 @@ const NewFurniture = ({
   viewportMode,
   searchedText,
   productsOnDesktop,
+  filter,
 }) => {
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState('bed');
   const [fade, setFade] = useState(true);
+  const filters = useSelector(getAllFilters);
+
+  const productSuitsAllFilters = (product, allFilters) => {
+    for (let i = 0; i < allFilters.length; i++) {
+      const checkedFilter = allFilters[i];
+      switch (checkedFilter.name) {
+        case 'sizeFilter':
+          if (!product.size || !checkedFilter.value.some(size => (product.size === size))) {
+            return false;
+          }
+          break;
+        case 'colorFilter':
+          if (!product.color || product.color !== checkedFilter.value) {
+            return false;
+          }
+          break;
+        case 'priceFilter':
+          if (!product.price || product.price < checkedFilter.value[0] || product.price > checkedFilter.value[1]) {
+            return false;
+          }
+          break;
+        case 'categoryFilter':
+          if (!product.category || product.category !== checkedFilter.value) {
+            return false;
+          }
+          break;
+        default:
+          return false;
+      }
+    }
+    return true;
+  };
 
   const pageAddress = useParams();
   const location = useLocation();
@@ -63,6 +98,12 @@ const NewFurniture = ({
     productsToRender = productsToRender.filter((item, index) => index < 4);
     pagesCount = 0;
   }
+  else if (filter) {
+    productsToRender = products.filter(product => productSuitsAllFilters(product, filters));
+    pagesCount = Math.ceil(productsToRender.length / productsToDisplay);
+  }
+
+
 
   const dots = [];
   for (let i = 0; i < pagesCount; i++) {
@@ -89,7 +130,7 @@ const NewFurniture = ({
               </div>
               <div className={'col-md col-12 ' + styles.menu}>
                 <ul>
-                  {!location.pathname.includes('search') && categories.map(item => (
+                  {(!location.pathname.includes('search') && !location.pathname.includes('shop')) && categories.map(item => (
                     <li key={item.id}>
                       <a
                         className={item.id === activeCategory && styles.active}
@@ -147,6 +188,7 @@ NewFurniture.propTypes = {
   viewportMode: PropTypes.string,
   searchedText: PropTypes.string,
   productsOnDesktop: PropTypes.number,
+  filter: PropTypes.bool,
 };
 
 NewFurniture.defaultProps = {

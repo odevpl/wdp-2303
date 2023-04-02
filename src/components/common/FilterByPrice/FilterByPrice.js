@@ -30,7 +30,7 @@ const FilterByPrice = () => {
               max={200}
               min={0}
               pearling
-              minDistance={10}
+              minDistance={2}
               onChange={value => setActualPrice(value)}
             />
           </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './FilterBySize.module.scss';
 import { useDispatch } from 'react-redux';
-import { updateFilter } from '../../../redux/filterRedux';
+import { removeFilter, updateFilter } from '../../../redux/filterRedux';
 
 const FilterBySize = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,11 @@ const FilterBySize = () => {
       newSize.push(size);
       setActiveSize(newSize);
     }
-    dispatch(updateFilter({ name: 'sizeFilter', value: newSize }));
+    if (newSize.length > 0) {
+      dispatch(updateFilter({ name: 'sizeFilter', value: newSize }));
+    } else {
+      dispatch(removeFilter({ name: 'sizeFilter' }));
+    }
   };
 
   return (
