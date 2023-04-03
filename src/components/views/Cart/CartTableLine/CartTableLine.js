@@ -5,13 +5,13 @@ import styles from './CartTableLine.module.scss';
 import PropTypes from 'prop-types';
 import Button from '../../../common/Button/Button';
 import { useDispatch } from 'react-redux';
-import { removeProduct } from '../../../../redux/cartRedux';
+import { removeProduct, updateProduct } from '../../../../redux/cartRedux';
 
-const CartTableLine = ({ id, name, price, source }) => {
+const CartTableLine = ({ id, name, price, source, amount }) => {
   const dispatch = useDispatch();
-  const [amount, setAmount] = useState(1);
+  const [itemAmount, setAmount] = useState(amount);
 
-  const totalForProduct = price * amount;
+  const totalForProduct = price * itemAmount;
 
   const handleClick = e => {
     e.preventDefault(e);
@@ -19,14 +19,16 @@ const CartTableLine = ({ id, name, price, source }) => {
   };
 
   const incrementAmount = () => {
-    if (amount < 10) {
-      setAmount(amount + 1);
+    if (itemAmount < 10) {
+      setAmount(itemAmount + 1);
+      dispatch(updateProduct({ id, amount: itemAmount + 1 }));
     }
   };
 
   const decrementAmount = () => {
-    if (amount > 1) {
-      setAmount(amount - 1);
+    if (itemAmount > 1) {
+      setAmount(itemAmount - 1);
+      dispatch(updateProduct({ id, amount: itemAmount - 1 }));
     }
   };
 
@@ -51,7 +53,7 @@ const CartTableLine = ({ id, name, price, source }) => {
       <div className={`col-1 text-center ${styles.price}`}>${price.toFixed(2)}</div>
       <div className='col-2 text-center'>
         <Button onClick={decrementAmount}>-</Button>
-        {amount}
+        {itemAmount}
         <Button onClick={incrementAmount}>+</Button>
       </div>
       <div className={`col-1 text-center ${styles.price}`}>
@@ -67,6 +69,7 @@ CartTableLine.propTypes = {
   price: PropTypes.number,
   source: PropTypes.string,
   amount: PropTypes.number,
+  countSubTotal: PropTypes.func,
+  totalForProduct: PropTypes.func,
 };
-
 export default CartTableLine;
