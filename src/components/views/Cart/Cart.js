@@ -6,29 +6,38 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import CartTableLine from './CartTableLine/CartTableLine';
 import { checkout, getAll } from '../../../redux/cartRedux';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const [total, setTotal] = useState(0);
-  const [subTotal, setSubTotal] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [subTotalPrice, setSubTotalPrice] = useState(0);
   const cartProducts = useSelector(getAll);
-
   const handleClick = e => {
     e.preventDefault();
     dispatch(checkout());
   };
 
+  const calculateCartTotal = cartProducts => {
+    let subTotal = 0;
+    for (let i = 0; i < cartProducts.length; i++) {
+      subTotal += cartProducts[i].price * cartProducts[i].amount;
+    }
+    const deliveryFeeCalculation = () => {
+      if (subTotal) {
+        return 20;
+      }
+      return 0;
+    };
+    const total = subTotal + deliveryFeeCalculation();
+
+    return { subTotal, total };
+  };
+
   useEffect(() => {
-    let temporaryTotal = 0;
-    let temporarySubTotal = 0;
-    cartProducts.map(
-      singleItem => (temporaryTotal += singleItem.price * singleItem.amount)
-    );
-    cartProducts.map(
-      singleItem => (temporarySubTotal += singleItem.price * singleItem.amount)
-    );
-    setTotal(temporaryTotal);
-    setSubTotal(temporarySubTotal);
+    const { subTotal, total } = calculateCartTotal(cartProducts);
+    setSubTotalPrice(subTotal);
+    setTotalPrice(total);
   }, [cartProducts]);
 
   return (
@@ -57,14 +66,14 @@ const Cart = () => {
             <span className='col-2'>QUANTITY</span>
             <span className='col-1'>TOTAL</span>
           </div>
-          {cartProducts.map(singleCartItem => (
+          {cartProducts.map(singleItem => (
             <CartTableLine
-              key={singleCartItem.id}
-              id={singleCartItem.id}
-              amount='1'
-              name={singleCartItem.name}
-              price={singleCartItem.price}
-              source={singleCartItem.source}
+              key={singleItem.id}
+              id={singleItem.id}
+              amount={singleItem.amount}
+              name={singleItem.name}
+              price={singleItem.price}
+              source={singleItem.source}
             ></CartTableLine>
           ))}
           <div className={`row ${styles.lastRow}`}>
@@ -97,13 +106,13 @@ const Cart = () => {
             <div className={`row ${styles.cartTotalsRows}`}>
               <div className='col-5'>Subtotal</div>
               <div className={`col-7 ${styles.borderLeft} ${styles.price}`}>
-                <span>${subTotal.toFixed(2)}</span>
+                <span>${subTotalPrice}</span>
               </div>
             </div>
             <div className={`row ${styles.cartTotalsRows}`}>
               <div className='col-5'>Total</div>
               <div className={`col-7 ${styles.borderLeft} ${styles.price}`}>
-                <span>${total.toFixed(2)}</span>
+                <span>${totalPrice}</span>
               </div>
             </div>
             <div className={`row ${styles.cartTotalsBottom}`}>
@@ -123,6 +132,12 @@ const Cart = () => {
       </div>
     </div>
   );
+};
+Cart.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  source: PropTypes.string,
 };
 
 export default Cart;

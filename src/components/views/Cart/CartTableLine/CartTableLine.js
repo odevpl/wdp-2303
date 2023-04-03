@@ -1,18 +1,35 @@
 import React from 'react';
+import { useState } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import styles from './CartTableLine.module.scss';
 import PropTypes from 'prop-types';
 import Button from '../../../common/Button/Button';
 import { useDispatch } from 'react-redux';
-import { removeProduct } from '../../../../redux/cartRedux';
+import { removeProduct, updateProduct } from '../../../../redux/cartRedux';
 
-const CartTableLine = ({ id, name, amount, price, source }) => {
+const CartTableLine = ({ id, name, price, source, amount }) => {
   const dispatch = useDispatch();
-  const totalForProduct = price * amount;
+  const [itemAmount, setAmount] = useState(amount);
+
+  const totalForProduct = price * itemAmount;
 
   const handleClick = e => {
     e.preventDefault(e);
     dispatch(removeProduct(id));
+  };
+
+  const incrementAmount = () => {
+    if (itemAmount < 10) {
+      setAmount(itemAmount + 1);
+      dispatch(updateProduct({ id, amount: itemAmount + 1 }));
+    }
+  };
+
+  const decrementAmount = () => {
+    if (itemAmount > 1) {
+      setAmount(itemAmount - 1);
+      dispatch(updateProduct({ id, amount: itemAmount - 1 }));
+    }
   };
 
   return (
@@ -34,7 +51,11 @@ const CartTableLine = ({ id, name, amount, price, source }) => {
         </div>
       </div>
       <div className={`col-1 text-center ${styles.price}`}>${price.toFixed(2)}</div>
-      <div className='col-2 text-center'>- {amount} +</div>
+      <div className='col-2 text-center'>
+        <Button onClick={decrementAmount}>-</Button>
+        {itemAmount}
+        <Button onClick={incrementAmount}>+</Button>
+      </div>
       <div className={`col-1 text-center ${styles.price}`}>
         ${totalForProduct.toFixed(2)}
       </div>
@@ -46,10 +67,9 @@ CartTableLine.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
-  amount: PropTypes.string,
   source: PropTypes.string,
+  amount: PropTypes.number,
   countSubTotal: PropTypes.func,
-  countTotal: PropTypes.func,
+  totalForProduct: PropTypes.func,
 };
-
 export default CartTableLine;
