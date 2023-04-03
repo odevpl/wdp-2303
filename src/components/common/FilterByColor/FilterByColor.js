@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './FilterByColor.module.scss';
 import { useDispatch } from 'react-redux';
-import { updateFilter } from '../../../redux/filterRedux';
+import { removeFilter, updateFilter } from '../../../redux/filterRedux';
 
 const FilterByColor = () => {
   const dispatch = useDispatch();
@@ -10,8 +10,13 @@ const FilterByColor = () => {
   const colorsArray = ['red', 'black', 'yellow', 'blue', 'pink', 'green'];
 
   const handleClick = color => {
-    setActiveColor(color);
-    dispatch(updateFilter({ name: 'colorFilter', value: color }));
+    if (color !== activeColor) {
+      setActiveColor(color);
+      dispatch(updateFilter({ name: 'colorFilter', value: color }));
+    } else {
+      setActiveColor(null);
+      dispatch(removeFilter({ name: 'colorFilter' }));
+    }
   };
 
   return (

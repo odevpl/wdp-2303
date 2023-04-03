@@ -22,6 +22,8 @@ const initialState = {
       topSeller: false,
       saleOff: false,
       source: '/images/furniture/bed/aenean-ru-bristique-1.jpg',
+      color: 'yellow',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -38,6 +40,8 @@ const initialState = {
       topSeller: false,
       saleOff: false,
       source: '/images/furniture/bed/aenean-ru-bristique-2.jpg',
+      color: 'red',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-3',
@@ -55,6 +59,8 @@ const initialState = {
       topSeller: true,
       saleOff: false,
       source: '/images/furniture/bed/aenean-ru-bristique-3.jpg',
+      color: 'blue',
+      size: 'xl',
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -70,6 +76,8 @@ const initialState = {
       topSeller: true,
       saleOff: false,
       source: '/images/furniture/bed/aenean-ru-bristique-4.jpg',
+      color: 'yellow',
+      size: 'xl',
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -85,6 +93,8 @@ const initialState = {
       topSeller: false,
       saleOff: true,
       source: '/images/furniture/bed/aenean-ru-bristique-5.jpg',
+      color: 'green',
+      size: 'm',
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -100,6 +110,8 @@ const initialState = {
       topSeller: false,
       saleOff: true,
       source: '/images/furniture/bed/aenean-ru-bristique-6.jpg',
+      color: 'pink',
+      size: 'l',
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -116,6 +128,8 @@ const initialState = {
       saleOff: false,
       topRated: true,
       source: '/images/furniture/bed/aenean-ru-bristique-7.jpg',
+      color: 'blue',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -207,6 +221,8 @@ const initialState = {
       topSeller: false,
       saleOff: true,
       source: '/images/furniture/chair/aenean-ru-bristique-13.jpg',
+      color: 'green',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-14',
@@ -222,6 +238,8 @@ const initialState = {
       topSeller: true,
       saleOff: false,
       source: '/images/furniture/chair/aenean-ru-bristique-14.jpg',
+      color: 'black',
+      size: 'm',
     },
     {
       id: 'aenean-ru-bristique-15',
@@ -237,6 +255,8 @@ const initialState = {
       topSeller: false,
       saleOff: false,
       source: '/images/furniture/chair/aenean-ru-bristique-15.jpg',
+      color: 'blue',
+      size: 'l',
     },
     {
       id: 'aenean-ru-bristique-16',
@@ -249,6 +269,8 @@ const initialState = {
       favourite: false,
       compare: false,
       source: '/images/furniture/chair/aenean-ru-bristique-16.jpg',
+      color: 'pink',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-17',
@@ -261,6 +283,8 @@ const initialState = {
       favourite: false,
       compare: false,
       source: '/images/furniture/chair/aenean-ru-bristique-17.jpg',
+      color: 'green',
+      size: 'xxl',
     },
     {
       id: 'aenean-ru-bristique-18',
@@ -273,6 +297,8 @@ const initialState = {
       favourite: false,
       compare: false,
       source: '/images/furniture/chair/aenean-ru-bristique-18.jpg',
+      color: 'red',
+      size: 'xl',
     },
     {
       id: 'aenean-ru-bristique-19',
@@ -353,6 +379,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/sofa/aenean-ru-bristique-25.jpg',
+      color: 'red',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-26',
@@ -363,6 +391,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/sofa/aenean-ru-bristique-26.jpg',
+      color: 'red',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-27',
@@ -373,6 +403,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/sofa/aenean-ru-bristique-27.jpg',
+      color: 'yellow',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-28',
@@ -383,6 +415,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/sofa/aenean-ru-bristique-28.jpg',
+      color: 'black',
+      size: 'm',
     },
     {
       id: 'aenean-ru-bristique-29',
@@ -393,6 +427,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/sofa/aenean-ru-bristique-29.jpg',
+      color: 'pink',
+      size: 'l',
     },
     {
       id: 'aenean-ru-bristique-30',
@@ -403,6 +439,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/sofa/aenean-ru-bristique-30.jpg',
+      color: 'blue',
+      size: 'xxl',
     },
     {
       id: 'aenean-ru-bristique-31',
@@ -413,6 +451,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/sofa/aenean-ru-bristique-31.jpg',
+      color: 'green',
+      size: 'xl',
     },
     {
       id: 'aenean-ru-bristique-32',
@@ -473,6 +513,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/table/aenean-ru-bristique-37.jpg',
+      color: 'blue',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-38',
@@ -483,6 +525,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/table/aenean-ru-bristique-38.jpg',
+      color: 'blue',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-39',
@@ -493,6 +537,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/table/aenean-ru-bristique-39.jpg',
+      color: 'green',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-40',
@@ -503,6 +549,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/table/aenean-ru-bristique-40.jpg',
+      color: 'pink',
+      size: 'xxl',
     },
     {
       id: 'aenean-ru-bristique-41',
@@ -513,6 +561,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/table/aenean-ru-bristique-41.jpg',
+      color: 'blue',
+      size: 'xl',
     },
     {
       id: 'aenean-ru-bristique-42',
@@ -523,6 +573,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/table/aenean-ru-bristique-42.jpg',
+      color: 'yellow',
+      size: 'l',
     },
     {
       id: 'aenean-ru-bristique-43',
@@ -533,6 +585,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/table/aenean-ru-bristique-43.jpg',
+      color: 'black',
+      size: 'm',
     },
     {
       id: 'aenean-ru-bristique-44',
@@ -543,6 +597,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/table/aenean-ru-bristique-44.jpg',
+      color: 'red',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-45',
@@ -623,6 +679,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/dining/aenean-ru-bristique-52.jpg',
+      color: 'red',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-53',
@@ -633,6 +691,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/dining/aenean-ru-bristique-53.jpg',
+      color: 'black',
+      size: 'xxl',
     },
     {
       id: 'aenean-ru-bristique-54',
@@ -643,6 +703,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/dining/aenean-ru-bristique-54.jpg',
+      color: 'yellow',
+      size: 'xl',
     },
     {
       id: 'aenean-ru-bristique-55',
@@ -653,6 +715,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/dining/aenean-ru-bristique-55.jpg',
+      color: 'blue',
+      size: 'l',
     },
     {
       id: 'aenean-ru-bristique-56',
@@ -663,6 +727,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/dining/aenean-ru-bristique-56.jpg',
+      color: 'pink',
+      size: 'm',
     },
     {
       id: 'aenean-ru-bristique-57',
@@ -673,6 +739,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       source: '/images/furniture/dining/aenean-ru-bristique-57.jpg',
+      color: 'green',
+      size: 's',
     },
     {
       id: 'aenean-ru-bristique-58',
@@ -816,9 +884,9 @@ const initialState = {
     thirdTitle: 'COLLECTION',
     thirdSubtitle: 'SAVE UP 45% OF FURNITURE',
   },
-
-  productFilters: [],
   searchText: '',
 };
-
+  currency: { name: 'USD', multiplier: 1, sign: '$' },
+  productFilters: [],
+};
 export default initialState;
