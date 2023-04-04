@@ -27,12 +27,9 @@ const Cart = () => {
       subTotal += cartProducts[i].price * cartProducts[i].amount;
     }
 
-    let total = subTotal;
     if (couponCode === 'blackfriday') {
-      total *= 0.5;
       subTotal *= 0.5;
     }
-    total *= 1 - discount / 100;
     subTotal *= 1 - discount / 100;
 
     const deliveryFeeCalculation = () => {
@@ -44,7 +41,7 @@ const Cart = () => {
       }
       return 0;
     };
-    total += deliveryFeeCalculation();
+    let total = subTotal + deliveryFeeCalculation();
 
     return { subTotal, total };
   };
