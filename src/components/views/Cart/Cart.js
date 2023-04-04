@@ -12,34 +12,61 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [totalPrice, setTotalPrice] = useState(0);
   const [subTotalPrice, setSubTotalPrice] = useState(0);
+  const [couponCode, setCouponCode] = useState('');
+  const [discount, setDiscount] = useState(0);
   const cartProducts = useSelector(getAll);
+
   const handleClick = e => {
     e.preventDefault();
     dispatch(checkout());
   };
 
-  const calculateCartTotal = cartProducts => {
+  const calculateCartTotal = (cartProducts, couponCode, discount) => {
     let subTotal = 0;
     for (let i = 0; i < cartProducts.length; i++) {
       subTotal += cartProducts[i].price * cartProducts[i].amount;
     }
+
+    if (couponCode === 'blackfriday') {
+      subTotal *= 0.5;
+    }
+    subTotal *= 1 - discount / 100;
+
     const deliveryFeeCalculation = () => {
+      if (couponCode === 'bluemonday') {
+        return 0;
+      }
       if (subTotal) {
         return 20;
       }
       return 0;
     };
-    const total = subTotal + deliveryFeeCalculation();
+    let total = subTotal + deliveryFeeCalculation();
 
     return { subTotal, total };
   };
 
-  useEffect(() => {
-    const { subTotal, total } = calculateCartTotal(cartProducts);
+  const handleCouponCodeChange = e => {
+    setCouponCode(e.target.value.toLowerCase());
+  };
+
+  const handleApplyCoupon = e => {
+    e.preventDefault();
+    const { subTotal, total } = calculateCartTotal(cartProducts, couponCode, discount);
     setSubTotalPrice(subTotal);
     setTotalPrice(total);
-  }, [cartProducts]);
+    if (couponCode === 'blackfriday') {
+      setDiscount(50);
+    } else {
+      setDiscount(0);
+    }
+  };
 
+  useEffect(() => {
+    const { subTotal, total } = calculateCartTotal(cartProducts, couponCode, discount);
+    setSubTotalPrice(subTotal);
+    setTotalPrice(total);
+  }, [cartProducts, couponCode, discount]);
   return (
     <div className={styles.root}>
       <div className={styles.cartBar}>
@@ -78,8 +105,17 @@ const Cart = () => {
           ))}
           <div className={`row ${styles.lastRow}`}>
             <span className='col-6 justify-content-start d-flex'>
-              <input className='me-2' placeholder='Coupon code' />
-              <Button variant='main' type='submit' className={styles.cartButton}>
+              <input
+                className='me-2'
+                onChange={handleCouponCodeChange}
+                placeholder='Coupon code'
+              />
+              <Button
+                variant='main'
+                onClick={handleApplyCoupon}
+                type='submit'
+                className={styles.cartButton}
+              >
                 APPLY COUPON
               </Button>
             </span>
